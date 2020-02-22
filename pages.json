@@ -1,0 +1,76 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index"
+		},
+		{
+			"path": "pages/basics/layout"
+		},
+		{
+			"path": "pages/basics/background"
+		},
+		{
+			"path": "pages/basics/text"
+		},
+		{
+			"path": "pages/basics/border"
+		},
+		{
+			"path": "pages/basics/icon"
+		},
+		{
+			"path": "pages/basics/button"
+		},
+		{
+			"path": "pages/basics/tag"
+		},
+		{
+			"path": "pages/basics/avatar"
+		},
+		{
+			"path": "pages/basics/progress"
+		},
+		{
+			"path": "pages/basics/loading"
+		},
+		{
+			"path": "pages/basics/divider"
+		},
+		{
+			"path": "pages/basics/switch"
+		},
+		{
+			"path": "pages/basics/checkbox"
+		},
+		{
+			"path": "pages/basics/radio"
+		},
+		{
+			"path": "pages/components/nav-bar"
+		},
+		{
+			"path": "pages/components/tab-bar"
+		},
+		{
+			"path": "pages/components/title-bar"
+		},
+		{
+			"path": "pages/components/tab"
+		},
+		{
+			"path": "pages/components/input-box"
+		},
+		{
+			"path": "pages/components/list"
+		},
+		{
+			"path": "pages/components/form"
+		},
+		{
+			"path": "pages/components/modal"
+		}
+	],
+	"globalStyle": {
+		"navigationStyle": "custom"
+	}
+}
