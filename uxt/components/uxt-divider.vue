@@ -1,43 +1,50 @@
 <template>
-	<view class="divider padding-tb-sm flex align-center" :class="[
+    <view
+        :class="[
 			classes
-		]" :style="[
+		]"
+        :style="[
 			styles
-		]">
-		<view class="line flex-sub" :class="bgColorClass" :style="{backgroundColor: bgColorStyle}"></view>
-		<view v-if="$slots.default" class="text-sm margin-lr-sm" :class="colorClass" :style="{color: colorStyle}">
-			<slot></slot>
-		</view>
-		<view class="line flex-sub" :class="bgColorClass" :style="{backgroundColor: bgColorStyle}"></view>
-	</view>
+		]"
+        class="divider padding-tb-sm flex align-center"
+    >
+        <view
+            :class="bgColorClass"
+            :style="{backgroundColor: bgColorStyle}"
+            class="line flex-sub"
+        ></view>
+        <view
+            :class="colorClass"
+            :style="{color: colorStyle}"
+            class="text-sm margin-lr-sm"
+            v-if="$slots.default"
+        >
+            <slot></slot>
+        </view>
+        <view
+            :class="bgColorClass"
+            :style="{backgroundColor: bgColorStyle}"
+            class="line flex-sub"
+        ></view>
+    </view>
 </template>
 
 <script>
-	import baseMixin from '@/uxt/mixins/base.js';
+import baseMixin from '@/uxt/mixins/base.js'
 
-	export default {
-		mixins: [baseMixin],
-		props: {
-			// 文字颜色
-			color: {
-				default: 'df'
-			},
-			//divider颜色
-			bgColor: {
-				default: 'df'
-			}
-		}
-	};
+export default {
+    mixins: [baseMixin]
+}
 </script>
 
-<style>
-	.divider {
-		width: 100%;
-		overflow: hidden;
-	}
-
-	.line {
-		height: 2rpx;
-		transform: scaleY(0.5);
-	}
+<style lang="scss">
+.divider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    .line {
+        height: 2rpx;
+        transform: scaleY(0.5);
+    }
+}
 </style>

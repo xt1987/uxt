@@ -1,20 +1,17 @@
 <script>
-	export default {
-		onLaunch() {
-			const theme = uni.getStorageSync('theme');
-			theme && this.$store.commit('setTheme', theme);
-			console.log('App Launch');
-		},
-		onShow() {
-			console.log('App Show');
-		},
-		onHide() {
-			console.log('App Hide');
-		}
-	};
+export default {
+    onLaunch: function() {
+        console.log('App Launch')
+    },
+    onShow: function() {
+        console.log('App Show')
+    },
+    onHide: function() {
+        console.log('App Hide')
+    }
+}
 </script>
 
-<style>
-	/*每个页面公共css */
-	@import url("uxt/uxt.css");
+<style lang="scss">
+@import '/uxt/uxt.scss';
 </style>

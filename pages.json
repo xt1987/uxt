@@ -4,70 +4,94 @@
 			"path": "pages/index"
 		},
 		{
-			"path": "pages/basics/layout"
+			"path": "pages/yangshi/layout"
 		},
 		{
-			"path": "pages/basics/background"
+			"path": "pages/yangshi/background"
 		},
 		{
-			"path": "pages/basics/text"
+			"path": "pages/yangshi/border"
 		},
 		{
-			"path": "pages/basics/border"
+			"path": "pages/yangshi/text"
 		},
 		{
-			"path": "pages/basics/icon"
+			"path": "pages/yangshi/animation"
 		},
 		{
-			"path": "pages/basics/button"
+			"path": "pages/jichu/layout"
 		},
 		{
-			"path": "pages/basics/tag"
+			"path": "pages/jichu/layout-header"
 		},
 		{
-			"path": "pages/basics/avatar"
+			"path": "pages/jichu/icon"
 		},
 		{
-			"path": "pages/basics/progress"
+			"path": "pages/jichu/button"
 		},
 		{
-			"path": "pages/basics/loading"
+			"path": "pages/jichu/cell"
 		},
 		{
-			"path": "pages/basics/divider"
+			"path": "pages/jichu/modal"
 		},
 		{
-			"path": "pages/basics/switch"
+			"path": "pages/biaodan/form"
 		},
 		{
-			"path": "pages/basics/checkbox"
+			"path": "pages/biaodan/checkbox"
 		},
 		{
-			"path": "pages/basics/radio"
+			"path": "pages/biaodan/radio"
 		},
 		{
-			"path": "pages/components/nav-bar"
+			"path": "pages/biaodan/switch"
 		},
 		{
-			"path": "pages/components/tab-bar"
+			"path": "pages/biaodan/input"
 		},
 		{
-			"path": "pages/components/title-bar"
+			"path": "pages/biaodan/input-box"
 		},
 		{
-			"path": "pages/components/tab"
+			"path": "pages/fankui/action-sheet"
 		},
 		{
-			"path": "pages/components/input-box"
+			"path": "pages/fankui/notify"
 		},
 		{
-			"path": "pages/components/list"
+			"path": "pages/fankui/toast"
 		},
 		{
-			"path": "pages/components/form"
+			"path": "pages/fankui/loading"
 		},
 		{
-			"path": "pages/components/modal"
+			"path": "pages/zhanshi/divider"
+		},
+		{
+			"path": "pages/zhanshi/tag"
+		},
+		{
+			"path": "pages/zhanshi/avatar"
+		},
+		{
+			"path": "pages/zhanshi/progress"
+		},
+		{
+			"path": "pages/daohang/nav-bar"
+		},
+		{
+			"path": "pages/daohang/tab"
+		},
+		{
+			"path": "pages/daohang/tab-bar"
+		},
+		{
+			"path": "pages/daohang/title-bar"
+		},
+		{
+			"path": "pages/list"
 		}
 	],
 	"globalStyle": {

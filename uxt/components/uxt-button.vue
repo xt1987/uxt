@@ -1,152 +1,194 @@
 <template>
-	<button class="btn" :class="[
+    <button
+        :class="[
 			classes,
-			{
+		    {
 				sm: size === 'sm',
 				lg: size === 'lg',
 				block: size === 'block',
 				radius: radius,
 				round: round,
-				shadow: shadow,
 				disabled: disabled
 			},
-			hollow,
-			(hollow && colorClass ? colorClass.replace('text-', 'border-') : ''),
+			shadowClass,
+			hollowClass,
+			(hollow ? hollowClass.replace('solid-', 'text-') : colorClass),
 			(hollow ? '' : bgColorClass),
-			colorClass
+			(hollowStyle ? 'solid' : '')
 		]"
-	 :style="[
-			styles,
-			{
-				backgroundColor: (hollow ? '' : bgColorStyle),
-				color: colorStyle,
-				borderColor: (hollow && colorStyle ? colorStyle : '')
+        :disabled="disabled"
+        :open-type="openType"
+        :style="[
+		    styles,
+		    {
+		        backgroundColor: (hollow ? '' : bgColorStyle),
+				borderColor: hollowStyle,
+				color: (hollow ? hollowStyle : colorStyle),
+				boxShadow: (shadowStyle ? `6rpx 6rpx 8rpx ${shadowStyle}7F` : '')
 			}
 		]"
-	 :disabled="disabled" type :open-type="openType" @click="handleClick" @getuserinfo="handleGetUserInfo">
-		<slot></slot>
-	</button>
+        @click="handleClick"
+        @error="handleError"
+        @getphonenumber="handleGetPhoneNumber"
+        @getuserinfo="handleGetUserInfo"
+        @launchapp="handleLaunchApp"
+        @opensetting="handleOpenSetting"
+        class="btn"
+        type
+    >
+        <slot></slot>
+    </button>
 </template>
 
 <script>
-	import baseMixin from '@/uxt/mixins/base.js';
-	import rrMixin from '@/uxt/mixins/rr.js';
+import baseMixin from '@/uxt/mixins/base.js'
+import rrMixin from '@/uxt/mixins/rr.js'
 
-	export default {
-		mixins: [baseMixin, rrMixin],
-		props: {
-			// 大小 'sm'小 ''普通 'lg'大 'block'块状
-			size: {
-				type: String,
-				default: '',
-				validator(value) {
-					return ['', 'sm', 'lg', 'block'].includes(value);
-				}
-			},
-			// 加阴影
-			shadow: {
-				type: Boolean,
-				default: false
-			},
-			// 镂空 ''无 'border'细 'borders'粗
-			hollow: {
-				type: String,
-				default: '',
-				validator(value) {
-					return ['', 'border', 'borders'].includes(value);
-				}
-			},
-			// 禁用
-			disabled: {
-				type: Boolean,
-				default: false
-			},
-			// 开放能力
-			openType: {
-				type: String
-			},
-			bgColor: {
-				default: 'df'
-			}
-		},
-		methods: {
-			handleClick() {
-				this.$emit('click');
-			},
-			handleGetUserInfo(e) {
-				this.$emit('getuserinfo', e);
-			}
-		}
-	};
+export default {
+    mixins: [baseMixin, rrMixin],
+    props: {
+        // 大小 'sm'小 ''普通 'lg'大 'block'块状
+        size: {
+            type: String,
+            default: '',
+            validator(value) {
+                return ['', 'sm', 'lg', 'block'].includes(value)
+            }
+        },
+        // 阴影
+        shadow: {
+            type: String
+        },
+        // 镂空
+        hollow: {
+            type: String
+        },
+        // 禁用
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        // 开放能力
+        openType: {
+            type: String,
+            default: '',
+            validator(value) {
+                return [
+                    '',
+                    'feedback',
+                    'share',
+                    'getUserInfo',
+                    'contact',
+                    'getPhoneNumber',
+                    'launchApp',
+                    'openSetting',
+                    'getAuthorize',
+                    'contactShare',
+                    'lifestyle',
+                    'openGroupProfile'
+                ].includes(value)
+            }
+        },
+        // 触发form组件submit/reset
+        formType: {
+            type: String,
+            default: '',
+            validator(value) {
+                return ['', 'submit', 'reset'].includes(value)
+            }
+        }
+    },
+    computed: {
+        shadowClass() {
+            return this.getColor(this.shadow, 'shadow-').classes
+        },
+        shadowStyle() {
+            return this.getColor(this.shadow).styles
+        },
+        hollowClass() {
+            return this.getColor(this.hollow, 'solid-').classes
+        },
+        hollowStyle() {
+            return this.getColor(this.hollow).styles
+        }
+    },
+    methods: {
+        // 点击事件
+        handleClick(e) {
+            this.$emit('click', e)
+        },
+        // 当使用微信小程序开放能力时，发生错误时回调
+        handleError(e) {
+            this.$emit('error', e)
+        },
+        // 微信小程序获取用户手机号回调
+        handleGetPhoneNumber(e) {
+            this.$emit('getphonenumber', e)
+        },
+        // 微信小程序获取用户信息回调
+        handleGetUserInfo(e) {
+            this.$emit('getuserinfo', e)
+        },
+        // 微信小程序打开 APP 成功的回调
+        handleLaunchApp(e) {
+            this.$emit('launchapp', e)
+        },
+        // 微信小程序在打开授权设置页并关闭后回调
+        handleOpenSetting(e) {
+            this.$emit('opensetting', e)
+        }
+    }
+}
 </script>
 
-<style>
-	.btn {
-		/* position: relative; */
-		/* border: 0rpx; */
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		box-sizing: border-box;
-		border-radius: 0;
-		padding: 0 30rpx;
-		font-size: 28rpx;
-		height: 64rpx;
-		line-height: 1;
-		text-align: center;
-		text-decoration: none;
-		overflow: visible;
-		/* margin-left: initial; */
-		transform: translate(0rpx, 0rpx);
-		/* margin-right: initial; */
-	}
-
-	.btn.radius {
-		border-radius: 12rpx;
-	}
-
-	.btn.round {
-		border-radius: 5000rpx;
-	}
-
-	.btn::after {
-		display: none;
-	}
-
-	.btn.sm {
-		padding: 0 20rpx;
-		font-size: 20rpx;
-		height: 48rpx;
-	}
-
-	.btn.lg,
-	.btn.block {
-		padding: 0 40rpx;
-		font-size: 32rpx;
-		height: 80rpx;
-	}
-
-	.btn.block {
-		display: flex;
-	}
-
-	.btn.border,
-	.btn.borders {
-		background-color: transparent !important;
-	}
-
-	.btn.shadow-blur::before {
-		top: 4rpx;
-		left: 4rpx;
-		filter: blur(6rpx);
-		opacity: 0.6;
-	}
-
-	.btn.button-hover {
-		transform: translate(1rpx, 1rpx);
-	}
-
-	.btn.disabled {
-		opacity: 0.6;
-	}
+<style lang="scss">
+.btn {
+    position: relative;
+    border: 0rpx;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 0;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    height: 64rpx;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    overflow: visible;
+    transform: translate(0rpx, 0rpx);
+    &::before {
+        border-color: inherit;
+    }
+    &::after {
+        display: none;
+    }
+    &.round {
+        border-radius: 10000rpx;
+    }
+    &.radius {
+        border-radius: 10rpx;
+    }
+    &.sm {
+        padding: 0 20rpx;
+        font-size: 20rpx;
+        height: 48rpx;
+    }
+    &.lg,
+    &.block {
+        padding: 0 40rpx;
+        font-size: 32rpx;
+        height: 80rpx;
+    }
+    &.block {
+        display: flex;
+    }
+    &[class*='solid'] {
+        background-color: transparent !important;
+    }
+    &.button-hover {
+        transform: translate(1rpx, 1rpx);
+    }
+}
 </style>
