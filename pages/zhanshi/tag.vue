@@ -55,7 +55,7 @@
         <view class="bg-white padding">
             <view
                 :key="index"
-                classes="inline-block margin-right margin-bottom"
+                class="inline-block margin-right margin-bottom"
                 v-for="(color, index) in colors"
             >
                 <uxt-tag
@@ -73,7 +73,7 @@
         <view class="bg-white padding">
             <view
                 :key="index"
-                classes="inline-block margin-right margin-bottom"
+                class="inline-block margin-right margin-bottom"
                 v-for="(color, index) in colors"
             >
                 <uxt-tag
