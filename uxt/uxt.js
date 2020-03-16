@@ -1,7 +1,8 @@
 import Vue from 'vue'
 
-import Notify from '@/uxt/components/uxt-notify.js'
-import Toast from '@/uxt/components/uxt-toast.js'
+import uxtNotify from '@/uxt/components/uxt-notify.js'
+import uxtToast from '@/uxt/components/uxt-toast.js'
+import uxtDialog from '@/uxt/components/uxt-dialog.js'
 
 // const baseUrl = 'https://localhost/';
 // const baseUrl = 'http://192.168.24.107/';
@@ -62,8 +63,9 @@ const getSize = size => {
 
 export default {
     install() {
-        Vue.use(Notify)
-        Vue.use(Toast)
+        Vue.use(uxtNotify)
+        Vue.use(uxtToast)
+        Vue.use(uxtDialog)
 
         Object.assign(Vue.prototype, {
             getColor,

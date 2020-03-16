@@ -1,6 +1,6 @@
 <template>
     <uxt-modal
-        :bgColor="bgColor"
+        :bg-color="bgColor"
         :close="close"
         :max-height="maxHeight"
         :title="title"

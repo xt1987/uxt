@@ -1,6 +1,6 @@
 <template>
     <uxt-modal
-        :bgColor="bgColor2"
+        :bg-color="bgColor2"
         :modal="false"
         position="top"
         v-model="show"

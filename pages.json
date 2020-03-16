@@ -64,6 +64,9 @@
 			"path": "pages/fankui/toast"
 		},
 		{
+			"path": "pages/fankui/dialog"
+		},
+		{
 			"path": "pages/fankui/loading"
 		},
 		{

@@ -33,7 +33,7 @@
         ></uxt-cell>
         <uxt-action-sheet
             :actions="actionSheet.actions"
-            :bgColor="actionSheet.bgColor"
+            :bg-color="actionSheet.bgColor"
             :cancel="actionSheet.cancel"
             :close="actionSheet.close"
             :title="actionSheet.title"

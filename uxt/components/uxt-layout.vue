@@ -71,6 +71,15 @@
             :type="toast.type"
             v-model="toast.show"
         ></uxt-toast>
+		<uxt-dialog
+			:icon="dialog.icon"
+			:message="dialog.message"
+			:title="dialog.title"
+			:type="dialog.type"
+			@sure="handleDialogSure"
+			@cancel="handleDialogCancel"
+			v-model="dialog.show"
+		></uxt-dialog>
     </view>
 </template>
 
@@ -80,6 +89,7 @@ import uxtIcon from '@/uxt/components/uxt-icon.vue'
 import uxtModal from '@/uxt/components/uxt-modal.vue'
 import uxtNotify from '@/uxt/components/uxt-notify.vue'
 import uxtToast from '@/uxt/components/uxt-toast.vue'
+import uxtDialog from '@/uxt/components/uxt-dialog.vue'
 
 export default {
     components: {
@@ -87,7 +97,8 @@ export default {
         uxtIcon,
         uxtModal,
         uxtNotify,
-        uxtToast
+        uxtToast,
+		uxtDialog
     },
     props: {
         // 头部高度, 默认为导航栏高度，不写slot默认显示导航栏，传0不显示header
@@ -146,13 +157,23 @@ export default {
             icon: '',
             noClick: false
         }
+        let dfDialog = {
+            id: 0,
+            show: false,
+            title: '提示',
+            message: '提示内容',
+            type: 'alert',
+            icon: ''
+        }
         return {
             statusBarHeight: this.gStatusBarHeight,
             showSideModal: this.showSide,
             dfNotify,
             notify: Object.assign(dfNotify),
             dfToast,
-            toast: Object.assign(dfToast)
+            toast: Object.assign(dfToast),
+            dfDialog,
+            dialog: Object.assign(dfDialog)
         }
     },
     computed: {
@@ -192,11 +213,6 @@ export default {
         handleSideClosed() {
             this.$emit('sideclosed')
         },
-        handleNotifyClick() {
-            if (typeof this.notify.click === 'function') {
-                this.notify.click()
-            }
-        },
         showNotify(p) {
             this.notify.id && clearTimeout(this.notify.id)
             this.notify = Object.assign({}, this.dfNotify, p, { show: true })
@@ -208,6 +224,11 @@ export default {
         },
         closeNotify() {
             this.notify.show = false
+        },
+        handleNotifyClick() {
+            if (typeof this.notify.click === 'function') {
+                this.notify.click()
+            }
         },
         showToast(p) {
             this.toast.id && clearTimeout(this.toast.id)
@@ -224,7 +245,25 @@ export default {
         },
         closeToast() {
             this.toast.show = false
-        }
+        },
+        showDialog(p) {
+            this.dialog = Object.assign({}, this.dfDialog, p, { show: true })
+        },
+        closeDialog() {
+            this.dialog.show = false
+        },
+		handleDialogSure() {
+			this.dialog.resolve({
+				ok: true,
+				cancel: false
+			})
+		},
+		handleDialogCancel() {
+			this.dialog.resolve({
+				ok: false,
+				cancel: true
+			})
+		}
     }
 }
 </script>

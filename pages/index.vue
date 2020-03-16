@@ -147,31 +147,31 @@ export default {
                 {
                     title: '背景样式',
                     name: 'background',
-                    color: 'red',
+                    color: this.randomColor(),
                     icon: 'colorlens'
                 },
                 {
                     title: '边框样式',
                     name: 'border',
-                    color: 'orange',
+                    color: this.randomColor(),
                     icon: 'square'
                 },
                 {
                     title: '布局样式',
                     name: 'layout',
-                    color: 'yellow',
+                    color: this.randomColor(),
                     icon: 'newsfill'
                 },
                 {
                     title: '文本样式',
                     name: 'text',
-                    color: 'olive',
+                    color: this.randomColor(),
                     icon: 'font'
                 },
                 {
                     title: '动画样式',
                     name: 'animation',
-                    color: 'green',
+                    color: this.randomColor(),
                     icon: 'playfill'
                 }
             ],
@@ -179,31 +179,31 @@ export default {
                 {
                     title: '布局',
                     name: 'layout',
-                    color: 'cyan',
+                    color: this.randomColor(),
                     icon: 'global'
                 },
                 {
                     title: '图标',
                     name: 'icon',
-                    color: 'blue',
+                    color: this.randomColor(),
                     icon: 'icon'
                 },
                 {
                     title: '按钮',
                     name: 'button',
-                    color: 'purple',
+                    color: this.randomColor(),
                     icon: 'btn'
                 },
                 {
                     title: '单元格',
                     name: 'cell',
-                    color: 'mauve',
+                    color: this.randomColor(),
                     icon: 'move'
                 },
                 {
                     title: '模态框',
                     name: 'modal',
-                    color: 'pink',
+                    color: this.randomColor(),
                     icon: 'all'
                 }
             ],
@@ -211,31 +211,31 @@ export default {
                 {
                     title: '复选框',
                     name: 'checkbox',
-                    color: 'brown',
+                    color: this.randomColor(),
                     icon: 'squarecheckfill'
                 },
                 {
                     title: '单选框',
                     name: 'radio',
-                    color: 'grey',
+                    color: this.randomColor(),
                     icon: 'radiobox'
                 },
                 {
                     title: '开关',
                     name: 'switch',
-                    color: 'black',
+                    color: this.randomColor(),
                     icon: 'settings'
                 },
                 {
                     title: '表单录入',
                     name: 'input',
-                    color: 'red',
+                    color: this.randomColor(),
                     icon: 'formfill'
                 },
                 {
                     title: '输入框',
                     name: 'input-box',
-                    color: 'orange',
+                    color: this.randomColor(),
                     icon: 'post'
                 }
             ],
@@ -243,25 +243,31 @@ export default {
                 {
                     title: '上拉菜单',
                     name: 'action-sheet',
-                    color: 'yellow',
+                    color: this.randomColor(),
                     icon: 'fold'
                 },
                 {
                     title: '消息通知',
                     name: 'notify',
-                    color: 'olive',
+                    color: this.randomColor(),
                     icon: 'message'
                 },
                 {
                     title: '轻提示',
                     name: 'toast',
-                    color: 'green',
+                    color: this.randomColor(),
                     icon: 'messagefill'
+                },
+                {
+                    title: '对话框',
+                    name: 'dialog',
+                    color: this.randomColor(),
+                    icon: 'discover'
                 },
                 {
                     title: '加载',
                     name: 'loading',
-                    color: 'cyan',
+                    color: this.randomColor(),
                     icon: 'loading2'
                 }
             ],
@@ -269,7 +275,7 @@ export default {
                 {
                     title: '分隔线',
                     name: 'divider',
-                    color: 'blue',
+                    color: this.randomColor(),
                     icon: 'move'
                 },
                 {
@@ -281,13 +287,13 @@ export default {
                 {
                     title: '进度条',
                     name: 'progress',
-                    color: 'mauve',
+                    color: this.randomColor(),
                     icon: 'icloading'
                 },
                 {
                     title: '标签',
                     name: 'tag',
-                    color: 'pink',
+                    color: this.randomColor(),
                     icon: 'tagfill'
                 }
             ],
@@ -295,25 +301,25 @@ export default {
                 {
                     title: '导航栏',
                     name: 'nav-bar',
-                    color: 'brown',
+                    color: this.randomColor(),
                     icon: 'back'
                 },
                 {
                     title: 'Tab页',
                     name: 'tab',
-                    color: 'grey',
+                    color: this.randomColor(),
                     icon: 'formfill'
                 },
                 {
                     title: 'Tab栏',
                     name: 'tab-bar',
-                    color: 'black',
+                    color: this.randomColor(),
                     icon: 'vipcard'
                 },
                 {
                     title: '标题栏',
                     name: 'title-bar',
-                    color: 'red',
+                    color: this.randomColor(),
                     icon: 'title'
                 }
                 // {
@@ -325,8 +331,27 @@ export default {
             ]
         }
     },
-    onLoad() {},
-    methods: {}
+    methods: {
+		randomColor() {
+			const colors = [
+                'red',
+                'orange',
+                'yellow',
+                'olive',
+                'green',
+                'cyan',
+                'blue',
+                'purple',
+                'mauve',
+                'pink',
+                'brown',
+                'grey',
+                'black'
+            ]
+			let i = Math.floor(Math.random() * 13)
+			return colors[i]
+		}
+	}
 }
 </script>
 

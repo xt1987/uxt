@@ -33,19 +33,20 @@
 			]"
             class="content shadow-wrap-black"
         >
-            <view
-                :class="[{ 'solid-bottom': title }]"
-                class="padding-sm cf text-center"
-                v-if="close || title"
-            >
-                {{ title }}
-                <uxt-icon
-                    @click="handleClose(1)"
-                    classes="fr text-bold text-lg"
-                    type="close"
-                    v-if="close"
-                ></uxt-icon>
-            </view>
+			<view :class="[{ 'solid-bottom': title }]">
+				<view
+					class="padding-sm text-center text-bold"
+					v-if="close || title"
+				>
+					{{ title }}
+					<uxt-icon
+						@click="handleClose(1)"
+						classes="fr text-bold text-lg"
+						type="close"
+						v-if="close"
+					></uxt-icon>
+				</view>
+			</view>
             <slot></slot>
         </view>
     </view>
