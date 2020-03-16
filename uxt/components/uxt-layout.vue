@@ -71,15 +71,15 @@
             :type="toast.type"
             v-model="toast.show"
         ></uxt-toast>
-		<uxt-dialog
-			:icon="dialog.icon"
-			:message="dialog.message"
-			:title="dialog.title"
-			:type="dialog.type"
-			@sure="handleDialogSure"
-			@cancel="handleDialogCancel"
-			v-model="dialog.show"
-		></uxt-dialog>
+        <uxt-dialog
+            :icon="dialog.icon"
+            :message="dialog.message"
+            :title="dialog.title"
+            :type="dialog.type"
+            @cancel="handleDialogCancel"
+            @sure="handleDialogSure"
+            v-model="dialog.show"
+        ></uxt-dialog>
     </view>
 </template>
 
@@ -98,7 +98,7 @@ export default {
         uxtModal,
         uxtNotify,
         uxtToast,
-		uxtDialog
+        uxtDialog
     },
     props: {
         // 头部高度, 默认为导航栏高度，不写slot默认显示导航栏，传0不显示header
@@ -252,18 +252,18 @@ export default {
         closeDialog() {
             this.dialog.show = false
         },
-		handleDialogSure() {
-			this.dialog.resolve({
-				ok: true,
-				cancel: false
-			})
-		},
-		handleDialogCancel() {
-			this.dialog.resolve({
-				ok: false,
-				cancel: true
-			})
-		}
+        handleDialogSure() {
+            this.dialog.resolve({
+                ok: true,
+                cancel: false
+            })
+        },
+        handleDialogCancel() {
+            this.dialog.resolve({
+                ok: false,
+                cancel: true
+            })
+        }
     }
 }
 </script>
