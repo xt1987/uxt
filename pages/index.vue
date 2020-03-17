@@ -145,6 +145,12 @@ export default {
         return {
             yangshi: [
                 {
+                    title: '动画样式',
+                    name: 'animation',
+                    color: this.randomColor(),
+                    icon: 'playfill'
+                },
+                {
                     title: '背景样式',
                     name: 'background',
                     color: this.randomColor(),
@@ -167,27 +173,9 @@ export default {
                     name: 'text',
                     color: this.randomColor(),
                     icon: 'font'
-                },
-                {
-                    title: '动画样式',
-                    name: 'animation',
-                    color: this.randomColor(),
-                    icon: 'playfill'
                 }
             ],
             jichu: [
-                {
-                    title: '布局',
-                    name: 'layout',
-                    color: this.randomColor(),
-                    icon: 'global'
-                },
-                {
-                    title: '图标',
-                    name: 'icon',
-                    color: this.randomColor(),
-                    icon: 'icon'
-                },
                 {
                     title: '按钮',
                     name: 'button',
@@ -199,6 +187,18 @@ export default {
                     name: 'cell',
                     color: this.randomColor(),
                     icon: 'move'
+                },
+                {
+                    title: '图标',
+                    name: 'icon',
+                    color: this.randomColor(),
+                    icon: 'icon'
+                },
+                {
+                    title: '布局',
+                    name: 'layout',
+                    color: this.randomColor(),
+                    icon: 'global'
                 },
                 {
                     title: '模态框',
@@ -215,18 +215,6 @@ export default {
                     icon: 'squarecheckfill'
                 },
                 {
-                    title: '单选框',
-                    name: 'radio',
-                    color: this.randomColor(),
-                    icon: 'radiobox'
-                },
-                {
-                    title: '开关',
-                    name: 'switch',
-                    color: this.randomColor(),
-                    icon: 'settings'
-                },
-                {
                     title: '表单录入',
                     name: 'input',
                     color: this.randomColor(),
@@ -237,6 +225,18 @@ export default {
                     name: 'input-box',
                     color: this.randomColor(),
                     icon: 'post'
+                },
+                {
+                    title: '单选框',
+                    name: 'radio',
+                    color: this.randomColor(),
+                    icon: 'radiobox'
+                },
+                {
+                    title: '开关',
+                    name: 'switch',
+                    color: this.randomColor(),
+                    icon: 'settings'
                 }
             ],
             fankui: [
@@ -245,18 +245,6 @@ export default {
                     name: 'action-sheet',
                     color: this.randomColor(),
                     icon: 'fold'
-                },
-                {
-                    title: '消息通知',
-                    name: 'notify',
-                    color: this.randomColor(),
-                    icon: 'message'
-                },
-                {
-                    title: '轻提示',
-                    name: 'toast',
-                    color: this.randomColor(),
-                    icon: 'messagefill'
                 },
                 {
                     title: '对话框',
@@ -269,20 +257,38 @@ export default {
                     name: 'loading',
                     color: this.randomColor(),
                     icon: 'loading2'
+                },
+                {
+                    title: '下拉刷新',
+                    name: 'pulldown-refresh',
+                    color: this.randomColor(),
+                    icon: 'icloading'
+                },
+                {
+                    title: '消息通知',
+                    name: 'notify',
+                    color: this.randomColor(),
+                    icon: 'message'
+                },
+                {
+                    title: '轻提示',
+                    name: 'toast',
+                    color: this.randomColor(),
+                    icon: 'messagefill'
                 }
             ],
             zhanshi: [
-                {
-                    title: '分隔线',
-                    name: 'divider',
-                    color: this.randomColor(),
-                    icon: 'move'
-                },
                 {
                     title: '头像',
                     name: 'avatar',
                     color: 'purple',
                     icon: 'myfill'
+                },
+                {
+                    title: '分隔线',
+                    name: 'divider',
+                    color: this.randomColor(),
+                    icon: 'move'
                 },
                 {
                     title: '进度条',
@@ -332,8 +338,8 @@ export default {
         }
     },
     methods: {
-		randomColor() {
-			const colors = [
+        randomColor() {
+            const colors = [
                 'red',
                 'orange',
                 'yellow',
@@ -348,10 +354,10 @@ export default {
                 'grey',
                 'black'
             ]
-			let i = Math.floor(Math.random() * 13)
-			return colors[i]
-		}
-	}
+            let i = Math.floor(Math.random() * 13)
+            return colors[i]
+        }
+    }
 }
 </script>
 

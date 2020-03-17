@@ -4,7 +4,7 @@
 			"path": "pages/index"
 		},
 		{
-			"path": "pages/yangshi/layout"
+			"path": "pages/yangshi/animation"
 		},
 		{
 			"path": "pages/yangshi/background"
@@ -13,19 +13,10 @@
 			"path": "pages/yangshi/border"
 		},
 		{
+			"path": "pages/yangshi/layout"
+		},
+		{
 			"path": "pages/yangshi/text"
-		},
-		{
-			"path": "pages/yangshi/animation"
-		},
-		{
-			"path": "pages/jichu/layout"
-		},
-		{
-			"path": "pages/jichu/layout-header"
-		},
-		{
-			"path": "pages/jichu/icon"
 		},
 		{
 			"path": "pages/jichu/button"
@@ -34,19 +25,22 @@
 			"path": "pages/jichu/cell"
 		},
 		{
-			"path": "pages/jichu/modal"
+			"path": "pages/jichu/icon"
 		},
 		{
-			"path": "pages/biaodan/form"
+			"path": "pages/jichu/layout"
+		},
+		{
+			"path": "pages/jichu/layout-header"
+		},
+		{
+			"path": "pages/jichu/modal"
 		},
 		{
 			"path": "pages/biaodan/checkbox"
 		},
 		{
-			"path": "pages/biaodan/radio"
-		},
-		{
-			"path": "pages/biaodan/switch"
+			"path": "pages/biaodan/form"
 		},
 		{
 			"path": "pages/biaodan/input"
@@ -55,13 +49,13 @@
 			"path": "pages/biaodan/input-box"
 		},
 		{
+			"path": "pages/biaodan/radio"
+		},
+		{
+			"path": "pages/biaodan/switch"
+		},
+		{
 			"path": "pages/fankui/action-sheet"
-		},
-		{
-			"path": "pages/fankui/notify"
-		},
-		{
-			"path": "pages/fankui/toast"
 		},
 		{
 			"path": "pages/fankui/dialog"
@@ -70,16 +64,25 @@
 			"path": "pages/fankui/loading"
 		},
 		{
-			"path": "pages/zhanshi/divider"
+			"path": "pages/fankui/notify"
 		},
 		{
-			"path": "pages/zhanshi/tag"
+			"path": "pages/fankui/pulldown-refresh"
+		},
+		{
+			"path": "pages/fankui/toast"
 		},
 		{
 			"path": "pages/zhanshi/avatar"
 		},
 		{
+			"path": "pages/zhanshi/divider"
+		},
+		{
 			"path": "pages/zhanshi/progress"
+		},
+		{
+			"path": "pages/zhanshi/tag"
 		},
 		{
 			"path": "pages/daohang/nav-bar"
