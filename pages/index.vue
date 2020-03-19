@@ -305,6 +305,12 @@ export default {
             ],
             daohang: [
                 {
+                    title: '浮动按钮',
+                    name: 'fab',
+                    color: this.randomColor(),
+                    icon: 'roundaddfill'
+                },
+                {
                     title: '导航栏',
                     name: 'nav-bar',
                     color: this.randomColor(),
@@ -361,7 +367,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .nav-list {
     display: flex;
     flex-wrap: wrap;

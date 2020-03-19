@@ -135,7 +135,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .tag {
     position: relative;
     font-size: 24rpx;

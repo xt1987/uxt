@@ -142,7 +142,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .tab {
     position: relative;
     white-space: nowrap;

@@ -35,7 +35,7 @@
         >
 			<view :class="[{ 'solid-bottom': title }]">
 				<view
-					class="padding-sm text-center text-bold"
+					class="padding-sm text-center text-bold cf"
 					v-if="close || title"
 				>
 					{{ title }}
@@ -220,7 +220,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .modal {
     position: fixed;
     left: 0;

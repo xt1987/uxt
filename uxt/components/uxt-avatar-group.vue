@@ -23,18 +23,21 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .avatar-group {
     position: relative;
     padding: 0 10rpx 0 40rpx;
-}
-.avatar-group.sm {
-    padding-left: 30rpx;
-}
-.avatar-group.lg {
-    padding-left: 55rpx;
-}
-.avatar-group.xl {
-    padding-left: 70rpx;
+	
+	&.sm {
+		padding-left: 30rpx;
+	}
+	
+	&.lg {
+		padding-left: 55rpx;
+	}
+	
+	&.xl {
+		padding-left: 70rpx;
+	}
 }
 </style>

@@ -156,7 +156,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .input-box {
     height: 50rpx;
     &:not([class*='solid-'])::before {

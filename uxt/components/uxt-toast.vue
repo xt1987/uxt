@@ -12,7 +12,7 @@
             position="center"
             v-model="show"
         >
-            <view class="toast-content padding-sm text-center">
+            <view class="content padding-sm text-center">
                 <view
                     class="margin-bottom-sm"
                     v-if="icon2"
@@ -116,9 +116,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .toast {
-    .toast-content {
+    .content {
         background-color: rgba(#000, 0.7);
         color: #fff;
     }

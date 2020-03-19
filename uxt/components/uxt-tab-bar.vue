@@ -171,7 +171,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .tab-bar {
     height: 100rpx;
     .item {

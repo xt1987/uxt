@@ -253,7 +253,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .a {
     margin-left: 20rpx;
 }

@@ -438,9 +438,16 @@ $border-size: '',
     &-inline {
         display: inline-flex;
     }
+	
+	&-reverse {
+		flex-direction: row-reverse;
+	}
 
     &-col {
         flex-direction: column;
+		&-reverse {
+			flex-direction: column-reverse;
+		}
     }
 
     &-wrap {

@@ -85,6 +85,9 @@
 			"path": "pages/zhanshi/tag"
 		},
 		{
+			"path": "pages/daohang/fab"
+		},
+		{
 			"path": "pages/daohang/nav-bar"
 		},
 		{
