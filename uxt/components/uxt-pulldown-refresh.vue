@@ -196,6 +196,7 @@ export default {
     position: relative;
     overflow: hidden;
     user-select: none;
+	min-height: 50px;
     .content {
         position: relative;
         .head {

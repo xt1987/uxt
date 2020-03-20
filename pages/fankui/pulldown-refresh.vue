@@ -7,8 +7,8 @@
             <view
                 :key="i"
                 class="padding solid-bottom"
-                v-for="i in 10"
-            >下拉刷新</view>
+                v-for="(item, i) in num"
+            >下拉刷新{{ i + 1 }}</view>
         </uxt-pulldown-refresh>
     </uxt-layout>
 </template>
@@ -23,12 +23,14 @@ export default {
     data() {
         return {
             title: '下拉刷新',
+			num: 0,
             refresh: false
         }
     },
     methods: {
         load() {
             setTimeout(() => {
+				this.num += 10
                 this.refresh = false
             }, 3000)
         }
