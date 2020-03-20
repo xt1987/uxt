@@ -4,7 +4,7 @@
         :close="close"
         :max-height="maxHeight"
         :title="title"
-        classes="radius-tl radius-tr"
+        classes="radius-lt radius-rt"
         position="bottom"
         v-model="show"
     >

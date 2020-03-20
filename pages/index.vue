@@ -311,6 +311,12 @@ export default {
                     icon: 'roundaddfill'
                 },
                 {
+                    title: '宫格',
+                    name: 'grid',
+                    color: this.randomColor(),
+                    icon: 'cascades'
+                },
+                {
                     title: '导航栏',
                     name: 'nav-bar',
                     color: this.randomColor(),
