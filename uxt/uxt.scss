@@ -311,20 +311,20 @@ $v in $radius {
         border-radius: $v;
     }
 
-    .#{$r}-tl {
+    .#{$r}-lt {
         border-top-left-radius: $v;
     }
 
-    .#{$r}-tr {
+    .#{$r}-rt {
         border-top-right-radius: $v;
     }
 
-    .#{$r}-br {
-        border-bottom-right-radius: $v;
+    .#{$r}-lb {
+        border-bottom-left-radius: $v;
     }
 
-    .#{$r}-bl {
-        border-bottom-left-radius: $v;
+    .#{$r}-rb {
+        border-bottom-right-radius: $v;
     }
 }
 

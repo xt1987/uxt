@@ -88,6 +88,9 @@
 			"path": "pages/daohang/fab"
 		},
 		{
+			"path": "pages/daohang/grid"
+		},
+		{
 			"path": "pages/daohang/nav-bar"
 		},
 		{
