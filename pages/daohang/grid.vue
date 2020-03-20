@@ -89,6 +89,22 @@
         <uxt-title-bar
             bg-color=" "
             classes="margin-top-sm"
+            title="角标"
+			sub-title="badge"
+        ></uxt-title-bar>
+        <uxt-grid>
+            <uxt-grid-item
+                :key="i"
+                @click="click(i + 1)"
+				:badge="`${i + 1}`"
+                icon="pic"
+                text="文字"
+                v-for="(item, i) in 4"
+            ></uxt-grid-item>
+        </uxt-grid>
+        <uxt-title-bar
+            bg-color=" "
+            classes="margin-top-sm"
             title="自定义内容"
         ></uxt-title-bar>
         <uxt-grid square>

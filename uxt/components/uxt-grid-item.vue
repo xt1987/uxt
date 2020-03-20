@@ -15,14 +15,18 @@
         @click="handleClick"
         class="grid-item inline-block"
     >
-        <view class="width-p100 height-p100 flex flex-col justify-center align-center padding-tb padding-lr-sm">
-            <slot>
-                <uxt-icon
-                    :type="icon"
-                    size="60rpx"
-                ></uxt-icon>
-                {{ text }}
-            </slot>
+        <view class="width-p100 height-p100 flex justify-center align-center padding-tb padding-lr-sm">
+			<uxt-badge :badge="badge">
+				<view class="flex flex-col justify-center align-center">
+					<slot>
+						<uxt-icon
+							:type="icon"
+							size="60rpx"
+						></uxt-icon>
+						{{ text }}
+					</slot>
+				</view>
+			</uxt-badge>
         </view>
     </view>
 </template>
@@ -30,18 +34,27 @@
 <script>
 import baseMixin from '@/uxt/mixins/base.js'
 import uxtIcon from '@/uxt/components/uxt-icon.vue'
+import uxtBadge from '@/uxt/components/uxt-badge.vue'
 
 export default {
     mixins: [baseMixin],
     components: {
-        uxtIcon
+        uxtIcon,
+		uxtBadge
     },
     props: {
+		// 图标
         icon: {
             type: [String, Object]
         },
+		// 文本
         text: {
             type: String
+        },
+        // 角标内容
+        badge: {
+            type: String,
+            default: ''
         },
         bgColor: {
             default: ''
