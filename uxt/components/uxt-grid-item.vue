@@ -1,6 +1,6 @@
 <template>
     <view
-        :class="[classes, colorClass, bgColorClass, border1 ? (spacing ? 'solid' : 'solid-right solid-bottom') : '']"
+        :class="[classes, colorClass, bgColorClass, border1 ? (isSpacing ? 'solid' : 'solid-right solid-bottom') : '']"
         :style="[
 			styles,
 			{
@@ -67,6 +67,9 @@ export default {
     },
     inject: ['col', 'square', 'border', 'spacing'],
     computed: {
+		isSpacing() {
+			return this.spacing !== 0 && this.spacing !== '0px' && this.spacing !== '0rpx'
+		},
         spacingStyle() {
             return this.getSize(this.spacing).styles || '0px'
         }
