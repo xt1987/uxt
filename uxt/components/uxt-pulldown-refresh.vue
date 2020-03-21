@@ -55,7 +55,8 @@ export default {
             top: 0, // 下拉高度
             rotate: 0, // 图标旋转角度
             animation: '', // 图标动画，正在刷新时使用
-            startY: 0, // 开始下拉时的top值
+            startY: 0, // 开始下拉时的top值,
+			startHeight: 50, // 下拉startHeight后开始真正触发下拉动作
             limitHeight: 50, // 限速高度，下拉大于此高度后开始限速
             duration: 0 // 松开后动画时间
         }
@@ -95,7 +96,6 @@ export default {
             if (this.status !== 0) {
                 return
             }
-            this.status = 1
             this.duration = 0
             this.animation = ''
             this.startY = this.getPos(e).y
@@ -126,13 +126,23 @@ export default {
             }
         },
         handleTouchMove(e) {
-            if (this.status !== 1 && this.status !== 2) {
+            if (this.status === 3 || this.status === 4) {
                 return
             }
             let moveY = this.getPos(e).y - this.startY
             if (moveY <= 0) {
                 return
             }
+			if (moveY >= this.startHeight && this.status === 0) {
+				// 超过startHeight，开始下拉
+				this.status = 1
+				this.startY = this.getPos(e).y
+				return
+			}
+			if (this.status === 0) {
+				return
+			}
+			
             this.rotate = moveY * 4
             if (moveY <= this.limitHeight) {
                 this.status = 1

@@ -112,31 +112,13 @@ export default {
             } else {
                 let width = 0
                 for (let i = 0; i < index - 1; i++) {
-                    let result = await this.getElSize(`.tab${i}`)
+                    let result = await this.getElSize(`.tab${i}`, this)
                     width += result.width + 10
                 }
                 this.scrollLeft = width
                 this.tabIndex = index
                 this.$emit('itemclick', index)
             }
-        },
-        getElSize(selector) {
-            //得到元素的size
-            return new Promise((res, rej) => {
-                uni.createSelectorQuery()
-                    .in(this)
-                    .select(selector)
-                    .fields(
-                        {
-                            size: true,
-                            scrollOffset: true
-                        },
-                        data => {
-                            res(data)
-                        }
-                    )
-                    .exec()
-            })
         }
     }
 }

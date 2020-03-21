@@ -61,6 +61,25 @@ const getSize = size => {
     return size && typeof size === 'string' ? size : ''
 }
 
+const getElSize = (selector, component) => {
+	//得到元素的size
+	return new Promise((resolve, reject) => {
+	    uni.createSelectorQuery()
+	        .in(component)
+	        .select(selector)
+	        .fields(
+	            {
+	                size: true,
+	                scrollOffset: true
+	            },
+	            data => {
+	                resolve(data)
+	            }
+	        )
+	        .exec()
+	})
+}
+
 export default {
     install() {
         Vue.use(uxtNotify)
@@ -69,7 +88,8 @@ export default {
 
         Object.assign(Vue.prototype, {
             getColor,
-            getSize
+            getSize,
+			getElSize
         })
 
         // 取状态栏和顶部导航栏高度

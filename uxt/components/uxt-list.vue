@@ -6,7 +6,7 @@
         :style="[
 			styles
 		]"
-        class="tab-bar"
+        class="list"
     ></view>
 </template>
 
@@ -17,10 +17,11 @@ export default {
     mixins: [baseMixin],
     props: {
         // 列数
-        col: {
-            type: Number,
-            default: 1
-        }
+        // col: {
+        //     type: Number,
+        //     default: 1
+        // }
+		
     },
     data() {
         return {}
@@ -29,4 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.list {
+	
+}
 </style>

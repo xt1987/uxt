@@ -70,6 +70,9 @@
 			"path": "pages/fankui/pulldown-refresh"
 		},
 		{
+			"path": "pages/fankui/swipe-action"
+		},
+		{
 			"path": "pages/fankui/toast"
 		},
 		{

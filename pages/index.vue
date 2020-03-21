@@ -265,6 +265,12 @@ export default {
                     icon: 'icloading'
                 },
                 {
+                    title: '滑动操作',
+                    name: 'swipe-action',
+                    color: this.randomColor(),
+                    icon: 'back_android'
+                },
+                {
                     title: '消息通知',
                     name: 'notify',
                     color: this.randomColor(),
