@@ -88,6 +88,9 @@
 			"path": "pages/zhanshi/tag"
 		},
 		{
+			"path": "pages/zhanshi/timeline"
+		},
+		{
 			"path": "pages/daohang/fab"
 		},
 		{

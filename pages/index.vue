@@ -307,6 +307,12 @@ export default {
                     name: 'tag',
                     color: this.randomColor(),
                     icon: 'tagfill'
+                },
+                {
+                    title: '时间轴',
+                    name: 'timeline',
+                    color: this.randomColor(),
+                    icon: 'timefill'
                 }
             ],
             daohang: [
