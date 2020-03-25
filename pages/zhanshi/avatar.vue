@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="size=sm/lg/xl"
@@ -230,16 +230,16 @@
                 ></uxt-avatar>
             </uxt-badge>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtAvatar from '@/uxt/components/uxt-avatar.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
-import uxtAvatarGroup from '@/uxt/components/uxt-avatar-group.vue'
-import uxtBadge from '@/uxt/components/uxt-badge.vue'
-import uxtTag from '@/uxt/components/uxt-tag.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtAvatar from '@xtcoder/uxt/components/uxt-avatar.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
+import uxtAvatarGroup from '@xtcoder/uxt/components/uxt-avatar-group.vue'
+import uxtBadge from '@xtcoder/uxt/components/uxt-badge.vue'
+import uxtTag from '@xtcoder/uxt/components/uxt-tag.vue'
 
 export default {
     components: {

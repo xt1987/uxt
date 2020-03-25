@@ -13,5 +13,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '/uxt/uxt.scss';
+@import '@xtcoder/uxt/uxt.scss';
 </style>

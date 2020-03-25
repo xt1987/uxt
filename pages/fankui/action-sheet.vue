@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-cell
             @click="showActionSheet({})"
             classes="margin-top-sm"
@@ -46,12 +46,12 @@
                 v-if="actionSheet.userContent"
             >在这里可以自定义内容</view>
         </uxt-action-sheet>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtCell from '@/uxt/components/uxt-cell.vue'
-import uxtActionSheet from '@/uxt/components/uxt-action-sheet.vue'
+import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtActionSheet from '@xtcoder/uxt/components/uxt-action-sheet.vue'
 
 export default {
     components: {

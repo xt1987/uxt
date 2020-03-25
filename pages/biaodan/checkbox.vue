@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             sub-title="size=sm/''"
@@ -146,12 +146,12 @@
             </label>
         </view>
         <view class="bg-white padding-sm solid-bottom text-center">{{checkeds.join(',')}}</view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtCheckbox from '@/uxt/components/uxt-checkbox.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtCheckbox from '@xtcoder/uxt/components/uxt-checkbox.vue'
 
 export default {
     components: {

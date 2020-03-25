@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="solid[s]/dashed[s][-top/right/bottom/left]"
@@ -54,19 +54,19 @@
         ></uxt-title-bar>
         <view class="padding bg-white">
             <view
-                :class="[`text-df`]"
+                :class="[`text-theme`]"
                 class="margin-sm padding-sm text-center shadow"
             >shadow</view>
             <view
-                :class="[`text-df`]"
+                :class="[`text-theme`]"
                 class="margin-sm margin-top-lg padding-sm text-center shadow-wrap"
             >shadow-wrap</view>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
 
 export default {
     components: {

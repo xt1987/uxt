@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="size=sm/lg/block"
@@ -39,9 +39,6 @@
             title="深色按钮"
         ></uxt-title-bar>
         <view class="padding text-center grid col-3">
-            <view class="padding-sm">
-                <uxt-button size="block">df</uxt-button>
-            </view>
             <view
                 :key="color"
                 class="padding-sm"
@@ -116,7 +113,7 @@
         <view class="padding text-center grid col-3">
             <view class="padding-sm">
                 <uxt-button
-                    hollow="df"
+                    hollow="theme"
                     size="block"
                 >随系统</uxt-button>
             </view>
@@ -213,13 +210,13 @@
                 ></uxt-icon>loading2
             </uxt-button>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtButton from '@/uxt/components/uxt-button.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtButton from '@xtcoder/uxt/components/uxt-button.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
 
 export default {
     components: {

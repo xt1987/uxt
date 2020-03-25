@@ -4,24 +4,24 @@
 [uniapp](https://uniapp.dcloud.io/)组件库
 
 #### 软件架构
-参考color-ui封装为组件库。
+参考color-ui封装为uniapp组件库，在h5, 微信小程序, android端进行了测试。
 
 #### 安装教程
 
-1.  下载当前项目。
-2.  将根目录下的uxt目录拷贝至你自己的项目下。
-3.  App.vue中导入样式，如果你没有使用scss，请使用css语法导入`/uxt/uxt.css`。
+1. `npm init -y`初始化您的项目。
+2. `npm install @xtcoder/uxt`安装uxt包，最新版本`1.0.0`。
+3.  App.vue中导入全局样式。
     ``` scss
     <style lang="scss">
-    @import '/uxt/uxt.scss';
+    @import '@xtcoder/uxt/uxt.scss';
     </style>
     ```
 4.  main.js中导入uxt。
     ``` js
-    import uxt from '@/uxt/uxt.js'
-    import uxtLayout from '@/uxt/components/uxt-layout.vue'
+    import uxt from '@xtcoder/uxt/uxt.js'
+    import uxtPage from '@xtcoder/uxt/components/uxt-page.vue'
 
-    Vue.component('uxt-layout', uxtLayout)
+    Vue.component('uxt-page', uxtPage)
     Vue.use(uxt)
     ```
 5.  pages.json关闭原生导航栏。
@@ -30,6 +30,14 @@
 		"navigationStyle": "custom"
 	}
     ```
+6.  很多组件中带有默认主题色(默认为绿色)，如需更换默认主题颜色，可在uni.scss文件中增加如下变量。
+	``` scss
+	$theme-color: #0081ff;
+	$theme-color-text: #fff;
+	$theme-color-light: #cce6ff;
+	$theme-color-gradual1: #0081ff;
+	$theme-color-gradual2: #1cbbb4;
+	```
 
 > HBuilder X 2.6.1
 

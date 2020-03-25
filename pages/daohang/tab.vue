@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <view class="bg-white text-center padding-sm">Tab{{tabIndex}}</view>
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
@@ -54,12 +54,12 @@
             align="center"
             bg-color="green"
         ></uxt-tab>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtTab from '@/uxt/components/uxt-tab.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtTab from '@xtcoder/uxt/components/uxt-tab.vue'
 
 export default {
     components: {

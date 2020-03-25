@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="size=sm/xs"
@@ -171,7 +171,7 @@
                     round
                 ></uxt-progress>
                 <uxt-icon
-                    bg-color="df"
+                    bg-color="theme"
                     class="margin-left-sm"
                     round
                     type="roundcheck"
@@ -187,13 +187,13 @@
                 <view class="margin-left-sm">60%</view>
             </view>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtProgress from '@/uxt/components/uxt-progress.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtProgress from '@xtcoder/uxt/components/uxt-progress.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
 
 export default {
     components: {

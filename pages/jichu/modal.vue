@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             bg-color=" "
             classes="margin-top-sm solid-bottom"
@@ -204,15 +204,15 @@
                 class="padding solid-red inline-block"
             >内容</view>
         </uxt-modal>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtButton from '@/uxt/components/uxt-button.vue'
-import uxtModal from '@/uxt/components/uxt-modal.vue'
-import uxtSwitch from '@/uxt/components/uxt-switch.vue'
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtCell from '@/uxt/components/uxt-cell.vue'
+import uxtButton from '@xtcoder/uxt/components/uxt-button.vue'
+import uxtModal from '@xtcoder/uxt/components/uxt-modal.vue'
+import uxtSwitch from '@xtcoder/uxt/components/uxt-switch.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
 
 export default {
     components: {

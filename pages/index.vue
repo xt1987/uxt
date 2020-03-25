@@ -1,6 +1,6 @@
 <template>
-    <uxt-layout
-        :footerHeight="50"
+    <uxt-page
+		:back="false"
         title="uxt - uniapp组件库"
     >
         <uxt-title-bar
@@ -129,12 +129,12 @@
                 </view>
             </navigator>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
 
 export default {
     components: {
@@ -195,8 +195,8 @@ export default {
                     icon: 'icon'
                 },
                 {
-                    title: '布局',
-                    name: 'layout',
+                    title: '页面容器',
+                    name: 'page',
                     color: this.randomColor(),
                     icon: 'global'
                 },

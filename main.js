@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App'
-import uxt from '@/uxt/uxt.js'
-import uxtLayout from '@/uxt/components/uxt-layout.vue'
+import uxt from '@xtcoder/uxt/uxt.js'
+import uxtPage from '@xtcoder/uxt/components/uxt-page.vue'
 
-Vue.component('uxt-layout', uxtLayout)
+Vue.component('uxt-page', uxtPage)
 Vue.use(uxt)
 
 Vue.config.productionTip = false

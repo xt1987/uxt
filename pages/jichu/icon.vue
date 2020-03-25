@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="type=xx"
@@ -169,7 +169,7 @@
         <view class="bg-white grid col-3">
             <view class="padding text-center solid-right solid-bottom">
                 <uxt-icon
-                    bg-color="df"
+                    bg-color="theme"
                     size="xxl"
                     type="appreciate"
                 ></uxt-icon>
@@ -177,7 +177,7 @@
             </view>
             <view class="padding text-center solid-right solid-bottom">
                 <uxt-icon
-                    bg-color="df"
+                    bg-color="theme"
                     radius
                     size="xxl"
                     type="appreciate"
@@ -186,7 +186,7 @@
             </view>
             <view class="padding text-center solid-right solid-bottom">
                 <uxt-icon
-                    bg-color="df"
+                    bg-color="theme"
                     round
                     size="xxl"
                     type="appreciate"
@@ -202,7 +202,7 @@
         <view class="bg-white grid col-3">
             <view class="padding text-center solid-right solid-bottom">
                 <uxt-icon
-                    hollow="df"
+                    hollow="theme"
                     size="xxl"
                     type="appreciate"
                 ></uxt-icon>
@@ -250,13 +250,13 @@
                 <view>pulse</view>
             </view>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtInputBox from '@/uxt/components/uxt-input-box.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtInputBox from '@xtcoder/uxt/components/uxt-input-box.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
 
 export default {
     components: {

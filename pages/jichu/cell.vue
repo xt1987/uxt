@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-cell-group title="基础用法">
             <uxt-cell
                 title="单元格"
@@ -69,14 +69,14 @@
                 value="内容"
             ></uxt-cell>
         </uxt-cell-group>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtCellGroup from '@/uxt/components/uxt-cell-group.vue'
-import uxtCell from '@/uxt/components/uxt-cell.vue'
-import uxtTag from '@/uxt/components/uxt-tag.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
+import uxtCellGroup from '@xtcoder/uxt/components/uxt-cell-group.vue'
+import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtTag from '@xtcoder/uxt/components/uxt-tag.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
 
 export default {
     components: {

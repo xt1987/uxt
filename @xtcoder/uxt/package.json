@@ -1,0 +1,19 @@
+{
+  "name": "@xtcoder/uxt",
+  "version": "1.0.0",
+  "description": "uniapp 组件库",
+  "main": "uxt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/xtcoder/uxt.git"
+  },
+  "keywords": [
+    "uxt",
+    "uniapp"
+  ],
+  "author": "xtcoder",
+  "license": "ISC"
+}

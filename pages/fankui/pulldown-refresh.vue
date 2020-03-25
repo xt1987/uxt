@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-pulldown-refresh
             @refresh="load"
             v-model="refresh"
@@ -10,11 +10,11 @@
                 v-for="(item, i) in num"
             >下拉刷新{{ i + 1 }}</view>
         </uxt-pulldown-refresh>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtPulldownRefresh from '@/uxt/components/uxt-pulldown-refresh.vue'
+import uxtPulldownRefresh from '@xtcoder/uxt/components/uxt-pulldown-refresh.vue'
 
 export default {
     components: {

@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="position=left(默认)"
@@ -89,13 +89,13 @@
                 <view class="margin-top padding bg-cyan radius">10:00 【银河系】快件已到达银河系，准备发往月球</view>
             </uxt-timeline-item>
         </uxt-timeline>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtTimeline from '@/uxt/components/uxt-timeline.vue'
-import uxtTimelineItem from '@/uxt/components/uxt-timeline-item.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtTimeline from '@xtcoder/uxt/components/uxt-timeline.vue'
+import uxtTimelineItem from '@xtcoder/uxt/components/uxt-timeline-item.vue'
 
 export default {
     components: {

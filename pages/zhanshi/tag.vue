@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="size=sm"
@@ -90,7 +90,7 @@
         <view class="bg-white padding">
             <uxt-tag
                 classes="margin-right"
-                hollow="df"
+                hollow="theme"
             >随系统</uxt-tag>
             <uxt-tag
                 classes="margin-right"
@@ -163,13 +163,13 @@
             ></uxt-badge>
             <uxt-badge classes="bg-blue padding-xl"></uxt-badge>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtTag from '@/uxt/components/uxt-tag.vue'
-import uxtBadge from '@/uxt/components/uxt-badge.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtTag from '@xtcoder/uxt/components/uxt-tag.vue'
+import uxtBadge from '@xtcoder/uxt/components/uxt-badge.vue'
 
 export default {
     components: {

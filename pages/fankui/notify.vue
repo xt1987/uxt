@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-cell
             @click="showNotify({ message: '主要通知', type: 'primary' })"
             classes="margin-top-sm"
@@ -49,11 +49,11 @@
             right-arrow
             title="外部点击关闭"
         ></uxt-cell>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtCell from '@/uxt/components/uxt-cell.vue'
+import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
 
 export default {
     components: {
@@ -72,7 +72,7 @@ export default {
                         type: '',
                         duration: 3000,
                         color: '',
-                        bgColor: 'df'
+                        bgColor: 'theme'
                     },
                     p
                 )

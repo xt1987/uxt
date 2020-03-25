@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="size=df/lg/xl"
@@ -120,8 +120,8 @@
             >
                 <template slot="left">
                     <view
-                        class="bg-gray padding-lr-sm flex align-center radius-tl radius-bl solid-right"
-                        style="height: 66rpx;"
+                        class="bg-gray padding-lr-sm flex align-center solid-right"
+                        style="height: 66rpx; border-top-left-radius: 5px; border-bottom-left-radius: 5px;"
                     >http://www.</view>
                 </template>
                 <template slot="right">
@@ -195,13 +195,13 @@
             ></uxt-input-box>
             <!-- #endif -->
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtInputBox from '@/uxt/components/uxt-input-box.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtInputBox from '@xtcoder/uxt/components/uxt-input-box.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
 
 export default {
     components: {

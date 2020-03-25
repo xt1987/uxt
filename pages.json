@@ -28,10 +28,10 @@
 			"path": "pages/jichu/icon"
 		},
 		{
-			"path": "pages/jichu/layout"
+			"path": "pages/jichu/page"
 		},
 		{
-			"path": "pages/jichu/layout-header"
+			"path": "pages/jichu/page-header"
 		},
 		{
 			"path": "pages/jichu/modal"

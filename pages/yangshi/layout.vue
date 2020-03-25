@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <view
             :style="{ height: contentHeight }"
             class="flex flex-col"
@@ -256,12 +256,12 @@
                 </swiper-item>
             </swiper>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTab from '@/uxt/components/uxt-tab.vue'
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
+import uxtTab from '@xtcoder/uxt/components/uxt-tab.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
 
 export default {
     components: {

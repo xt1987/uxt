@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-cell
             @click="showToast({ message: '提示内容' })"
             classes="margin-top-sm"
@@ -41,11 +41,11 @@
             right-arrow
             title="动态更新提示+自定义时长"
         ></uxt-cell>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtCell from '@/uxt/components/uxt-cell.vue'
+import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
 
 export default {
     components: {

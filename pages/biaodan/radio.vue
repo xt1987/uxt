@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             sub-title="size=sm/''"
@@ -123,12 +123,12 @@
             </label>
         </view>
         <view class="bg-white padding-sm solid-bottom text-center">{{checked}}</view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtRadio from '@/uxt/components/uxt-radio.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtRadio from '@xtcoder/uxt/components/uxt-radio.vue'
 
 export default {
     components: {

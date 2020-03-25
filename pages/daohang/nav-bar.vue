@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-nav-bar classes="margin-top-sm">默认</uxt-nav-bar>
         <uxt-nav-bar
             :back="false"
@@ -138,14 +138,14 @@
                 <view class="margin-right-sm">取消</view>
             </template>
         </uxt-nav-bar>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtNavBar from '@/uxt/components/uxt-nav-bar.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
-import uxtAvatar from '@/uxt/components/uxt-avatar.vue'
-import uxtInputBox from '@/uxt/components/uxt-input-box.vue'
+import uxtNavBar from '@xtcoder/uxt/components/uxt-nav-bar.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
+import uxtAvatar from '@xtcoder/uxt/components/uxt-avatar.vue'
+import uxtInputBox from '@xtcoder/uxt/components/uxt-input-box.vue'
 
 export default {
     components: {

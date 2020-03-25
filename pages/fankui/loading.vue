@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="bg-color=xx"
@@ -112,13 +112,13 @@
 			bg-color="red"
 			progress
         ></uxt-loading>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtLoading from '@/uxt/components/uxt-loading.vue'
-import uxtButton from '@/uxt/components/uxt-button.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtLoading from '@xtcoder/uxt/components/uxt-loading.vue'
+import uxtButton from '@xtcoder/uxt/components/uxt-button.vue'
 
 export default {
     components: {

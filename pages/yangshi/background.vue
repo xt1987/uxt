@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             subTitle="bg-xx"
@@ -124,11 +124,11 @@
                 <view class="bg-shadeBottom padding padding-top-xl flex-sub">下面开始</view>
             </view>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
 
 export default {
     components: {

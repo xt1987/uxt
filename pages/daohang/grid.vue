@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             bg-color=" "
             classes="margin-top-sm"
@@ -147,13 +147,13 @@
                 text="文字"
             ></uxt-grid-item>
         </uxt-grid>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtGrid from '@/uxt/components/uxt-grid.vue'
-import uxtGridItem from '@/uxt/components/uxt-grid-item.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtGrid from '@xtcoder/uxt/components/uxt-grid.vue'
+import uxtGridItem from '@xtcoder/uxt/components/uxt-grid-item.vue'
 
 export default {
     components: {

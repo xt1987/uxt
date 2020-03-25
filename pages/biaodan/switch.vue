@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm solid-bottom"
             sub-title="radius/round"
@@ -114,12 +114,12 @@
                 round
             ></uxt-switch>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtSwitch from '@/uxt/components/uxt-switch.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtSwitch from '@xtcoder/uxt/components/uxt-switch.vue'
 
 export default {
     components: {

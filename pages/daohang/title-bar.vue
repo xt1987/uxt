@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-title-bar
             classes="margin-top-sm"
             title="默认标题"
@@ -41,11 +41,11 @@
             shadow
             title="阴影"
         ></uxt-title-bar>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
 
 export default {
     components: {

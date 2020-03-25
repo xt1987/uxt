@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-cell
             classes="margin-top-sm"
             title="基本用法"
@@ -83,13 +83,13 @@
             classes="padding"
             color="cyan"
         ></uxt-steps>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtCell from '@/uxt/components/uxt-cell.vue'
-import uxtButton from '@/uxt/components/uxt-button.vue'
-import uxtSteps from '@/uxt/components/uxt-steps.vue'
+import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtButton from '@xtcoder/uxt/components/uxt-button.vue'
+import uxtSteps from '@xtcoder/uxt/components/uxt-steps.vue'
 
 export default {
     components: {

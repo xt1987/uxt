@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <uxt-fab
             :btns="btns"
             :y="`${top + rpx50}px`"
@@ -67,11 +67,11 @@
                 open-type="getUserInfo"
             ></uxt-fab>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtFab from '@/uxt/components/uxt-fab.vue'
+import uxtFab from '@xtcoder/uxt/components/uxt-fab.vue'
 
 export default {
     components: {

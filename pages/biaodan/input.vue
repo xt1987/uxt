@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <view class="bg-white text-right padding-sm solid-bottom">
             固定标题宽度
             <uxt-switch
@@ -186,18 +186,18 @@
                 ></uxt-avatar>
             </template>
         </uxt-input>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
-import uxtInput from '@/uxt/components/uxt-input.vue'
-import uxtSwitch from '@/uxt/components/uxt-switch.vue'
-import uxtCheckbox from '@/uxt/components/uxt-checkbox.vue'
-import uxtIcon from '@/uxt/components/uxt-icon.vue'
-import uxtButton from '@/uxt/components/uxt-button.vue'
-import uxtTag from '@/uxt/components/uxt-tag.vue'
-import uxtAvatar from '@/uxt/components/uxt-avatar.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtInput from '@xtcoder/uxt/components/uxt-input.vue'
+import uxtSwitch from '@xtcoder/uxt/components/uxt-switch.vue'
+import uxtCheckbox from '@xtcoder/uxt/components/uxt-checkbox.vue'
+import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
+import uxtButton from '@xtcoder/uxt/components/uxt-button.vue'
+import uxtTag from '@xtcoder/uxt/components/uxt-tag.vue'
+import uxtAvatar from '@xtcoder/uxt/components/uxt-avatar.vue'
 
 export default {
     components: {
@@ -256,12 +256,6 @@ export default {
             radioValue: '',
             checkboxValue: false,
             multiCheckRange: [
-                '选项一',
-                '选项二',
-                '选项三',
-                '选项一',
-                '选项二',
-                '选项三',
                 '选项一',
                 '选项二',
                 '选项三'

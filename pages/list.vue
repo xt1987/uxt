@@ -1,9 +1,9 @@
 <template>
-    <uxt-layout :title="title"></uxt-layout>
+    <uxt-page :title="title"></uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@/uxt/components/uxt-title-bar.vue'
+import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
 
 export default {
     components: {

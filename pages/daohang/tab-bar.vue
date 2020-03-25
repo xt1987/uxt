@@ -1,5 +1,5 @@
 <template>
-    <uxt-layout :title="title">
+    <uxt-page :title="title">
         <view class="padding-tb-sm">
             <uxt-tab-bar :items="items0"></uxt-tab-bar>
             <uxt-tab-bar
@@ -30,11 +30,11 @@
                 classes="margin-top-sm"
             ></uxt-tab-bar>
         </view>
-    </uxt-layout>
+    </uxt-page>
 </template>
 
 <script>
-import uxtTabBar from '@/uxt/components/uxt-tab-bar.vue'
+import uxtTabBar from '@xtcoder/uxt/components/uxt-tab-bar.vue'
 
 export default {
     components: {
@@ -47,7 +47,7 @@ export default {
                 {
                     icon: '/static/tabbar/basics_active.png',
                     text: '元素',
-                    color: 'df'
+                    color: 'theme'
                 },
                 {
                     icon: '/static/tabbar/component.png',
@@ -76,7 +76,7 @@ export default {
                         type: 'similar'
                     },
                     text: '分类',
-                    color: 'df'
+                    color: 'theme'
                 },
                 {
                     icon: {
@@ -125,7 +125,7 @@ export default {
                     },
                     text: '购物车',
                     badge: '99',
-                    color: 'df'
+                    color: 'theme'
                 },
                 {
                     icon: {
@@ -166,7 +166,7 @@ export default {
                     },
                     text: '我的',
                     badge: '-',
-                    color: 'df'
+                    color: 'theme'
                 }
             ],
             items4: [
