@@ -85,6 +85,9 @@
 			"path": "pages/zhanshi/progress"
 		},
 		{
+			"path": "pages/zhanshi/steps"
+		},
+		{
 			"path": "pages/zhanshi/tag"
 		},
 		{

@@ -16,7 +16,8 @@ $gray: #f0f0f0;
 $black: #333;
 $white: #fff;
 
-$colors: ('red', $red, $white, #fadbd9, #f43f3b, #ec008c),
+$colors: ('df', $blue, $white, #cce6ff, #0081ff, #1cbbb4),
+('red', $red, $white, #fadbd9, #f43f3b, #ec008c),
 ('orange', $orange, $white, #fde6d2, #ff9700, #ed1c24),
 ('yellow', $yellow, $black, #fef2ce, #fbbd08, #fef2ce),
 ('olive', $olive, $white, #e8f4d9, #8dc63f, #e8f4d9),
@@ -37,38 +38,6 @@ $position: '',
 '-right',
 '-bottom',
 '-left';
-
-// 主题设置
-$uxt-primary-color: $blue; // 主色
-
-$uxt-gradient: 1; // 是否渐变
-$uxt-from-color: $blue; // 渐变开始颜色
-$uxt-to-color: #1cbbb4; // 渐变结束颜色
-
-$uxt-text-color: $black; // 文字颜色
-$uxt-text-reverse-color: $white; // 使用主题背景后的文字颜色
-
-$uxt-border-color: $gray; // 边框颜色
-
-.bg-df {
-    color: $uxt-text-reverse-color;
-
-    @if $uxt-gradient==1 {
-        background: linear-gradient(45deg, $uxt-from-color, $uxt-to-color);
-    }
-
-    @else {
-        background: $uxt-primary-color;
-    }
-}
-
-.text-df {
-    color: $uxt-primary-color;
-}
-
-.solid-df::before {
-    border: solid 2rpx $uxt-primary-color;
-}
 
 // 初始化
 
@@ -98,6 +67,12 @@ label,
 navigator,
 image {
     box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	background-color: transparent;
 }
 
 // 基础

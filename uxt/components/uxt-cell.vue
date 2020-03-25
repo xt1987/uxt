@@ -13,7 +13,7 @@
         @click="handleClick"
         class="cell solid-bottom padding"
     >
-        <view class="flex">
+        <view class="flex align-center">
             <view class="flex-sub">
                 <slot name="left"></slot>
                 {{ title }}
@@ -28,7 +28,10 @@
                 ></uxt-icon>
             </view>
         </view>
-        <view class="text-grey text-sm">{{ desc }}</view>
+        <view
+            class="text-grey text-sm"
+            v-if="desc"
+        >{{ desc }}</view>
     </view>
 </template>
 

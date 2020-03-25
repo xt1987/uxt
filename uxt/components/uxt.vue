@@ -1,29 +1,23 @@
 <template>
-    <view
-        :class="[
-			classes,
-		]"
-        :style="[
-			styles,
-			{
-				
-			}
-		]"
-        class="cell-group"
-    ></view>
+	<view :class="[classes, colorClass, bgColorClass]" :style="[styles, {
+		color: colorStyle,
+		backgroundColor: bgColorClass
+	}]" class="steps">
+		
+	</view>
 </template>
 
 <script>
 import baseMixin from '@/uxt/mixins/base.js'
 
 export default {
-    mixins: [baseMixin],
-    props: {}
+	mixins: [baseMixin],
+	props: {}
 }
 </script>
 
 <style lang="scss" scoped>
-.cell-group {
-    position: relative;
+.steps {
+	position: relative;
 }
 </style>

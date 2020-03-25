@@ -303,6 +303,12 @@ export default {
                     icon: 'icloading'
                 },
                 {
+                    title: '步骤条',
+                    name: 'steps',
+                    color: this.randomColor(),
+                    icon: 'right'
+                },
+                {
                     title: '标签',
                     name: 'tag',
                     color: this.randomColor(),
