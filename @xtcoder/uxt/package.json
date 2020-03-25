@@ -1,6 +1,6 @@
 {
   "name": "@xtcoder/uxt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "uniapp 组件库",
   "main": "uxt.js",
   "scripts": {

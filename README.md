@@ -9,7 +9,7 @@
 #### 安装教程
 
 1. `npm init -y`初始化您的项目。
-2. `npm install @xtcoder/uxt`安装uxt包，最新版本`1.0.0`。
+2. `npm install @xtcoder/uxt`安装uxt包，最新版本`1.0.1`。
 3.  App.vue中导入全局样式。
     ``` scss
     <style lang="scss">
