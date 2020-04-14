@@ -37,7 +37,7 @@ export default {
     props: {
         icon: {
             type: [String, Object],
-            default: 'radioboxfill'
+            default: 'dot-o-fill'
         }
     },
     inject: [

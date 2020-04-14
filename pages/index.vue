@@ -148,13 +148,13 @@ export default {
                     title: '动画样式',
                     name: 'animation',
                     color: this.randomColor(),
-                    icon: 'playfill'
+                    icon: 'clock'
                 },
                 {
                     title: '背景样式',
                     name: 'background',
                     color: this.randomColor(),
-                    icon: 'colorlens'
+                    icon: 'square-fill'
                 },
                 {
                     title: '边框样式',
@@ -166,7 +166,7 @@ export default {
                     title: '布局样式',
                     name: 'layout',
                     color: this.randomColor(),
-                    icon: 'newsfill'
+                    icon: 'layout'
                 },
                 {
                     title: '文本样式',
@@ -177,34 +177,34 @@ export default {
             ],
             jichu: [
                 {
+                    title: '通栏',
+                    name: 'bar',
+                    color: this.randomColor(),
+                    icon: 'angle-right'
+                },
+                {
                     title: '按钮',
                     name: 'button',
                     color: this.randomColor(),
-                    icon: 'btn'
-                },
-                {
-                    title: '单元格',
-                    name: 'cell',
-                    color: this.randomColor(),
-                    icon: 'move'
+                    icon: 'button'
                 },
                 {
                     title: '图标',
                     name: 'icon',
                     color: this.randomColor(),
-                    icon: 'icon'
+                    icon: 'at'
+                },
+                {
+                    title: '模态窗',
+                    name: 'modal',
+                    color: this.randomColor(),
+                    icon: 'bug'
                 },
                 {
                     title: '页面容器',
                     name: 'page',
                     color: this.randomColor(),
                     icon: 'global'
-                },
-                {
-                    title: '模态框',
-                    name: 'modal',
-                    color: this.randomColor(),
-                    icon: 'all'
                 }
             ],
             biaodan: [
@@ -212,31 +212,37 @@ export default {
                     title: '复选框',
                     name: 'checkbox',
                     color: this.randomColor(),
-                    icon: 'squarecheckfill'
+                    icon: 'check-square'
                 },
                 {
                     title: '表单录入',
                     name: 'input',
                     color: this.randomColor(),
-                    icon: 'formfill'
+                    icon: 'edit'
+                },
+                {
+                    title: '表单',
+                    name: 'form',
+                    color: this.randomColor(),
+                    icon: 'form'
                 },
                 {
                     title: '输入框',
                     name: 'input-box',
                     color: this.randomColor(),
-                    icon: 'post'
+                    icon: 'pencil'
                 },
                 {
                     title: '单选框',
                     name: 'radio',
                     color: this.randomColor(),
-                    icon: 'radiobox'
+                    icon: 'dot-o'
                 },
                 {
                     title: '开关',
                     name: 'switch',
                     color: this.randomColor(),
-                    icon: 'settings'
+                    icon: 'toggle-on'
                 }
             ],
             fankui: [
@@ -244,13 +250,13 @@ export default {
                     title: '上拉菜单',
                     name: 'action-sheet',
                     color: this.randomColor(),
-                    icon: 'fold'
+                    icon: 'arrow-up'
                 },
                 {
                     title: '对话框',
                     name: 'dialog',
                     color: this.randomColor(),
-                    icon: 'discover'
+                    icon: 'question-o'
                 },
                 {
                     title: '加载',
@@ -262,63 +268,63 @@ export default {
                     title: '下拉刷新',
                     name: 'pulldown-refresh',
                     color: this.randomColor(),
-                    icon: 'icloading'
+                    icon: 'refresh'
                 },
                 {
                     title: '滑动操作',
                     name: 'swipe-action',
                     color: this.randomColor(),
-                    icon: 'back_android'
+                    icon: 'finger1-left'
                 },
                 {
                     title: '消息通知',
                     name: 'notify',
                     color: this.randomColor(),
-                    icon: 'message'
+                    icon: 'exclamation-o'
                 },
                 {
                     title: '轻提示',
                     name: 'toast',
                     color: this.randomColor(),
-                    icon: 'messagefill'
+                    icon: 'exclamation-triangle'
                 }
             ],
             zhanshi: [
                 {
                     title: '头像',
                     name: 'avatar',
-                    color: 'purple',
-                    icon: 'myfill'
+                    color: this.randomColor(),
+                    icon: 'man'
                 },
                 {
                     title: '分隔线',
                     name: 'divider',
                     color: this.randomColor(),
-                    icon: 'move'
+                    icon: 'minus'
                 },
                 {
                     title: '进度条',
                     name: 'progress',
                     color: this.randomColor(),
-                    icon: 'icloading'
+                    icon: 'battery-middle'
                 },
                 {
                     title: '步骤条',
                     name: 'steps',
                     color: this.randomColor(),
-                    icon: 'right'
+                    icon: 'check-o'
                 },
                 {
                     title: '标签',
                     name: 'tag',
                     color: this.randomColor(),
-                    icon: 'tagfill'
+                    icon: 'tag'
                 },
                 {
                     title: '时间轴',
                     name: 'timeline',
                     color: this.randomColor(),
-                    icon: 'timefill'
+                    icon: 'clock-fill'
                 }
             ],
             daohang: [
@@ -326,37 +332,37 @@ export default {
                     title: '浮动按钮',
                     name: 'fab',
                     color: this.randomColor(),
-                    icon: 'roundaddfill'
+                    icon: 'plus-o-fill'
                 },
                 {
                     title: '宫格',
                     name: 'grid',
                     color: this.randomColor(),
-                    icon: 'cascades'
+                    icon: 'th'
                 },
                 {
                     title: '导航栏',
                     name: 'nav-bar',
                     color: this.randomColor(),
-                    icon: 'back'
+                    icon: 'angle-left'
                 },
                 {
                     title: 'Tab页',
                     name: 'tab',
                     color: this.randomColor(),
-                    icon: 'formfill'
+                    icon: 'folder'
                 },
                 {
                     title: 'Tab栏',
                     name: 'tab-bar',
                     color: this.randomColor(),
-                    icon: 'vipcard'
+                    icon: 'home'
                 },
                 {
                     title: '标题栏',
                     name: 'title-bar',
                     color: this.randomColor(),
-                    icon: 'title'
+                    icon: 'dot'
                 }
                 // {
                 // 	title: '列表',

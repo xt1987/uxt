@@ -638,7 +638,9 @@ $ani-name: 'fade',
 'slide-bottom',
 'slide-left',
 'slide-right',
-'shake';
+'shake',
+'spin',
+'pulse';
 
 [class*='ani-'] {
     animation-duration: 0.5s;
@@ -654,6 +656,19 @@ $ani-name: 'fade',
             @if $n==fade {
                 animation-duration: 0.8s;
                 animation-timing-function: linear;
+            }
+			
+            @if $n==spin {
+                animation-duration: 2s;
+                animation-timing-function: linear;
+				animation-iteration-count: infinite;
+            }
+			
+            @if $n==pulse {
+				animation-name: 'spin';
+                animation-duration: 1s;
+                animation-timing-function: steps(8);
+				animation-iteration-count: infinite;
             }
         }
     }

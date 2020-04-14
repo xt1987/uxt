@@ -1,55 +1,55 @@
 <template>
     <uxt-page :title="title">
-        <uxt-cell
+        <uxt-bar
             @click="showToast({ message: '提示内容' })"
             classes="margin-top-sm"
-            right-arrow
+            arrow
             title="文字提示"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showToast({ message: '这是一段很长的提示内容，太长了就会换行。' })"
-            right-arrow
+            arrow
             title="长文字提示"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showToast({ message: '加载中...', type: 'loading' })"
             desc="type=loading toast.close()"
-            right-arrow
+            arrow
             title="加载提示(必须手动调用close关闭)"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showToast({ message: '操作成功', type: 'success' })"
             desc="type=success"
-            right-arrow
+            arrow
             title="成功提示"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showToast({ message: '操作失败', type: 'fail' })"
             desc="type=fail"
-            right-arrow
+            arrow
             title="失败提示"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showToast({ message: '自定义图标', icon: 'info' })"
+        ></uxt-bar>
+        <uxt-bar
+            @click="showToast({ message: '自定义图标', icon: 'bq-weixiao' })"
             desc="icon=xx"
-            right-arrow
+            arrow
             title="自定义图标"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showToast({ type: 'loading', dynamic: true, duration: 5000 })"
             desc="toast.message=xx duration=5000"
-            right-arrow
+            arrow
             title="动态更新提示+自定义时长"
-        ></uxt-cell>
+        ></uxt-bar>
     </uxt-page>
 </template>
 
 <script>
-import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
 
 export default {
     components: {
-        uxtCell
+        uxtBar
     },
     data() {
         return {

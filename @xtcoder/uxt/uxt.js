@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { deepCopy } from './utils/util.js'
 
 import uxtNotify from './components/uxt-notify.js'
 import uxtToast from './components/uxt-toast.js'
@@ -95,42 +96,32 @@ export default {
         // 取状态栏和顶部导航栏高度
         uni.getSystemInfo({
             success: function(e) {
-                let statusBarHeight = e.statusBarHeight
-                let windowHeight = e.windowHeight
+				let systemInfo = deepCopy(e)
 
                 // #ifndef MP
                 if (e.platform == 'android') {
-                    Vue.prototype.gNavBarHeight = 50
+                    systemInfo.navBarHeight = 50
                 } else {
-                    Vue.prototype.gNavBarHeight = 45
+                    systemInfo.navBarHeight = 45
                 }
                 // #endif
 
                 // #ifdef MP-WEIXIN
-                let custom = wx.getMenuButtonBoundingClientRect()
-                // Vue.prototype.Custom = custom;
-                console.log(custom)
-                let navBarHeight = custom.bottom + custom.top - statusBarHeight * 2
-                console.log('navBarHeight')
-                console.log(navBarHeight)
-                if (navBarHeight < 42) {
-                    navBarHeight = 42
+                let mbbcr = wx.getMenuButtonBoundingClientRect()
+                console.log(mbbcr)
+                systemInfo.navBarHeight = mbbcr.bottom + mbbcr.top - systemInfo.statusBarHeight * 2
+                if (systemInfo.navBarHeight < 42) {
+                    systemInfo.navBarHeight = 42
                 }
-                Vue.prototype.gNavBarHeight = navBarHeight
-
-                statusBarHeight = custom.bottom
+                systemInfo.statusBarHeight = mbbcr.bottom
                 // #endif
 
                 // #ifdef MP-ALIPAY
-                Vue.prototype.gNavBarHeight = e.titleBarHeight
+                systemInfo.navBarHeight = systemInfo.titleBarHeight
                 // #endif
 
-                console.log('statusBarHeight')
-                console.log(statusBarHeight)
-                Vue.prototype.gStatusBarHeight = statusBarHeight
-                Vue.prototype.gWindowHeight = windowHeight
-                console.log('windowHeight')
-                console.log(windowHeight)
+                Vue.prototype.systemInfo = systemInfo
+				console.log(systemInfo)
             }
         })
 

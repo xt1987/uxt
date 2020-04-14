@@ -56,7 +56,7 @@
                 class="margin-sm"
                 radius
             >
-                <uxt-icon type="people"></uxt-icon>
+                <uxt-icon type="man"></uxt-icon>
             </uxt-avatar>
             <uxt-avatar
                 class="margin-sm"

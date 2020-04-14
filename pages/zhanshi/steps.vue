@@ -1,6 +1,6 @@
 <template>
     <uxt-page :title="title">
-        <uxt-cell
+        <uxt-bar
             classes="margin-top-sm"
             title="基本用法"
         >
@@ -10,7 +10,7 @@
                     radius
                 >下一步</uxt-button>
             </template>
-        </uxt-cell>
+        </uxt-bar>
         <uxt-steps
             :step="step"
             :steps="steps1"
@@ -24,7 +24,7 @@
             classes="padding margin-top-xs"
             color="green"
         ></uxt-steps>
-        <uxt-cell
+        <uxt-bar
             classes="margin-top-sm"
             desc="arrow"
             title="箭头连接"
@@ -36,7 +36,7 @@
                     radius
                 >下一步</uxt-button>
             </template>
-        </uxt-cell>
+        </uxt-bar>
         <uxt-steps
             :step="step"
             :steps="steps2"
@@ -45,7 +45,7 @@
             classes="padding"
             color="red"
         ></uxt-steps>
-        <uxt-cell
+        <uxt-bar
             classes="margin-top-sm"
             title="数字图标"
         >
@@ -56,7 +56,7 @@
                     radius
                 >下一步</uxt-button>
             </template>
-        </uxt-cell>
+        </uxt-bar>
         <uxt-steps
             :step="step"
             :steps="steps3"
@@ -64,7 +64,7 @@
             classes="padding"
             color="yellow"
         ></uxt-steps>
-        <uxt-cell
+        <uxt-bar
             classes="margin-top-sm"
             title="长步骤"
         >
@@ -75,7 +75,7 @@
                     radius
                 >下一步</uxt-button>
             </template>
-        </uxt-cell>
+        </uxt-bar>
         <uxt-steps
             :step="step4"
             :steps="steps4"
@@ -87,13 +87,13 @@
 </template>
 
 <script>
-import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
 import uxtButton from '@xtcoder/uxt/components/uxt-button.vue'
 import uxtSteps from '@xtcoder/uxt/components/uxt-steps.vue'
 
 export default {
     components: {
-        uxtCell,
+        uxtBar,
         uxtButton,
         uxtSteps
     },
@@ -102,42 +102,42 @@ export default {
             title: '步骤条',
             step: 0,
             steps1: [
-                { iconed: 'usefullfill', text: '开始' },
-                { iconed: 'radioboxfill', text: '等待' },
-                { iconed: 'roundclosefill', text: '错误' },
-                { iconed: 'roundcheckfill', text: '完成' }
+                { iconed: 'square-fill', text: '开始' },
+                { iconed: 'dot-o-fill', text: '等待' },
+                { iconed: 'close-o-fill', text: '错误' },
+                { iconed: 'check-o-fill', text: '完成' }
             ],
             steps2: [
-                { icon: 'usefullfill', iconed: 'usefullfill', text: '开始' },
-                { icon: 'radioboxfill', iconed: 'radioboxfill', text: '等待' },
+                { icon: 'square-fill', iconed: 'square-fill', text: '开始' },
+                { icon: 'dot-o-fill', iconed: 'dot-o-fill', text: '等待' },
                 {
-                    icon: 'roundclosefill',
-                    iconed: 'roundclosefill',
+                    icon: 'close-o-fill',
+                    iconed: 'close-o-fill',
                     text: '错误'
                 },
                 {
-                    icon: 'roundcheckfill',
-                    iconed: 'roundcheckfill',
+                    icon: 'check-o-fill',
+                    iconed: 'check-o-fill',
                     text: '完成'
                 }
             ],
             steps3: [
-                { icon: 1, iconed: 'roundcheckfill', text: '开始' },
-                { icon: 2, iconed: 'roundcheckfill', text: '等待' },
-                { icon: 3, iconed: 'roundclosefill', text: '错误' },
-                { icon: 4, iconed: 'roundcheckfill', text: '完成' }
+                { icon: 1, iconed: 'check-o-fill', text: '开始' },
+                { icon: 2, iconed: 'check-o-fill', text: '等待' },
+                { icon: 3, iconed: 'close-o-fill', text: '错误' },
+                { icon: 4, iconed: 'check-o-fill', text: '完成' }
             ],
             step4: 0,
             steps4: [
-                { icon: 1, iconed: 'roundcheckfill', text: '第1步' },
-                { icon: 2, iconed: 'roundcheckfill', text: '第2步' },
-                { icon: 3, iconed: 'roundcheckfill', text: '第3步' },
-                { icon: 4, iconed: 'roundcheckfill', text: '第4步' },
-                { icon: 5, iconed: 'roundcheckfill', text: '第5步' },
-                { icon: 6, iconed: 'roundcheckfill', text: '第6步' },
-                { icon: 7, iconed: 'roundcheckfill', text: '第7步' },
-                { icon: 8, iconed: 'roundcheckfill', text: '第8步' },
-                { icon: 9, iconed: 'roundcheckfill', text: '第9步' }
+                { icon: 1, iconed: 'check-o-fill', text: '第1步' },
+                { icon: 2, iconed: 'check-o-fill', text: '第2步' },
+                { icon: 3, iconed: 'check-o-fill', text: '第3步' },
+                { icon: 4, iconed: 'check-o-fill', text: '第4步' },
+                { icon: 5, iconed: 'check-o-fill', text: '第5步' },
+                { icon: 6, iconed: 'check-o-fill', text: '第6步' },
+                { icon: 7, iconed: 'check-o-fill', text: '第7步' },
+                { icon: 8, iconed: 'check-o-fill', text: '第8步' },
+                { icon: 9, iconed: 'check-o-fill', text: '第9步' }
             ]
         }
     },

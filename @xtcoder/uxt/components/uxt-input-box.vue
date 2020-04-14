@@ -52,7 +52,7 @@
             <uxt-icon
                 @click="handleClear"
                 color="grey"
-                type="roundclosefill"
+                type="close-o-fill"
                 v-if="clearable && !disabled && val !== ''"
             ></uxt-icon>
             <uxt-icon
@@ -105,7 +105,7 @@ export default {
     data() {
         return {
             val: this.value,
-            passIcon: 'attentionfill',
+            passIcon: 'eye',
             password: this.type === 'password'
         }
     },
@@ -142,9 +142,9 @@ export default {
         handleSwitchPass() {
             this.password = !this.password
             if (this.password) {
-                this.passIcon = 'attentionfill'
+                this.passIcon = 'eye'
             } else {
-                this.passIcon = 'attentionforbidfill'
+                this.passIcon = 'eye-slash'
             }
         }
     },

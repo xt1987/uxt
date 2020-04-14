@@ -67,33 +67,33 @@ export default {
             items1: [
                 {
                     icon: {
-                        type: 'homefill'
+                        type: 'home-fill'
                     },
                     text: '首页'
                 },
                 {
                     icon: {
-                        type: 'similar'
+                        type: 'th'
                     },
                     text: '分类',
                     color: 'theme'
                 },
                 {
                     icon: {
-                        type: 'recharge'
+                        type: 'exchange-o-fill'
                     },
                     text: '积分'
                 },
                 {
                     icon: {
-                        type: 'cart'
+                        type: 'cart-full'
                     },
                     text: '购物车',
                     badge: '99'
                 },
                 {
                     icon: {
-                        type: 'my'
+                        type: 'man'
                     },
                     text: '我的',
                     badge: '-'
@@ -102,26 +102,26 @@ export default {
             items2: [
                 {
                     icon: {
-                        type: 'homefill'
+                        type: 'home-fill'
                     },
                     text: '首页'
                 },
                 {
                     icon: {
-                        type: 'similar'
+                        type: 'th'
                     },
                     text: '分类'
                 },
                 {
                     type: 'add',
                     icon: {
-                        type: 'add'
+                        type: 'plus'
                     },
                     text: '发布'
                 },
                 {
                     icon: {
-                        type: 'cart'
+                        type: 'cart-full'
                     },
                     text: '购物车',
                     badge: '99',
@@ -129,7 +129,7 @@ export default {
                 },
                 {
                     icon: {
-                        type: 'my'
+                        type: 'man'
                     },
                     text: '我的',
                     badge: '-'
@@ -138,13 +138,13 @@ export default {
             items3: [
                 {
                     icon: {
-                        type: 'homefill'
+                        type: 'home-fill'
                     },
                     text: '首页'
                 },
                 {
                     icon: {
-                        type: 'similar'
+                        type: 'th'
                     },
                     text: '分类'
                 },
@@ -155,14 +155,14 @@ export default {
                 },
                 {
                     icon: {
-                        type: 'cart'
+                        type: 'cart-full'
                     },
                     text: '购物车',
                     badge: '99'
                 },
                 {
                     icon: {
-                        type: 'my'
+                        type: 'man'
                     },
                     text: '我的',
                     badge: '-',
@@ -172,7 +172,7 @@ export default {
             items4: [
                 {
                     icon: {
-                        type: 'service',
+                        type: 'servicer',
                         color: 'green'
                     },
                     badge: '-',
@@ -181,14 +181,14 @@ export default {
                 },
                 {
                     icon: {
-                        type: 'favorfill'
+                        type: 'heart-fill'
                     },
                     text: '已收藏',
                     color: 'orange'
                 },
                 {
                     icon: {
-                        type: 'cart'
+                        type: 'cart-full'
                     },
                     text: '购物车',
                     badge: '99'
@@ -203,7 +203,7 @@ export default {
             items5: [
                 {
                     icon: {
-                        type: 'service',
+                        type: 'servicer',
                         color: 'green'
                     },
                     badge: '-',
@@ -212,7 +212,7 @@ export default {
                 },
                 {
                     icon: {
-                        type: 'cart'
+                        type: 'cart-full'
                     },
                     text: '购物车',
                     badge: '99'
@@ -233,7 +233,7 @@ export default {
             items6: [
                 {
                     icon: {
-                        type: 'service',
+                        type: 'servicer',
                         color: 'green'
                     },
                     badge: '-',
@@ -242,7 +242,7 @@ export default {
                 },
                 {
                     icon: {
-                        type: 'cart'
+                        type: 'cart-full'
                     },
                     text: '购物车',
                     badge: '99'

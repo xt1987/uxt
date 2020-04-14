@@ -1,14 +1,13 @@
 <template>
-    <button
-        :class="[
+	<view
+		:class="[
 			classes,
-		    {
-				sm: size === 'sm',
-				lg: size === 'lg',
-				block: size === 'block',
+			size,
+			{
 				radius: radius,
 				round: round,
-				disabled: disabled
+				disabled: disabled,
+				click: click
 			},
 			shadowClass,
 			hollowClass,
@@ -16,28 +15,43 @@
 			(hollow ? '' : bgColorClass),
 			(hollowStyle ? 'solid' : '')
 		]"
-        :disabled="disabled"
-        :open-type="openType"
-        :style="[
-		    styles,
-		    {
-		        backgroundColor: (hollow ? '' : bgColorStyle),
+		:style="[
+			styles,
+			{
+				backgroundColor: (hollow ? '' : bgColorStyle),
 				borderColor: hollowStyle,
 				color: (hollow ? hollowStyle : colorStyle),
 				boxShadow: (shadowStyle ? `6rpx 6rpx 8rpx ${shadowStyle}7F` : '')
 			}
 		]"
-        @click="handleClick"
-        @error="handleError"
-        @getphonenumber="handleGetPhoneNumber"
-        @getuserinfo="handleGetUserInfo"
-        @launchapp="handleLaunchApp"
-        @opensetting="handleOpenSetting"
-        class="btn"
-        type
-    >
-        <slot></slot>
-    </button>
+		@click="handleClick"
+		@touchstart="click=true"
+		@touchcancel="click=false"
+		@touchend="click=false"
+		class="button">
+		<button
+			:app-parameter="appParameter"
+			:disabled="disabled"
+			:form-type="formType"
+			:hover-stop-propagation="hoverStopPropagation"
+			:lang="lang"
+			:open-type="openType"
+			:session-from="sessionFrom"
+			:send-message-title="sendMessageTitle"
+			:send-message-path="sendMessagePath"
+			:send-message-img="sendMessageImg"
+			:show-message-card="showMessageCard"
+			@contact="handleContact"
+			@error="handleError"
+			@getphonenumber="handleGetPhoneNumber"
+			@getuserinfo="handleGetUserInfo"
+			@launchapp="handleLaunchApp"
+			@opensetting="handleOpenSetting"
+			class="btn"
+		>
+			<slot></slot>
+		</button>
+	</view>
 </template>
 
 <script>
@@ -46,6 +60,7 @@ import rrMixin from '../mixins/rr.js'
 import btnMixin from '../mixins/btn.js'
 
 export default {
+	name: 'uxt-button',
     mixins: [baseMixin, rrMixin, btnMixin],
     props: {
         // 大小 'sm'小 ''普通 'lg'大 'block'块状
@@ -65,6 +80,16 @@ export default {
             type: String
         }
     },
+	inject: {
+		formId: {
+			default: 0
+		}
+	},
+	data() {
+		return {
+			click: false
+		}
+	},
     computed: {
         shadowClass() {
             return this.getColor(this.shadow, 'shadow-').classes
@@ -82,6 +107,16 @@ export default {
     methods: {
         // 点击事件
         handleClick(e) {
+			if (this.formId) {
+				switch (this.formType) {
+					case 'submit':
+						uni.$emit(`formsubmit.${this.formId}`)
+						break
+					case 'reset':
+						uni.$emit(`formreset.${this.formId}`)
+						break
+				}
+			}
             this.$emit('click', e)
         }
     }
@@ -89,53 +124,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn {
+.button {
     position: relative;
-    border: 0rpx;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    border-radius: 0;
-    padding: 0 30rpx;
-    font-size: 28rpx;
-    height: 64rpx;
-    line-height: 1;
-    text-align: center;
-    text-decoration: none;
-    overflow: visible;
-    transform: translate(0rpx, 0rpx);
-    &::before {
-        border-color: inherit;
-    }
-    &::after {
-        display: none;
-    }
-    &.round {
-        border-radius: 10000rpx;
-    }
-    &.radius {
-        border-radius: 10rpx;
-    }
-    &.sm {
+	display: inline-block;
+	.btn {
+		border: 0rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		border-radius: 0;
+		text-align: center;
+		text-decoration: none;
+		line-height: 1;
+		overflow: visible;
+		padding: 0 30rpx;
+		font-size: 28rpx;
+		height: 64rpx;
+		color: inherit;
+		background: none;
+		&::after {
+			display: none;
+		}
+	}
+    &.sm .btn {
         padding: 0 20rpx;
         font-size: 20rpx;
         height: 48rpx;
     }
-    &.lg,
-    &.block {
+    &.lg .btn,
+    &.block .btn {
         padding: 0 40rpx;
         font-size: 32rpx;
         height: 80rpx;
     }
     &.block {
-        display: flex;
+        display: block;
     }
     &[class*='solid'] {
         background-color: transparent !important;
     }
-    &.button-hover {
-        transform: translate(1rpx, 1rpx);
-    }
+	&.click {
+		transform: translate(1rpx, 1rpx);
+	}
 }
 </style>

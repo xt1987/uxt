@@ -93,7 +93,8 @@ export default {
             type: Object,
             default() {
                 return {
-                    type: 'title'
+                    type: 'dot',
+					size: 'sm'
                 }
             }
         },

@@ -1,10 +1,11 @@
 <template>
     <uxt-page :title="title">
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-xx"
+        <uxt-bar
+            classes="margin-top-sm"
             title="深色背景"
-        ></uxt-title-bar>
+			desc="bg-xx"
+        >
+		</uxt-bar>
         <view class="grid col-3 padding-sm">
             <view
                 :key="index"
@@ -17,11 +18,12 @@
                 >{{item}}</view>
             </view>
         </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-light-xx"
+        <uxt-bar
+            classes="margin-top-sm"
             title="浅色背景"
-        ></uxt-title-bar>
+			desc="bg-light-xx"
+        >
+		</uxt-bar>
         <view class="grid col-3 padding-sm">
             <block
                 :key="index"
@@ -38,11 +40,12 @@
                 </view>
             </block>
         </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-gradual-xx"
+        <uxt-bar
+            classes="margin-top-sm"
             title="渐变背景"
-        ></uxt-title-bar>
+			desc="bg-gradual-xx"
+        >
+		</uxt-bar>
         <view class="grid col-2 padding-sm">
             <block
                 :key="index"
@@ -59,20 +62,25 @@
                 </view>
             </block>
         </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="shadow-xx bg-xx"
+        <uxt-bar
+            classes="margin-top-sm"
             title="背景阴影"
-        ></uxt-title-bar>
-        <view class="padding bg-white">
-            <view class="margin-sm padding-sm text-center shadow-green bg-green radius">shadow-green bg-green</view>
-            <view class="margin-sm padding-sm text-center shadow-wrap-blue bg-blue radius">shadow-wrap-blue bg-blue</view>
+			desc="shadow[-wrap]-xx"
+        >
+			<template slot="right">
+				<uxt-radio v-model="shadow" label="shadow" size="sm" val="shadow" type="btn"></uxt-radio>
+				<uxt-radio classes="margin-lr-sm" v-model="shadow" label="shadow-wrap" size="sm" val="shadow-wrap" type="btn"></uxt-radio>
+				<color-selector v-model="shadowColor" :diy="false"></color-selector>
+			</template>
+		</uxt-bar>
+        <view class="padding">
+            <view class="margin-sm padding-sm text-center radius" :class="[`${shadow}-${shadowColor}`, `bg-${shadowColor}`]">{{ `${shadow}-${shadowColor}` }}</view>
         </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-img[ bg-mask]"
+        <uxt-bar
+            classes="margin-top-sm"
+            desc="bg-img[ bg-mask]"
             title="图片背景"
-        ></uxt-title-bar>
+        ></uxt-bar>
         <view
             class="bg-img bg-mask flex align-center"
             style="background-image: url('https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg');height: 414rpx;"
@@ -82,11 +90,11 @@
                 <view class="padding-xs text-lg">Only the guilty need fear me.</view>
             </view>
         </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-video[ bg-mask]"
+        <uxt-bar
+            classes="margin-top-sm"
+            desc="bg-video[ bg-mask]"
             title="视频背景"
-        ></uxt-title-bar>
+        ></uxt-bar>
         <view
             class="bg-video bg-mask flex align-center"
             style="height: 422rpx;"
@@ -105,11 +113,11 @@
                 <cover-view class="padding-xs">我必须连同希望一起毁坏……</cover-view>
             </cover-view>
         </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-shadeTop/bg-shadeBottom"
+        <uxt-bar
+            classes="margin-top-sm"
+            desc="bg-shadeTop/bg-shadeBottom"
             title="透明背景(文字层)"
-        ></uxt-title-bar>
+        ></uxt-bar>
         <view class="grid col-2">
             <view
                 class="bg-img padding-bottom-xl"
@@ -128,15 +136,21 @@
 </template>
 
 <script>
-import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
+import uxtRadio from '@xtcoder/uxt/components/uxt-radio.vue'
+import colorSelector from '@/components/color-selector.vue'
 
 export default {
     components: {
-        uxtTitleBar
+        uxtBar,
+		uxtRadio,
+		colorSelector
     },
     data() {
         return {
             title: '背景',
+			shadow: 'shadow',
+			shadowColor: 'theme',
             colors: [
                 'red',
                 'orange',

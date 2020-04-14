@@ -80,21 +80,21 @@ export default {
     data() {
         return {
             title: '浮动按钮',
-            top: this.gStatusBarHeight + this.gNavBarHeight,
+            top: this.systemInfo.statusBarHeight + this.systemInfo.navBarHeight,
             rpx50: uni.upx2px(50),
             rpx90: uni.upx2px(90),
             btns: [
                 {
                     text: '增',
-                    icon: 'add'
+                    icon: 'plus'
                 },
                 {
                     text: '删',
-                    icon: 'delete'
+                    icon: 'minus'
                 },
                 {
                     text: '改',
-                    icon: 'edit'
+                    icon: 'pencil'
                 },
                 {
                     text: '查',

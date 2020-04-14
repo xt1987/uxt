@@ -6,12 +6,20 @@
     >
         <view class="btn">
             <uxt-button
+				:app-parameter="appParameter"
                 :bg-color="bgColor"
                 :disabled="disabled"
                 :form-type="btns.length > 0 ? '' : formType"
                 :open-type="btns.length > 0 ? '' : openType"
+				:lang="lang"
+				:session-from="sessionFrom"
+				:send-message-title="sendMessageTitle"
+				:send-message-path="sendMessagePath"
+				:send-message-img="sendMessageImg"
                 :shadow="shadow"
+				:show-message-card="showMessageCard"
                 @click="handleClick($event, -1)"
+				@contact="handleContact"
                 @error="handleError"
                 @getphonenumber="handleGetPhoneNumber"
                 @getuserinfo="handleGetUserInfo"
@@ -39,12 +47,20 @@
             v-show="showSub"
         >
             <uxt-button
+				:app-parameter="appParameter"
                 :bg-color="bgColor"
                 :disabled="btn.disabled || false"
-                :form-type="btns.formType || ''"
+                :form-type="btn.formType || ''"
                 :open-type="btn.openType || ''"
+				:lang="lang"
+				:session-from="sessionFrom"
+				:send-message-title="sendMessageTitle"
+				:send-message-path="sendMessagePath"
+				:send-message-img="sendMessageImg"
                 :shadow="shadow"
+				:show-message-card="showMessageCard"
                 @click="handleClick($event, index)"
+				@contact="handleContact"
                 @error="handleError"
                 @getphonenumber="handleGetPhoneNumber"
                 @getuserinfo="handleGetUserInfo"
@@ -108,7 +124,7 @@ export default {
         // 图标
         icon: {
             type: String,
-            default: 'add'
+            default: 'plus'
         },
         // 子按钮 [{ text: '', icon: '', openType: '', formType: '', disabled: false }]
         btns: {

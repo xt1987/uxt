@@ -1,120 +1,122 @@
 <template>
     <uxt-page
-        :back="layout.back"
-        :footer-height="layout.footerHeight"
-        :header-height="layout.headerHeight"
-        :show-side="layout.showSide"
-        :side-position="layout.sidePosition"
+        :back="back"
+        :footer-height="footerHeight"
+        :header-height="headerHeight"
+        :show-side="showSide"
+        :side-position="sidePosition"
         :title="title"
-        @sideclosed="layout.showSide = false"
+		@sideopened="handleSideOpened"
+		@sideclosed="handleSideClosed"
     >
+		<uxt-bar-group title="设置">
+			<uxt-bar
+				title="导航栏"
+			>
+				<template slot="right">
+					<uxt-switch radius checked size="sm" @change="handleChange(!$event, 'headerHeight', 0)"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				desc="需显示导航栏"
+				title="返回按钮"
+			>
+				<template slot="right">
+					<uxt-switch radius size="sm" v-model="back"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="自定义顶部内容"
+			>
+				<template slot="right">
+					<uxt-switch radius size="sm" v-model="header" @change="handleChange($event, 'headerHeight', 150)"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="自定义底部内容"
+			>
+				<template slot="right">
+					<uxt-switch radius size="sm" v-model="footer" @change="handleChange($event, 'footerHeight', 100)"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="侧边栏位置"
+			>
+				<template slot="right">
+					<uxt-radio v-model="sidePosition" label="左" val="left" size="sm" type="btn"></uxt-radio>
+					<uxt-radio classes="margin-left-sm" v-model="sidePosition" label="右" val="right" size="sm" type="btn"></uxt-radio>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="外部关闭侧边栏"
+			>
+				<template slot="right">
+					3秒后关闭：<uxt-switch radius size="sm" v-model="outerCloseSide"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="事件">
+				<template slot="right">
+					<text @click="events = ''">清空</text>
+				</template>
+			</uxt-bar>
+			<view class="padding bg-white" v-html="events" style="height: 200rpx; overflow-y: auto;">
+			</view>
+		</uxt-bar-group>
+        <template slot="header">
+            <view v-if="header" class="bg-green padding" style="height: 150rpx;">自定义的顶部内容，可以换成任何你想要的内容，这些内容一直显示在页面内容的前面</view>
+        </template>
         <template
             slot="footer"
-            v-if="layout.footer"
+            v-if="footer"
         >
             <uxt-tab-bar :items="bottomItems"></uxt-tab-bar>
         </template>
         <template slot="side">
-            <view class="padding-tb-xl">
-                <uxt-cell
-                    right-arrow
+            <view
+				class="padding-tb-xl">
+                <uxt-bar
+                    arrow
                     title="菜单1"
-                ></uxt-cell>
-                <uxt-cell
-                    right-arrow
+                ></uxt-bar>
+                <uxt-bar
+                    arrow
                     title="菜单2"
-                ></uxt-cell>
-                <uxt-cell
-                    right-arrow
+                ></uxt-bar>
+                <uxt-bar
+                    arrow
                     title="菜单3"
-                ></uxt-cell>
+                ></uxt-bar>
             </view>
         </template>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="顶部"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="setLayout({})"
-            right-arrow
-            title="默认"
-        ></uxt-cell>
-        <uxt-cell
-            @click="setLayout({ headerHeight: 0 })"
-            right-arrow
-            title="无导航栏"
-        ></uxt-cell>
-        <uxt-cell
-            @click="setLayout({ back: false })"
-            right-arrow
-            title="无返回按钮"
-        ></uxt-cell>
-        <uxt-cell
-            @click="go('/pages/jichu/page-header')"
-            right-arrow
-            title="自定义顶部内容"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="底部"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="setLayout({ footerHeight: 100, footer: true })"
-            right-arrow
-            title="底部自定义内容"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="侧边栏"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="setLayout({ showSide: true })"
-            right-arrow
-            title="弹出侧边栏"
-        ></uxt-cell>
-        <uxt-cell
-            @click="setLayout({ showSide: true, sidePosition: 'right' })"
-            right-arrow
-            title="右侧弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="setLayout({ showSide: true, autoCloseSide: true })"
-            right-arrow
-            title="3秒后自动关闭"
-        ></uxt-cell>
     </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
-import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtBarGroup from '@xtcoder/uxt/components/uxt-bar-group.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
 import uxtTabBar from '@xtcoder/uxt/components/uxt-tab-bar.vue'
+import uxtRadio from '@xtcoder/uxt/components/uxt-radio.vue'
+import uxtSwitch from '@xtcoder/uxt/components/uxt-switch.vue'
 
 export default {
     components: {
-        uxtTitleBar,
-        uxtCell,
-        uxtTabBar
+        uxtBarGroup,
+        uxtBar,
+        uxtTabBar,
+		uxtRadio,
+		uxtSwitch
     },
     data() {
-        let dfLayout = {
+        return {
+            title: '页面容器',
+			header: false,
             headerHeight: '',
             back: true,
             footerHeight: '',
-            header: false,
             footer: false,
-            side: false,
             showSide: false,
             sidePosition: 'left',
-            autoCloseSide: true
-        }
-        return {
-            title: '页面容器',
-            dfLayout,
-            layout: dfLayout,
+            outerCloseSide: false,
             bottomItems: [
                 {
                     icon: '/static/tabbar/basics_active.png',
@@ -135,30 +137,35 @@ export default {
                     text: '关于',
                     badge: '-'
                 }
-            ]
+            ],
+			tid: 0,
+			events: ''
         }
     },
     methods: {
-        setLayout(opt) {
-            let t = 0
-            if (this.header) {
-                this.layout.header = true
-                t = 10
-            }
-            setTimeout(() => {
-                this.layout = Object.assign({}, this.dfLayout, opt)
-            }, t)
-            if (opt.autoCloseSide === true) {
-                setTimeout(() => {
-                    this.layout.showSide = false
-                }, 3000)
-            }
-        },
-        go(url) {
-            uni.navigateTo({
-                url
-            })
-        }
+		handleChange(check, field, value) {
+			if (check) {
+				this[field] = value
+			} else {
+				this[field] = ''
+			}
+		},
+		handleSideOpened() {
+			this.showSide = true
+			console.log('已触发sideopened事件')
+			this.events += 'sideopened<br />'
+			this.tid && clearTimeout(this.tid)
+			if (this.outerCloseSide) {
+				this.tid = setTimeout(() => {
+                    this.showSide = false
+				}, 3000)
+			}
+		},
+		handleSideClosed() {
+			this.showSide = false
+			console.log('已触发sideclosed事件')
+			this.events += 'sideclosed<br />'
+		}
     }
 }
 </script>

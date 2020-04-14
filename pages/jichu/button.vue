@@ -1,252 +1,145 @@
 <template>
     <uxt-page :title="title">
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="size=sm/lg/block"
-            title="按钮大小"
-        ></uxt-title-bar>
-        <view class="bg-white padding">
-            <uxt-button size="sm">sm</uxt-button>
-            <uxt-button classes="margin-left">默认</uxt-button>
-            <uxt-button
-                classes="margin-left"
-                size="lg"
-            >lg</uxt-button>
-            <uxt-button
-                classes="margin-top"
-                size="block"
-            >block</uxt-button>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="radius/round"
-            title="按钮形状"
-        ></uxt-title-bar>
-        <view class="bg-white padding">
-            <uxt-button>默认</uxt-button>
-            <uxt-button
-                classes="margin-left"
-                radius
-            >radius</uxt-button>
-            <uxt-button
-                classes="margin-left"
-                round
-            >round</uxt-button>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-color=xx/颜色值"
-            title="深色按钮"
-        ></uxt-title-bar>
-        <view class="padding text-center grid col-3">
-            <view
-                :key="color"
-                class="padding-sm"
-                v-for="color in colors"
-            >
-                <uxt-button
-                    :bg-color="color"
-                    size="block"
-                >{{color}}</uxt-button>
-            </view>
-            <view
-                :key="color"
-                class="padding-sm"
-                v-for="color in colors2"
-            >
-                <uxt-button
-                    :bg-color="color"
-                    color="white"
-                    size="block"
-                >{{color}}</uxt-button>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-color=light-xx"
-            title="浅色按钮"
-        ></uxt-title-bar>
-        <view class="padding text-center grid col-3">
-            <block
-                :key="index"
-                v-for="(color, index) in colors"
-            >
-                <view
-                    class="padding-sm"
-                    v-if="index < colors.length - 3"
-                >
-                    <uxt-button
-                        :bg-color="`light-${color}`"
-                        radius
-                        size="block"
-                    >{{color}}</uxt-button>
-                </view>
-            </block>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-color=gradual-xx"
-            title="渐变按钮"
-        ></uxt-title-bar>
-        <view class="padding grid col-3 text-center">
-            <block
-                :key="index"
-                v-for="(color, index) in colors"
-            >
-                <view
-                    class="padding-sm"
-                    v-if="index < colors.length - 3"
-                >
-                    <uxt-button
-                        :bg-color="`gradual-${color}`"
-                        round
-                        size="block"
-                    >{{color}}</uxt-button>
-                </view>
-            </block>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="hollow=xx/颜色值"
-            title="镂空按钮"
-        ></uxt-title-bar>
-        <view class="padding text-center grid col-3">
-            <view class="padding-sm">
-                <uxt-button
-                    hollow="theme"
-                    size="block"
-                >随系统</uxt-button>
-            </view>
-            <view class="padding-sm">
-                <uxt-button
-                    hollow="red"
-                    radius
-                    size="block"
-                >内置</uxt-button>
-            </view>
-            <view class="padding-sm">
-                <uxt-button
-                    hollow="#0f0"
-                    round
-                    size="block"
-                >自定义</uxt-button>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="shadow=xx"
-            title="按钮阴影"
-        ></uxt-title-bar>
-        <view class="padding text-center grid col-3">
-            <view
-                :key="color"
-                class="padding-sm"
-                v-for="color in colors"
-            >
-                <uxt-button
-                    :bg-color="color"
-                    :shadow="color"
-                    radius
-                    size="block"
-                >{{color}}</uxt-button>
-            </view>
-            <view
-                :key="color"
-                class="padding-sm"
-                v-for="color in colors2"
-            >
-                <uxt-button
-                    :bg-color="color"
-                    :shadow="color"
-                    color="white"
-                    radius
-                    size="block"
-                >{{color}}</uxt-button>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="disabled"
-            title="禁用按钮"
-        ></uxt-title-bar>
-        <view class="padding">
-            <uxt-button
-                disabled
-                round
-                size="block"
-            >disabled</uxt-button>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            title="图标按钮"
-        ></uxt-title-bar>
-        <view class="padding bg-white">
-            <uxt-button
-                hollow="orange"
-                size="block"
-            >
-                <uxt-icon type="upload"></uxt-icon>upload
-            </uxt-button>
-            <uxt-button
-                bg-color="blue"
-                classes="margin-top"
-                radius
-                size="block"
-            >
-                <uxt-icon
-                    animation="spin"
-                    type="loading"
-                ></uxt-icon>loading
-            </uxt-button>
-            <uxt-button
-                bg-color="green"
-                classes="margin-top"
-                round
-                size="block"
-            >
-                <uxt-icon
-                    animation="pulse"
-                    type="loading2"
-                ></uxt-icon>loading2
-            </uxt-button>
-        </view>
+		<uxt-bar-group title="设置">
+			<uxt-selector
+				title="大小"
+				desc="size"
+				:items="sizes"
+				v-model="size"
+			></uxt-selector>
+			<uxt-bar title="圆角" desc="radius | round">
+				<template slot="right">
+					<uxt-radio v-model="radius" label="无" size="sm" val="" type="btn"></uxt-radio>
+					<uxt-radio classes="margin-lr-sm" v-model="radius" label="小圆角" size="sm" val="radius" type="btn"></uxt-radio>
+					<uxt-radio v-model="radius" label="大圆角" size="sm" val="round" type="btn"></uxt-radio>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="镂空"
+				desc="hollow=xx/颜色值"
+			>
+				<template slot="right">
+					<color-selector v-model="hollow"></color-selector>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="颜色"
+				desc="bg-color=xx/颜色值"
+			>
+				<template slot="right">
+					<color-selector v-model="bgColor" light gradual @select="hollow=''"></color-selector>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="阴影"
+				desc="shadow=xx/颜色值"
+			>
+				<template slot="right">
+					<color-selector v-model="shadow"></color-selector>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="禁用"
+				desc="disabled"
+			>
+				<template slot="right">
+					<uxt-switch v-model="disabled" radius size="sm"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="图标"
+				desc="disabled"
+			>
+				<template slot="right">
+					<uxt-switch v-model="icon" radius size="sm"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="事件" desc="详情请查看控制台">
+				<template slot="right">
+					<text @click="events = ''">清空</text>
+				</template>
+			</uxt-bar>
+			<view class="padding bg-white" v-html="events" style="height: 200rpx; overflow-y: auto;">
+			</view>
+		</uxt-bar-group>
+		<uxt-bar-group title="展示">
+			<view class="padding bg-white text-center">
+				<uxt-button
+					:size="sizes[size].value"
+					:round="radius==='round'"
+					:radius="radius==='radius'"
+					:hollow="hollow"
+					:bg-color="bgColor"
+					:shadow="shadow"
+					:disabled="disabled"
+					data-a="通过data-协带的数据"
+					@click="handleClick"
+				>
+					<uxt-icon
+						animation="spin"
+						type="loading9"
+						v-if="icon"
+					></uxt-icon>
+					uxt-button
+				</uxt-button>
+			</view>
+		</uxt-bar-group>
     </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtBarGroup from '@xtcoder/uxt/components/uxt-bar-group.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
 import uxtButton from '@xtcoder/uxt/components/uxt-button.vue'
 import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
+import colorSelector from '@/components/color-selector.vue'
+import uxtSelector from '@xtcoder/uxt/components/uxt-selector.vue'
+import uxtRadio from '@xtcoder/uxt/components/uxt-radio.vue'
+import uxtSwitch from '@xtcoder/uxt/components/uxt-switch.vue'
 
 export default {
     components: {
-        uxtTitleBar,
+        uxtBarGroup,
         uxtButton,
-        uxtIcon
+        uxtIcon,
+		uxtBar,
+		colorSelector,
+		uxtSelector,
+		uxtRadio,
+		uxtSwitch
     },
     data() {
         return {
             title: '按钮',
-            colors: [
-                'red',
-                'orange',
-                'yellow',
-                'olive',
-                'green',
-                'cyan',
-                'blue',
-                'purple',
-                'mauve',
-                'pink',
-                'brown',
-                'grey',
-                'gray',
-                'black',
-                'white'
-            ],
-            colors2: ['#ff0000', '#00ff00', '#0000ff']
+			sizes: [{
+				label: '小',
+				value: 'sm'
+			}, {
+				label: '默认',
+				value: ''
+			}, {
+				label: '大',
+				value: 'lg'
+			}, {
+				label: '块状',
+				value: 'block'
+			}],
+			size: 3,
+			radius: '',
+			bgColor: 'theme',
+			hollow: '',
+			shadow: '',
+			disabled: false,
+			icon: false,
+			events: ''
         }
-    }
+    },
+	methods: {
+		handleClick(e) {
+			console.log(e)
+			this.events += `${e.type}<br />dataset: ${JSON.stringify(e.currentTarget.dataset)}<br />`
+		}
+	}
 }
 </script>
 

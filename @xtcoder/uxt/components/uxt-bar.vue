@@ -2,34 +2,47 @@
     <view
         :class="[
 			classes,
+			colorClass,
 			bgColorClass
 		]"
         :style="[
 			styles,
 			{
+				color: colorStyle,
 				backgroundColor: bgColorStyle
 			}
 		]"
         @click="handleClick"
-        class="cell solid-bottom padding"
+        class="bar solid-bottom padding"
     >
         <view class="flex align-center">
-            <view class="flex-sub">
-                <slot name="left"></slot>
+            <view class="flex align-center">
+				<uxt-icon
+					:animation="icon2.animation"
+					:bg-color="icon2.bgColor"
+					:color="icon2.color"
+					:hollow="icon2.hollow"
+					:radius="icon2.radius"
+					:round="icon2.round"
+					:size="icon2.size"
+					:type="icon2.type"
+					v-if="icon2"
+				></uxt-icon>
+				<slot name="left"></slot>
                 {{ title }}
             </view>
-            <view>
-                {{ value }}
+            <view class="flex-sub flex justify-end align-center">
+                {{ content }}
                 <slot name="right"></slot>
                 <uxt-icon
                     classes="margin-left-sm"
-                    type="right"
-                    v-if="url || rightArrow"
+                    type="angle-right"
+                    v-if="url || arrow"
                 ></uxt-icon>
             </view>
         </view>
         <view
-            class="text-grey text-sm"
+            class="text-grey text-sm margin-top-xs"
             v-if="desc"
         >{{ desc }}</view>
     </view>
@@ -37,33 +50,16 @@
 
 <script>
 import baseMixin from '../mixins/base.js'
+import barMixin from '../mixins/bar.js'
 import uxtIcon from './uxt-icon.vue'
 
 export default {
-    mixins: [baseMixin],
+	name: 'uxt-bar',
+    mixins: [baseMixin, barMixin],
     components: {
         uxtIcon
     },
     props: {
-        // 左侧标题
-        title: {
-            type: String,
-            default: ''
-        },
-        // 右侧内容
-        value: {
-            type: String,
-            default: ''
-        },
-        // 下方说明文字
-        desc: {
-            type: String,
-            default: ''
-        },
-        rightArrow: {
-            type: Boolean,
-            default: false
-        },
         // 点击跳转url
         url: {
             type: String
@@ -72,6 +68,19 @@ export default {
             default: 'white'
         }
     },
+	computed: {
+		icon2() {
+			if (!this.icon) {
+				return null
+			}
+			if (typeof this.icon === 'string') {
+				return {
+					type: this.icon
+				}
+			}
+			return this.icon
+		}
+	},
     methods: {
         handleClick(e) {
             this.url &&
@@ -85,7 +94,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .cell {
-
-// }
 </style>

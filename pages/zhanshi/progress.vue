@@ -174,7 +174,7 @@
                     bg-color="theme"
                     class="margin-left-sm"
                     round
-                    type="roundcheck"
+                    type="check-o"
                 ></uxt-icon>
             </view>
             <view class="flex margin-top-sm">

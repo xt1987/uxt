@@ -49,7 +49,7 @@
             <template slot="right">
                 右侧
                 <view class="padding-sm inline-block">
-                    <uxt-icon type="more"></uxt-icon>
+                    <uxt-icon type="ellipsis-x"></uxt-icon>
                 </view>
             </template>
         </uxt-nav-bar>
@@ -61,7 +61,7 @@
             <template slot="right">
                 深圳
                 <view class="padding-xs inline-block">
-                    <uxt-icon type="triangledownfill"></uxt-icon>
+                    <uxt-icon type="caret-down"></uxt-icon>
                 </view>
             </template>
         </uxt-nav-bar>
@@ -74,12 +74,12 @@
                 <uxt-icon
                     classes="margin-right-sm"
                     color="grey"
-                    type="cardboardfill"
+                    type="car-fill"
                 ></uxt-icon>
                 <uxt-icon
                     classes="margin-right-sm"
                     color="red"
-                    type="recordfill"
+                    type="camera-fill"
                 ></uxt-icon>
             </template>
         </uxt-nav-bar>

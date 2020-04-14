@@ -111,11 +111,11 @@
         <view class="bg-white padding">
             <view>
                 <uxt-tag
-                    :capsule="{ type: 'likefill' }"
+                    :capsule="{ type: 'heart-fill' }"
                     classes="margin-right"
                 >12</uxt-tag>
                 <uxt-tag
-                    :capsule="{ type: 'likefill' }"
+                    :capsule="{ type: 'heart-fill' }"
                     bg-color="red"
                     classes="margin-right"
                     radius
@@ -129,12 +129,12 @@
             </view>
             <view class="margin-top">
                 <uxt-tag
-                    :capsule="{ type: 'likefill' }"
+                    :capsule="{ type: 'heart-fill' }"
                     classes="margin-right"
                     size="sm"
                 >12</uxt-tag>
                 <uxt-tag
-                    :capsule="{ type: 'likefill' }"
+                    :capsule="{ type: 'heart-fill' }"
                     bg-color="red"
                     classes="margin-right"
                     radius

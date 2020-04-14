@@ -1,32 +1,32 @@
 <template>
     <uxt-page :title="title">
-        <uxt-cell
+        <uxt-bar
             @click="showDialog({ message: '提示内容', type: 'alert' })"
             classes="margin-top-sm"
             desc="uxtDialog.alert"
-            right-arrow
+            arrow
             title="提示框"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showDialog({ message: '确定要删除该记录吗？', type: 'confirm' })"
             desc="uxtDialog.confirm"
-            right-arrow
+            arrow
             title="确认框"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showDialog({ message: '确定要删除该记录吗？', icon: 'questionfill', type: 'confirm' })"
-            right-arrow
+        ></uxt-bar>
+        <uxt-bar
+            @click="showDialog({ message: '确定要删除该记录吗？', icon: 'question-o', type: 'confirm' })"
+            arrow
             title="带图标"
-        ></uxt-cell>
+        ></uxt-bar>
     </uxt-page>
 </template>
 
 <script>
-import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
 
 export default {
     components: {
-        uxtCell
+        uxtBar
     },
     data() {
         return {

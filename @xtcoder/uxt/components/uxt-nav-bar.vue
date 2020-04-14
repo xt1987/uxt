@@ -18,8 +18,7 @@
                 v-if="back"
             >
                 <uxt-icon
-                    size="lg"
-                    type="back"
+                    type="angle-left"
                 ></uxt-icon>
             </view>
             <slot name="left"></slot>
@@ -56,7 +55,7 @@ export default {
     },
     data() {
         return {
-            navBarHeight: this.gNavBarHeight
+            navBarHeight: this.systemInfo.navBarHeight
         }
     },
     computed: {

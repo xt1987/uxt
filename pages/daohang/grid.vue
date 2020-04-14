@@ -9,7 +9,7 @@
             <uxt-grid-item
                 :key="i"
                 @click="click(i + 1)"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
                 v-for="(item, i) in 4"
             ></uxt-grid-item>
@@ -24,7 +24,7 @@
             <uxt-grid-item
                 :key="i"
                 @click="click(i + 1)"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
                 v-for="(item, i) in 6"
             ></uxt-grid-item>
@@ -42,7 +42,7 @@
             <uxt-grid-item
                 :key="i"
                 @click="click(i + 1)"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
                 v-for="(item, i) in 6"
             ></uxt-grid-item>
@@ -60,7 +60,7 @@
             <uxt-grid-item
                 :key="i"
                 @click="click(i + 1)"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
                 v-for="(item, i) in 3"
             ></uxt-grid-item>
@@ -81,7 +81,7 @@
                 :key="i"
                 @click="click(i + 1)"
                 bg-color="white"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
                 v-for="(item, i) in 6"
             ></uxt-grid-item>
@@ -97,7 +97,7 @@
                 :key="i"
                 @click="click(i + 1)"
 				:badge="`${i + 1}`"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
                 v-for="(item, i) in 4"
             ></uxt-grid-item>
@@ -125,25 +125,25 @@
             <uxt-grid-item
                 @click="click(1)"
                 bg-color="red"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
             ></uxt-grid-item>
             <uxt-grid-item
                 @click="click(2)"
                 bg-color="green"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
             ></uxt-grid-item>
             <uxt-grid-item
                 @click="click(3)"
                 bg-color="blue"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
             ></uxt-grid-item>
             <uxt-grid-item
                 @click="click(4)"
                 bg-color="yellow"
-                icon="pic"
+                icon="image-fill"
                 text="文字"
             ></uxt-grid-item>
         </uxt-grid>

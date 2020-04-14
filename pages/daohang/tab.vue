@@ -84,19 +84,19 @@ export default {
             tabs: [
                 {
                     icon: {
-                        type: 'camerafill'
+                        type: 'camera-fill'
                     },
                     text: '数码'
                 },
                 {
                     icon: {
-                        type: 'upstagefill'
+                        type: 'sort-number-asc'
                     },
                     text: '排行榜'
                 },
                 {
                     icon: {
-                        type: 'clothesfill'
+                        type: 'star-fill'
                     },
                     text: '皮肤'
                 }

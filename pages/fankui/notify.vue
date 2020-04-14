@@ -1,63 +1,63 @@
 <template>
     <uxt-page :title="title">
-        <uxt-cell
+        <uxt-bar
             @click="showNotify({ message: '主要通知', type: 'primary' })"
             classes="margin-top-sm"
             desc="type=primary"
-            right-arrow
+            arrow
             title="主要通知"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showNotify({ message: '成功消息', type: 'success' })"
             desc="type=success"
-            right-arrow
+            arrow
             title="成功消息"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showNotify({ message: '警告消息', type: 'warn' })"
             desc="type=warn"
-            right-arrow
+            arrow
             title="警告消息"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showNotify({ message: '危险消息', type: 'danger' })"
             desc="type=danger"
-            right-arrow
+            arrow
             title="危险消息"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showNotify({ message: '自定义颜色', bgColor: 'light-green' })"
             desc="bgColor=xx"
-            right-arrow
+            arrow
             title="自定义颜色"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showNotify({ message: '5秒后关闭', type: 'warn', duration: 5000 })"
             desc="duration=xx"
-            right-arrow
+            arrow
             title="自定义时长"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showNotify({ message: '自定义图标', type: 'success', icon: 'emoji' })"
+        ></uxt-bar>
+        <uxt-bar
+            @click="showNotify({ message: '自定义图标', type: 'success', icon: 'bq-weixiao' })"
             desc="icon=xx"
-            right-arrow
+            arrow
             title="自定义图标"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showNotify({ message: '点击消息关闭', close: true, duration: 0 })"
             desc="notify.click=func + notify.close()"
-            right-arrow
+            arrow
             title="外部点击关闭"
-        ></uxt-cell>
+        ></uxt-bar>
     </uxt-page>
 </template>
 
 <script>
-import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
 
 export default {
     components: {
-        uxtCell
+        uxtBar
     },
     data() {
         return {

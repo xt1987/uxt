@@ -44,6 +44,7 @@
                     :disabled="disabled"
                     :focus="focus"
                     :maxlength="maxlength"
+					:name="name"
                     :placeholder="inputPlaceholder"
                     :selection-end="selection[1]"
                     :selection-start="selection[0]"
@@ -56,7 +57,7 @@
                 <uxt-icon
                     @click="handleClear"
                     color="grey"
-                    type="roundclosefill"
+                    type="close-o-fill"
                     v-if="clearable && !disabled && val !== ''"
                 ></uxt-icon>
                 <uxt-icon
@@ -103,7 +104,7 @@
                     <block v-else>{{rangeKey ? range[value][rangeKey] : range[value]}}</block>
                     <uxt-icon
                         classes="margin-left-sm"
-                        type="right"
+                        type="angle-right"
                     ></uxt-icon>
                 </picker>
             </block>
@@ -126,7 +127,7 @@
                     <block v-else>{{multiSelectorText}}</block>
                     <uxt-icon
                         classes="margin-left-sm"
-                        type="right"
+                        type="angle-right"
                     ></uxt-icon>
                 </picker>
             </block>
@@ -149,7 +150,7 @@
                     <block v-else>{{val}}</block>
                     <uxt-icon
                         classes="margin-left-sm"
-                        type="right"
+                        type="angle-right"
                     ></uxt-icon>
                 </picker>
             </block>
@@ -166,7 +167,7 @@
                     <block v-else>{{multiCheckText}}</block>
                     <uxt-icon
                         classes="margin-left-sm"
-                        type="right"
+                        type="angle-right"
                     ></uxt-icon>
                 </view>
                 <uxt-modal
@@ -197,7 +198,7 @@
                         >
                             {{rangeKey ? item[rangeKey] : item}}
                             <uxt-checkbox
-                                :values="valueKey ? item[valueKey] : (rangeKey ? item[rangeKey] : item)"
+                                :val="valueKey ? item[valueKey] : (rangeKey ? item[rangeKey] : item)"
                                 v-model="val"
                             ></uxt-checkbox>
                         </view>
@@ -228,6 +229,9 @@ export default {
         uxtCheckbox
     },
     props: {
+		name: {
+			type: String
+		},
         // 方向 row/col
         direction: {
             type: String,
@@ -315,7 +319,7 @@ export default {
     data() {
         return {
             val: this.getVal(this.value),
-            passIcon: 'attentionfill',
+            passIcon: 'eye',
             password: this.type === 'password',
             multiSelectorRange:
                 this.type === 'multiSelector'
@@ -366,6 +370,9 @@ export default {
                 : this.placeholder
         }
     },
+	inject: {
+		formId: { default: 0 }
+	},
     methods: {
         // 输入处理事件
         handleInput(e) {
@@ -380,9 +387,9 @@ export default {
         handleSwitchPass() {
             this.password = !this.password
             if (this.password) {
-                this.passIcon = 'attentionfill'
+                this.passIcon = 'eye'
             } else {
-                this.passIcon = 'attentionforbidfill'
+                this.passIcon = 'eye-slash'
             }
         },
         // 根据不同type设置初始值
@@ -517,10 +524,10 @@ export default {
         }
     },
     watch: {
-        value(newVal) {
+        value(newVal, oldVal) {
             this.val = this.getVal(newVal)
         },
-        range(newVal) {
+        range(newVal, oldVal) {
             if (this.type === 'multiSelector') {
                 this.multiSelectorRange = this.getMultiSelectorRange(
                     newVal

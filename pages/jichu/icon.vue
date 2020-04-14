@@ -1,1497 +1,903 @@
 <template>
-    <uxt-page :title="title">
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="type=xx"
-            title="图标列表"
-        ></uxt-title-bar>
-        <view class="bg-white solid-bottom padding">
-            <uxt-input-box
-                @input="searchIcon"
-                round
-                size="lg"
-            >
-                <template slot="left">
-                    <uxt-icon
-                        classes="margin-left-xs"
-                        type="search"
-                    ></uxt-icon>
-                </template>
-            </uxt-input-box>
-        </view>
-        <view class="grid col-3 bg-white">
-            <block
-                :key="index"
-                v-for="(icon, index) in icons"
-            >
-                <view
-                    class="padding text-center solid-right solid-bottom"
-                    v-show="icon.isShow"
-                >
-                    <uxt-icon
-                        :type="icon.name"
-                        size="xxl"
-                    ></uxt-icon>
-                    <view>{{icon.name}}</view>
-                </view>
-            </block>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="size=xx/大小值"
-            title="图标大小"
-        ></uxt-title-bar>
-        <view class="grid col-3 bg-white">
-            <view
-                :key="index"
-                class="padding text-center solid-right solid-bottom"
-                v-for="(size, index) in sizes"
-            >
-                <uxt-icon
-                    :size="size"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>{{size}}</view>
-            </view>
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    :size="40"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>40</view>
-            </view>
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    size="40rpx"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>40rpx</view>
-            </view>
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    size="20px"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>20px</view>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="color=xx/颜色值"
-            title="图标颜色"
-        ></uxt-title-bar>
-        <view class="grid col-3">
-            <view
-                :key="color"
-                class="padding text-center solid-right solid-bottom"
-                v-for="color in colors"
-            >
-                <uxt-icon
-                    :color="color"
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view :class="[`text-${color}`]">{{color}}</view>
-            </view>
-            <view
-                :key="color"
-                class="padding text-center solid-right solid-bottom"
-                v-for="color in colors2"
-            >
-                <uxt-icon
-                    :color="color"
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view :style="{color: color}">{{color}}</view>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-color=xx/颜色值"
-            title="深色背景图标"
-        ></uxt-title-bar>
-        <view class="grid col-3">
-            <view
-                :key="color"
-                class="padding text-center solid-right solid-bottom"
-                v-for="color in colors"
-            >
-                <uxt-icon
-                    :bg-color="color"
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view :class="[`text-${color}`]">{{color}}</view>
-            </view>
-            <view
-                :key="color"
-                class="padding text-center solid-right solid-bottom"
-                v-for="color in colors2"
-            >
-                <uxt-icon
-                    :bg-color="color"
-                    color="#ffffff"
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view :style="{color: color}">{{color}}</view>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="bg-color=light-xx"
-            title="浅色背景图标"
-        ></uxt-title-bar>
-        <view class="grid col-3">
-            <block
-                :key="index"
-                v-for="(color, index) in colors"
-            >
-                <view
-                    class="padding text-center solid-right solid-bottom"
-                    v-if="index < colors.length - 3"
-                >
-                    <uxt-icon
-                        :bg-color="`light-${color}`"
-                        size="xxl"
-                        type="appreciate"
-                    ></uxt-icon>
-                    <view :class="[`text-${color}`]">{{color}}</view>
-                </view>
-            </block>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="radius/round"
-            title="图标形状"
-        ></uxt-title-bar>
-        <view class="bg-white grid col-3">
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    bg-color="theme"
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>默认</view>
-            </view>
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    bg-color="theme"
-                    radius
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>radius</view>
-            </view>
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    bg-color="theme"
-                    round
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>round</view>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="hollow=xx/颜色值"
-            title="镂空图标"
-        ></uxt-title-bar>
-        <view class="bg-white grid col-3">
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    hollow="theme"
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>随系统</view>
-            </view>
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    hollow="red"
-                    radius
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>内置</view>
-            </view>
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    hollow="#0f0"
-                    round
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>自定义</view>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="animation=spin/pulse"
-            title="图标动画"
-        ></uxt-title-bar>
-        <view class="bg-white grid col-3">
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    animation="spin"
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>spin</view>
-            </view>
-            <view class="padding text-center solid-right solid-bottom">
-                <uxt-icon
-                    animation="pulse"
-                    size="xxl"
-                    type="appreciate"
-                ></uxt-icon>
-                <view>pulse</view>
-            </view>
-        </view>
-    </uxt-page>
+	<uxt-page :title="title">
+		<uxt-bar-group title="设置">
+			<uxt-selector
+				title="大小"
+				desc="size=xx/大小值"
+				:items="sizes"
+				v-model="size"
+			></uxt-selector>
+			<uxt-bar
+				title="颜色"
+				desc="color=xx/颜色值"
+			>
+				<template slot="right">
+					<color-selector v-model="color" @select="handleColorSelect"></color-selector>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="镂空"
+				desc="hollow=xx/颜色值"
+			>
+				<template slot="right">
+					<color-selector v-model="hollow"></color-selector>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="背景"
+				desc="bg-color=xx/颜色值"
+			>
+				<template slot="right">
+					<color-selector v-model="bgColor" light gradual @select="handleBgColorSelect"></color-selector>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="圆角" desc="radius | round(需配合镂空/背景才有效果)">
+				<template slot="right">
+					<uxt-radio v-model="radius" label="无" size="sm" val="" type="btn"></uxt-radio>
+					<uxt-radio classes="margin-lr-sm" v-model="radius" label="小圆角" size="sm" val="radius" type="btn"></uxt-radio>
+					<uxt-radio v-model="radius" label="大圆角" size="sm" val="round" type="btn"></uxt-radio>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="动画" desc="animation=xx">
+				<template slot="right">
+					<uxt-radio v-model="ani" label="无" size="sm" val="" type="btn"></uxt-radio>
+					<uxt-radio classes="margin-lr-sm" v-model="ani" label="spin" size="sm" val="spin" type="btn"></uxt-radio>
+					<uxt-radio v-model="ani" label="pulse" size="sm" val="pulse" type="btn"></uxt-radio>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="事件" desc="详情请查看控制台">
+				<template slot="right">
+					<text @click="events = ''">清空</text>
+				</template>
+			</uxt-bar>
+			<view class="padding bg-white" v-html="events" style="height: 200rpx; overflow-y: auto;">
+			</view>
+		</uxt-bar-group>
+		<uxt-bar-group title="展示">
+			<view class="padding bg-white text-center">
+				<uxt-icon
+					type="loading2"
+					:size="sizes[size]"
+					:hollow="hollow"
+					:bg-color="bgColor"
+					:color="color"
+					:round="radius==='round'"
+					:radius="radius==='radius'"
+					:animation="ani"
+					data-a="通过data-协带的数据"
+					@click="handleClick"
+				></uxt-icon>
+			</view>
+		</uxt-bar-group>
+		<view class="bg-white margin-top-sm solid-bottom padding">
+			<uxt-input-box @input="searchIcon" round size="lg">
+				<template slot="left">
+					<uxt-icon classes="margin-left-xs" type="search"></uxt-icon>
+				</template>
+			</uxt-input-box>
+		</view>
+		<view class="grid col-3 bg-white">
+			<block :key="index" v-for="(icon, index) in icons">
+				<view class="padding text-center solid-right solid-bottom" v-show="icon.isShow" @click="copy(icon.name)">
+					<uxt-icon :type="icon.name" size="xxl"></uxt-icon>
+					<view class="text-cut">{{ icon.name }}</view>
+				</view>
+			</block>
+		</view>
+	</uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtBarGroup from '@xtcoder/uxt/components/uxt-bar-group.vue'
 import uxtInputBox from '@xtcoder/uxt/components/uxt-input-box.vue'
 import uxtIcon from '@xtcoder/uxt/components/uxt-icon.vue'
+import colorSelector from '@/components/color-selector.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
+import uxtSelector from '@xtcoder/uxt/components/uxt-selector.vue'
+import uxtRadio from '@xtcoder/uxt/components/uxt-radio.vue'
 
 export default {
-    components: {
-        uxtTitleBar,
-        uxtInputBox,
-        uxtIcon
-    },
-    data() {
-        return {
-            title: '图标',
-            sizes: ['xsl', 'sl', 'xxl', 'xl', 'lg', 'df', 'sm', 'xs'],
-            colors: [
-                'red',
-                'orange',
-                'yellow',
-                'olive',
-                'green',
-                'cyan',
-                'blue',
-                'purple',
-                'mauve',
-                'pink',
-                'brown',
-                'grey',
-                'gray',
-                'black',
-                'white'
-            ],
-            colors2: ['#ff0000', '#00ff00', '#0000ff'],
-            icons: [
-                {
-                    name: 'appreciate',
-                    isShow: true
-                },
-                {
-                    name: 'check',
-                    isShow: true
-                },
-                {
-                    name: 'close',
-                    isShow: true
-                },
-                {
-                    name: 'edit',
-                    isShow: true
-                },
-                {
-                    name: 'emoji',
-                    isShow: true
-                },
-                {
-                    name: 'favorfill',
-                    isShow: true
-                },
-                {
-                    name: 'favor',
-                    isShow: true
-                },
-                {
-                    name: 'loading',
-                    isShow: true
-                },
-                {
-                    name: 'locationfill',
-                    isShow: true
-                },
-                {
-                    name: 'location',
-                    isShow: true
-                },
-                {
-                    name: 'phone',
-                    isShow: true
-                },
-                {
-                    name: 'roundcheckfill',
-                    isShow: true
-                },
-                {
-                    name: 'roundcheck',
-                    isShow: true
-                },
-                {
-                    name: 'roundclosefill',
-                    isShow: true
-                },
-                {
-                    name: 'roundclose',
-                    isShow: true
-                },
-                {
-                    name: 'roundrightfill',
-                    isShow: true
-                },
-                {
-                    name: 'roundright',
-                    isShow: true
-                },
-                {
-                    name: 'search',
-                    isShow: true
-                },
-                {
-                    name: 'taxi',
-                    isShow: true
-                },
-                {
-                    name: 'timefill',
-                    isShow: true
-                },
-                {
-                    name: 'time',
-                    isShow: true
-                },
-                {
-                    name: 'unfold',
-                    isShow: true
-                },
-                {
-                    name: 'warnfill',
-                    isShow: true
-                },
-                {
-                    name: 'warn',
-                    isShow: true
-                },
-                {
-                    name: 'camerafill',
-                    isShow: true
-                },
-                {
-                    name: 'camera',
-                    isShow: true
-                },
-                {
-                    name: 'commentfill',
-                    isShow: true
-                },
-                {
-                    name: 'comment',
-                    isShow: true
-                },
-                {
-                    name: 'likefill',
-                    isShow: true
-                },
-                {
-                    name: 'like',
-                    isShow: true
-                },
-                {
-                    name: 'notificationfill',
-                    isShow: true
-                },
-                {
-                    name: 'notification',
-                    isShow: true
-                },
-                {
-                    name: 'order',
-                    isShow: true
-                },
-                {
-                    name: 'samefill',
-                    isShow: true
-                },
-                {
-                    name: 'same',
-                    isShow: true
-                },
-                {
-                    name: 'deliver',
-                    isShow: true
-                },
-                {
-                    name: 'evaluate',
-                    isShow: true
-                },
-                {
-                    name: 'pay',
-                    isShow: true
-                },
-                {
-                    name: 'send',
-                    isShow: true
-                },
-                {
-                    name: 'shop',
-                    isShow: true
-                },
-                {
-                    name: 'ticket',
-                    isShow: true
-                },
-                {
-                    name: 'back',
-                    isShow: true
-                },
-                {
-                    name: 'cascades',
-                    isShow: true
-                },
-                {
-                    name: 'discover',
-                    isShow: true
-                },
-                {
-                    name: 'list',
-                    isShow: true
-                },
-                {
-                    name: 'more',
-                    isShow: true
-                },
-                {
-                    name: 'scan',
-                    isShow: true
-                },
-                {
-                    name: 'settings',
-                    isShow: true
-                },
-                {
-                    name: 'questionfill',
-                    isShow: true
-                },
-                {
-                    name: 'question',
-                    isShow: true
-                },
-                {
-                    name: 'shopfill',
-                    isShow: true
-                },
-                {
-                    name: 'form',
-                    isShow: true
-                },
-                {
-                    name: 'pic',
-                    isShow: true
-                },
-                {
-                    name: 'filter',
-                    isShow: true
-                },
-                {
-                    name: 'footprint',
-                    isShow: true
-                },
-                {
-                    name: 'top',
-                    isShow: true
-                },
-                {
-                    name: 'pulldown',
-                    isShow: true
-                },
-                {
-                    name: 'pullup',
-                    isShow: true
-                },
-                {
-                    name: 'right',
-                    isShow: true
-                },
-                {
-                    name: 'refresh',
-                    isShow: true
-                },
-                {
-                    name: 'moreandroid',
-                    isShow: true
-                },
-                {
-                    name: 'deletefill',
-                    isShow: true
-                },
-                {
-                    name: 'refund',
-                    isShow: true
-                },
-                {
-                    name: 'cart',
-                    isShow: true
-                },
-                {
-                    name: 'qrcode',
-                    isShow: true
-                },
-                {
-                    name: 'remind',
-                    isShow: true
-                },
-                {
-                    name: 'delete',
-                    isShow: true
-                },
-                {
-                    name: 'profile',
-                    isShow: true
-                },
-                {
-                    name: 'home',
-                    isShow: true
-                },
-                {
-                    name: 'cartfill',
-                    isShow: true
-                },
-                {
-                    name: 'discoverfill',
-                    isShow: true
-                },
-                {
-                    name: 'homefill',
-                    isShow: true
-                },
-                {
-                    name: 'message',
-                    isShow: true
-                },
-                {
-                    name: 'addressbook',
-                    isShow: true
-                },
-                {
-                    name: 'link',
-                    isShow: true
-                },
-                {
-                    name: 'lock',
-                    isShow: true
-                },
-                {
-                    name: 'unlock',
-                    isShow: true
-                },
-                {
-                    name: 'vip',
-                    isShow: true
-                },
-                {
-                    name: 'weibo',
-                    isShow: true
-                },
-                {
-                    name: 'activity',
-                    isShow: true
-                },
-                {
-                    name: 'friendaddfill',
-                    isShow: true
-                },
-                {
-                    name: 'friendadd',
-                    isShow: true
-                },
-                {
-                    name: 'friendfamous',
-                    isShow: true
-                },
-                {
-                    name: 'friend',
-                    isShow: true
-                },
-                {
-                    name: 'goods',
-                    isShow: true
-                },
-                {
-                    name: 'selection',
-                    isShow: true
-                },
-                {
-                    name: 'explore',
-                    isShow: true
-                },
-                {
-                    name: 'present',
-                    isShow: true
-                },
-                {
-                    name: 'squarecheckfill',
-                    isShow: true
-                },
-                {
-                    name: 'square',
-                    isShow: true
-                },
-                {
-                    name: 'squarecheck',
-                    isShow: true
-                },
-                {
-                    name: 'round',
-                    isShow: true
-                },
-                {
-                    name: 'roundaddfill',
-                    isShow: true
-                },
-                {
-                    name: 'roundadd',
-                    isShow: true
-                },
-                {
-                    name: 'add',
-                    isShow: true
-                },
-                {
-                    name: 'notificationforbidfill',
-                    isShow: true
-                },
-                {
-                    name: 'explorefill',
-                    isShow: true
-                },
-                {
-                    name: 'fold',
-                    isShow: true
-                },
-                {
-                    name: 'game',
-                    isShow: true
-                },
-                {
-                    name: 'redpacket',
-                    isShow: true
-                },
-                {
-                    name: 'selectionfill',
-                    isShow: true
-                },
-                {
-                    name: 'similar',
-                    isShow: true
-                },
-                {
-                    name: 'appreciatefill',
-                    isShow: true
-                },
-                {
-                    name: 'infofill',
-                    isShow: true
-                },
-                {
-                    name: 'info',
-                    isShow: true
-                },
-                {
-                    name: 'forwardfill',
-                    isShow: true
-                },
-                {
-                    name: 'forward',
-                    isShow: true
-                },
-                {
-                    name: 'rechargefill',
-                    isShow: true
-                },
-                {
-                    name: 'recharge',
-                    isShow: true
-                },
-                {
-                    name: 'vipcard',
-                    isShow: true
-                },
-                {
-                    name: 'voice',
-                    isShow: true
-                },
-                {
-                    name: 'voicefill',
-                    isShow: true
-                },
-                {
-                    name: 'friendfavor',
-                    isShow: true
-                },
-                {
-                    name: 'wifi',
-                    isShow: true
-                },
-                {
-                    name: 'share',
-                    isShow: true
-                },
-                {
-                    name: 'wefill',
-                    isShow: true
-                },
-                {
-                    name: 'we',
-                    isShow: true
-                },
-                {
-                    name: 'lightauto',
-                    isShow: true
-                },
-                {
-                    name: 'lightforbid',
-                    isShow: true
-                },
-                {
-                    name: 'lightfill',
-                    isShow: true
-                },
-                {
-                    name: 'camerarotate',
-                    isShow: true
-                },
-                {
-                    name: 'light',
-                    isShow: true
-                },
-                {
-                    name: 'barcode',
-                    isShow: true
-                },
-                {
-                    name: 'flashlightclose',
-                    isShow: true
-                },
-                {
-                    name: 'flashlightopen',
-                    isShow: true
-                },
-                {
-                    name: 'searchlist',
-                    isShow: true
-                },
-                {
-                    name: 'service',
-                    isShow: true
-                },
-                {
-                    name: 'sort',
-                    isShow: true
-                },
-                {
-                    name: 'down',
-                    isShow: true
-                },
-                {
-                    name: 'mobile',
-                    isShow: true
-                },
-                {
-                    name: 'mobilefill',
-                    isShow: true
-                },
-                {
-                    name: 'copy',
-                    isShow: true
-                },
-                {
-                    name: 'countdownfill',
-                    isShow: true
-                },
-                {
-                    name: 'countdown',
-                    isShow: true
-                },
-                {
-                    name: 'noticefill',
-                    isShow: true
-                },
-                {
-                    name: 'notice',
-                    isShow: true
-                },
-                {
-                    name: 'upstagefill',
-                    isShow: true
-                },
-                {
-                    name: 'upstage',
-                    isShow: true
-                },
-                {
-                    name: 'babyfill',
-                    isShow: true
-                },
-                {
-                    name: 'baby',
-                    isShow: true
-                },
-                {
-                    name: 'brandfill',
-                    isShow: true
-                },
-                {
-                    name: 'brand',
-                    isShow: true
-                },
-                {
-                    name: 'choicenessfill',
-                    isShow: true
-                },
-                {
-                    name: 'choiceness',
-                    isShow: true
-                },
-                {
-                    name: 'clothesfill',
-                    isShow: true
-                },
-                {
-                    name: 'clothes',
-                    isShow: true
-                },
-                {
-                    name: 'creativefill',
-                    isShow: true
-                },
-                {
-                    name: 'creative',
-                    isShow: true
-                },
-                {
-                    name: 'female',
-                    isShow: true
-                },
-                {
-                    name: 'keyboard',
-                    isShow: true
-                },
-                {
-                    name: 'male',
-                    isShow: true
-                },
-                {
-                    name: 'newfill',
-                    isShow: true
-                },
-                {
-                    name: 'new',
-                    isShow: true
-                },
-                {
-                    name: 'pullleft',
-                    isShow: true
-                },
-                {
-                    name: 'pullright',
-                    isShow: true
-                },
-                {
-                    name: 'rankfill',
-                    isShow: true
-                },
-                {
-                    name: 'rank',
-                    isShow: true
-                },
-                {
-                    name: 'bad',
-                    isShow: true
-                },
-                {
-                    name: 'cameraadd',
-                    isShow: true
-                },
-                {
-                    name: 'focus',
-                    isShow: true
-                },
-                {
-                    name: 'friendfill',
-                    isShow: true
-                },
-                {
-                    name: 'cameraaddfill',
-                    isShow: true
-                },
-                {
-                    name: 'apps',
-                    isShow: true
-                },
-                {
-                    name: 'paintfill',
-                    isShow: true
-                },
-                {
-                    name: 'paint',
-                    isShow: true
-                },
-                {
-                    name: 'picfill',
-                    isShow: true
-                },
-                {
-                    name: 'refresharrow',
-                    isShow: true
-                },
-                {
-                    name: 'colorlens',
-                    isShow: true
-                },
-                {
-                    name: 'markfill',
-                    isShow: true
-                },
-                {
-                    name: 'mark',
-                    isShow: true
-                },
-                {
-                    name: 'presentfill',
-                    isShow: true
-                },
-                {
-                    name: 'repeal',
-                    isShow: true
-                },
-                {
-                    name: 'album',
-                    isShow: true
-                },
-                {
-                    name: 'peoplefill',
-                    isShow: true
-                },
-                {
-                    name: 'people',
-                    isShow: true
-                },
-                {
-                    name: 'servicefill',
-                    isShow: true
-                },
-                {
-                    name: 'repair',
-                    isShow: true
-                },
-                {
-                    name: 'file',
-                    isShow: true
-                },
-                {
-                    name: 'repairfill',
-                    isShow: true
-                },
-                {
-                    name: 'taoxiaopu',
-                    isShow: true
-                },
-                {
-                    name: 'weixin',
-                    isShow: true
-                },
-                {
-                    name: 'attentionfill',
-                    isShow: true
-                },
-                {
-                    name: 'attention',
-                    isShow: true
-                },
-                {
-                    name: 'commandfill',
-                    isShow: true
-                },
-                {
-                    name: 'command',
-                    isShow: true
-                },
-                {
-                    name: 'communityfill',
-                    isShow: true
-                },
-                {
-                    name: 'community',
-                    isShow: true
-                },
-                {
-                    name: 'read',
-                    isShow: true
-                },
-                {
-                    name: 'calendar',
-                    isShow: true
-                },
-                {
-                    name: 'cut',
-                    isShow: true
-                },
-                {
-                    name: 'magic',
-                    isShow: true
-                },
-                {
-                    name: 'backwardfill',
-                    isShow: true
-                },
-                {
-                    name: 'playfill',
-                    isShow: true
-                },
-                {
-                    name: 'stop',
-                    isShow: true
-                },
-                {
-                    name: 'tagfill',
-                    isShow: true
-                },
-                {
-                    name: 'tag',
-                    isShow: true
-                },
-                {
-                    name: 'group',
-                    isShow: true
-                },
-                {
-                    name: 'all',
-                    isShow: true
-                },
-                {
-                    name: 'backdelete',
-                    isShow: true
-                },
-                {
-                    name: 'hotfill',
-                    isShow: true
-                },
-                {
-                    name: 'hot',
-                    isShow: true
-                },
-                {
-                    name: 'post',
-                    isShow: true
-                },
-                {
-                    name: 'radiobox',
-                    isShow: true
-                },
-                {
-                    name: 'rounddown',
-                    isShow: true
-                },
-                {
-                    name: 'upload',
-                    isShow: true
-                },
-                {
-                    name: 'writefill',
-                    isShow: true
-                },
-                {
-                    name: 'write',
-                    isShow: true
-                },
-                {
-                    name: 'radioboxfill',
-                    isShow: true
-                },
-                {
-                    name: 'punch',
-                    isShow: true
-                },
-                {
-                    name: 'shake',
-                    isShow: true
-                },
-                {
-                    name: 'move',
-                    isShow: true
-                },
-                {
-                    name: 'safe',
-                    isShow: true
-                },
-                {
-                    name: 'activityfill',
-                    isShow: true
-                },
-                {
-                    name: 'crownfill',
-                    isShow: true
-                },
-                {
-                    name: 'crown',
-                    isShow: true
-                },
-                {
-                    name: 'goodsfill',
-                    isShow: true
-                },
-                {
-                    name: 'messagefill',
-                    isShow: true
-                },
-                {
-                    name: 'profilefill',
-                    isShow: true
-                },
-                {
-                    name: 'sound',
-                    isShow: true
-                },
-                {
-                    name: 'sponsorfill',
-                    isShow: true
-                },
-                {
-                    name: 'sponsor',
-                    isShow: true
-                },
-                {
-                    name: 'upblock',
-                    isShow: true
-                },
-                {
-                    name: 'weblock',
-                    isShow: true
-                },
-                {
-                    name: 'weunblock',
-                    isShow: true
-                },
-                {
-                    name: 'my',
-                    isShow: true
-                },
-                {
-                    name: 'myfill',
-                    isShow: true
-                },
-                {
-                    name: 'emojifill',
-                    isShow: true
-                },
-                {
-                    name: 'emojiflashfill',
-                    isShow: true
-                },
-                {
-                    name: 'flashbuyfill',
-                    isShow: true
-                },
-                {
-                    name: 'text',
-                    isShow: true
-                },
-                {
-                    name: 'goodsfavor',
-                    isShow: true
-                },
-                {
-                    name: 'musicfill',
-                    isShow: true
-                },
-                {
-                    name: 'musicforbidfill',
-                    isShow: true
-                },
-                {
-                    name: 'card',
-                    isShow: true
-                },
-                {
-                    name: 'triangledownfill',
-                    isShow: true
-                },
-                {
-                    name: 'triangleupfill',
-                    isShow: true
-                },
-                {
-                    name: 'roundleftfill-copy',
-                    isShow: true
-                },
-                {
-                    name: 'font',
-                    isShow: true
-                },
-                {
-                    name: 'title',
-                    isShow: true
-                },
-                {
-                    name: 'recordfill',
-                    isShow: true
-                },
-                {
-                    name: 'record',
-                    isShow: true
-                },
-                {
-                    name: 'cardboardfill',
-                    isShow: true
-                },
-                {
-                    name: 'cardboard',
-                    isShow: true
-                },
-                {
-                    name: 'formfill',
-                    isShow: true
-                },
-                {
-                    name: 'coin',
-                    isShow: true
-                },
-                {
-                    name: 'cardboardforbid',
-                    isShow: true
-                },
-                {
-                    name: 'circlefill',
-                    isShow: true
-                },
-                {
-                    name: 'circle',
-                    isShow: true
-                },
-                {
-                    name: 'attentionforbid',
-                    isShow: true
-                },
-                {
-                    name: 'attentionforbidfill',
-                    isShow: true
-                },
-                {
-                    name: 'attentionfavorfill',
-                    isShow: true
-                },
-                {
-                    name: 'attentionfavor',
-                    isShow: true
-                },
-                {
-                    name: 'titles',
-                    isShow: true
-                },
-                {
-                    name: 'icloading',
-                    isShow: true
-                },
-                {
-                    name: 'full',
-                    isShow: true
-                },
-                {
-                    name: 'mail',
-                    isShow: true
-                },
-                {
-                    name: 'peoplelist',
-                    isShow: true
-                },
-                {
-                    name: 'goodsnewfill',
-                    isShow: true
-                },
-                {
-                    name: 'goodsnew',
-                    isShow: true
-                },
-                {
-                    name: 'medalfill',
-                    isShow: true
-                },
-                {
-                    name: 'medal',
-                    isShow: true
-                },
-                {
-                    name: 'newsfill',
-                    isShow: true
-                },
-                {
-                    name: 'newshotfill',
-                    isShow: true
-                },
-                {
-                    name: 'newshot',
-                    isShow: true
-                },
-                {
-                    name: 'news',
-                    isShow: true
-                },
-                {
-                    name: 'videofill',
-                    isShow: true
-                },
-                {
-                    name: 'video',
-                    isShow: true
-                },
-                {
-                    name: 'exit',
-                    isShow: true
-                },
-                {
-                    name: 'skinfill',
-                    isShow: true
-                },
-                {
-                    name: 'skin',
-                    isShow: true
-                },
-                {
-                    name: 'moneybagfill',
-                    isShow: true
-                },
-                {
-                    name: 'usefullfill',
-                    isShow: true
-                },
-                {
-                    name: 'usefull',
-                    isShow: true
-                },
-                {
-                    name: 'moneybag',
-                    isShow: true
-                },
-                {
-                    name: 'redpacket_fill',
-                    isShow: true
-                },
-                {
-                    name: 'subscription',
-                    isShow: true
-                },
-                {
-                    name: 'loading1',
-                    isShow: true
-                },
-                {
-                    name: 'github',
-                    isShow: true
-                },
-                {
-                    name: 'global',
-                    isShow: true
-                },
-                {
-                    name: 'settingsfill',
-                    isShow: true
-                },
-                {
-                    name: 'back_android',
-                    isShow: true
-                },
-                {
-                    name: 'expressman',
-                    isShow: true
-                },
-                {
-                    name: 'evaluate_fill',
-                    isShow: true
-                },
-                {
-                    name: 'group_fill',
-                    isShow: true
-                },
-                {
-                    name: 'play_forward_fill',
-                    isShow: true
-                },
-                {
-                    name: 'deliver_fill',
-                    isShow: true
-                },
-                {
-                    name: 'notice_forbid_fill',
-                    isShow: true
-                },
-                {
-                    name: 'fork',
-                    isShow: true
-                },
-                {
-                    name: 'pick',
-                    isShow: true
-                },
-                {
-                    name: 'wenzi',
-                    isShow: true
-                },
-                {
-                    name: 'ellipse',
-                    isShow: true
-                },
-                {
-                    name: 'qr_code',
-                    isShow: true
-                },
-                {
-                    name: 'dianhua',
-                    isShow: true
-                },
-                {
-                    name: 'icon',
-                    isShow: true
-                },
-                {
-                    name: 'loading2',
-                    isShow: true
-                },
-                {
-                    name: 'btn',
-                    isShow: true
-                }
-            ]
-        }
-    },
-    methods: {
-        searchIcon(value) {
-            let key = value.toLowerCase()
-            let list = this.icons
-            for (let i = 0; i < list.length; i++) {
-                let a = key
-                let b = list[i].name.toLowerCase()
-                if (b.search(a) != -1) {
-                    list[i].isShow = true
-                } else {
-                    list[i].isShow = false
-                }
-            }
-            this.icons = list
-        }
-    }
+	components: {
+		uxtBarGroup,
+		uxtInputBox,
+		uxtIcon,
+		colorSelector,
+		uxtBar,
+		uxtSelector,
+		uxtRadio
+	},
+	data() {
+		return {
+			title: '图标',
+			sizes: ['xsl', 'sl', 'xxl', 'xl', 'lg', 'df', 'sm', 'xs', '40rpx', '60rpx', '80rpx'],
+			size: 0,
+			hollow: '',
+			color: '',
+			bgColor: '',
+			radius: '',
+			ani: '',
+			events: '',
+			icons: [],
+			icons1: [
+				{ name: 'friend', isShow: true },
+				{ name: 'friend-add', isShow: true },
+				{ name: 'friend-add-fill', isShow: true },
+				{ name: 'friend-fill', isShow: true },
+				{ name: 'group', isShow: true },
+				{ name: 'group-add', isShow: true },
+				{ name: 'group-add-fill', isShow: true },
+				{ name: 'group-fill', isShow: true }
+			],
+			icons2: [
+				{ name: 'bq-bizui-fill', isShow: true },
+				{ name: 'bq-daxiao-fill', isShow: true },
+				{ name: 'bq-ganga-fill', isShow: true },
+				{ name: 'bq-haixiu', isShow: true },
+				{ name: 'bq-han-fill', isShow: true },
+				{ name: 'bq-jingxi-fill', isShow: true },
+				{ name: 'bq-ku', isShow: true },
+				{ name: 'bq-ku-fill', isShow: true },
+				{ name: 'bq-lianhong', isShow: true },
+				{ name: 'bq-meiyan-fill', isShow: true },
+				{ name: 'bq-miyan-fill', isShow: true },
+				{ name: 'bq-qinqin-fill', isShow: true },
+				{ name: 'bq-se-fill', isShow: true },
+				{ name: 'bq-shiluo', isShow: true },
+				{ name: 'bq-shiluo-fill', isShow: true },
+				{ name: 'bq-tiaopi', isShow: true },
+				{ name: 'bq-tiaopi-fill', isShow: true },
+				{ name: 'bq-tiaopi2-fill', isShow: true },
+				{ name: 'bq-weixiao', isShow: true },
+				{ name: 'bq-weixiao-fill', isShow: true },
+				{ name: 'bq-xia-fill', isShow: true },
+				{ name: 'bq-xiao', isShow: true },
+				{ name: 'bq-xiao-fill', isShow: true },
+				{ name: 'bq-yanjing-fill', isShow: true },
+				{ name: 'bq-zoumei-fill', isShow: true }
+			],
+			icons3: [
+				{ name: 'finger1-click', isShow: true },
+				{ name: 'finger1-double-click', isShow: true },
+				{ name: 'finger1-down', isShow: true },
+				{ name: 'finger1-hold', isShow: true },
+				{ name: 'finger1-left', isShow: true },
+				{ name: 'finger1-long-hold', isShow: true },
+				{ name: 'finger1-right', isShow: true },
+				{ name: 'finger1-up', isShow: true },
+				{ name: 'finger2-anticlockwise-rotate', isShow: true },
+				{ name: 'finger2-click', isShow: true },
+				{ name: 'finger2-clockwise-rotate', isShow: true },
+				{ name: 'finger2-double-click', isShow: true },
+				{ name: 'finger2-down', isShow: true },
+				{ name: 'finger2-hold', isShow: true },
+				{ name: 'finger2-left', isShow: true },
+				{ name: 'finger2-right', isShow: true },
+				{ name: 'finger2-up', isShow: true },
+				{ name: 'finger2-zoom-in', isShow: true },
+				{ name: 'finger2-zoom-out', isShow: true },
+				{ name: 'finger3-down', isShow: true },
+				{ name: 'finger3-left', isShow: true },
+				{ name: 'finger3-right', isShow: true },
+				{ name: 'finger3-up', isShow: true },
+				{ name: 'finger4-left', isShow: true },
+				{ name: 'finger4-right', isShow: true },
+				{ name: 'finger5-anticlockwise-rotate', isShow: true },
+				{ name: 'finger5-clockwise-rotate', isShow: true },
+				{ name: 'finger5-zoom-in', isShow: true },
+				{ name: 'finger5-zoom-out', isShow: true }
+			],
+			icons4: [
+				{ name: 'ambulance', isShow: true },
+				{ name: 'ambulance-fill', isShow: true },
+				{ name: 'bus', isShow: true },
+				{ name: 'bus-fill', isShow: true },
+				{ name: 'bycicle', isShow: true },
+				{ name: 'car', isShow: true },
+				{ name: 'car-fill', isShow: true },
+				{ name: 'fighter-jet', isShow: true },
+				{ name: 'fighter-jet-fill', isShow: true },
+				{ name: 'motorcycle', isShow: true },
+				{ name: 'motorcycle-fill', isShow: true },
+				{ name: 'plane', isShow: true },
+				{ name: 'plane-fill', isShow: true },
+				{ name: 'police-car', isShow: true },
+				{ name: 'rocket', isShow: true },
+				{ name: 'rocket-fill', isShow: true },
+				{ name: 'ship', isShow: true },
+				{ name: 'ship-fill', isShow: true },
+				{ name: 'subway', isShow: true },
+				{ name: 'subway-fill', isShow: true },
+				{ name: 'taxi', isShow: true },
+				{ name: 'taxi-fill', isShow: true },
+				{ name: 'train', isShow: true },
+				{ name: 'train-fill', isShow: true },
+				{ name: 'truck', isShow: true },
+				{ name: 'truck-fill', isShow: true },
+				{ name: 'wheel-chair', isShow: true }
+			],
+			icons5: [
+				{ name: 'male', isShow: true },
+				{ name: 'male-o-fill', isShow: true },
+				{ name: 'female', isShow: true },
+				{ name: 'female-o-fill', isShow: true },
+				{ name: 'man', isShow: true },
+				{ name: 'woman', isShow: true },
+				{ name: 'boy', isShow: true },
+				{ name: 'girl', isShow: true }
+			],
+			icons6: [
+				{ name: 'cog', isShow: true },
+				{ name: 'cog-fill', isShow: true },
+				{ name: 'hourglass', isShow: true },
+				{ name: 'loading1', isShow: true },
+				{ name: 'loading2', isShow: true },
+				{ name: 'loading3', isShow: true },
+				{ name: 'loading4', isShow: true },
+				{ name: 'loading5', isShow: true },
+				{ name: 'loading6', isShow: true },
+				{ name: 'loading7', isShow: true },
+				{ name: 'loading8', isShow: true },
+				{ name: 'loading9', isShow: true },
+				{ name: 'refresh', isShow: true },
+				{ name: 'windmill1', isShow: true },
+				{ name: 'windmill2', isShow: true },
+				{ name: 'windmill3', isShow: true },
+				{ name: 'windmill4', isShow: true },
+				{ name: 'windmill5', isShow: true }
+			],
+			icons7: [
+				{ name: '500px', isShow: true },
+				{ name: 'adn', isShow: true },
+				{ name: 'adn-fill', isShow: true },
+				{ name: 'alipay', isShow: true },
+				{ name: 'alipay-o-fill', isShow: true },
+				{ name: 'alipay-square-fill', isShow: true },
+				{ name: 'aliyun', isShow: true },
+				{ name: 'amazon', isShow: true },
+				{ name: 'amazon-o-fill', isShow: true },
+				{ name: 'android', isShow: true },
+				{ name: 'android-fill', isShow: true },
+				{ name: 'android-studio', isShow: true },
+				{ name: 'apple', isShow: true },
+				{ name: 'apple-fill', isShow: true },
+				{ name: 'bluetooth', isShow: true },
+				{ name: 'bluetooth-fill', isShow: true },
+				{ name: 'byd', isShow: true },
+				{ name: 'changan', isShow: true },
+				{ name: 'chevrolet', isShow: true },
+				{ name: 'chrome', isShow: true },
+				{ name: 'chrome-fill', isShow: true },
+				{ name: 'csharp', isShow: true },
+				{ name: 'csharp-fill', isShow: true },
+				{ name: 'css3', isShow: true },
+				{ name: 'css3-fill', isShow: true },
+				{ name: 'dingding', isShow: true },
+				{ name: 'dingding-fill', isShow: true },
+				{ name: 'dingding-o', isShow: true },
+				{ name: 'dingding-o-fill', isShow: true },
+				{ name: 'dji', isShow: true },
+				{ name: 'drone', isShow: true },
+				{ name: 'edge', isShow: true },
+				{ name: 'facebook', isShow: true },
+				{ name: 'facebook-square', isShow: true },
+				{ name: 'facebook-square-fill', isShow: true },
+				{ name: 'firefox', isShow: true },
+				{ name: 'firefox-fill', isShow: true },
+				{ name: 'ford', isShow: true },
+				{ name: 'geely', isShow: true },
+				{ name: 'geely-text', isShow: true },
+				{ name: 'git', isShow: true },
+				{ name: 'git-fill', isShow: true },
+				{ name: 'git-text', isShow: true },
+				{ name: 'gitee', isShow: true },
+				{ name: 'gitee-o-fill', isShow: true },
+				{ name: 'github', isShow: true },
+				{ name: 'github-fill', isShow: true },
+				{ name: 'gitlab', isShow: true },
+				{ name: 'gitlab-fill', isShow: true },
+				{ name: 'google', isShow: true },
+				{ name: 'google-plus', isShow: true },
+				{ name: 'google-plus-o', isShow: true },
+				{ name: 'google-plus-o-fill', isShow: true },
+				{ name: 'haval', isShow: true },
+				{ name: 'honda', isShow: true },
+				{ name: 'hongqi', isShow: true },
+				{ name: 'html5', isShow: true },
+				{ name: 'html5-fill', isShow: true },
+				{ name: 'huawei', isShow: true },
+				{ name: 'huawei-cloud', isShow: true },
+				{ name: 'huawei-o-fill', isShow: true },
+				{ name: 'ie', isShow: true },
+				{ name: 'infiniti', isShow: true },
+				{ name: 'intellij-idea', isShow: true },
+				{ name: 'java', isShow: true },
+				{ name: 'java-o-fill', isShow: true },
+				{ name: 'js-fill', isShow: true },
+				{ name: 'kotlin', isShow: true },
+				{ name: 'lenovo', isShow: true },
+				{ name: 'lexus', isShow: true },
+				{ name: 'linux', isShow: true },
+				{ name: 'logitech-o-fill', isShow: true },
+				{ name: 'logitech-text', isShow: true },
+				{ name: 'mi', isShow: true },
+				{ name: 'mi-square-fill', isShow: true },
+				{ name: 'mongodb', isShow: true },
+				{ name: 'mysql', isShow: true },
+				{ name: 'nissan', isShow: true },
+				{ name: 'nodejs', isShow: true },
+				{ name: 'nodejs-fill', isShow: true },
+				{ name: 'opera', isShow: true },
+				{ name: 'oppo', isShow: true },
+				{ name: 'oschina', isShow: true },
+				{ name: 'paypal', isShow: true },
+				{ name: 'paypal-fill', isShow: true },
+				{ name: 'peuguot', isShow: true },
+				{ name: 'porsche', isShow: true },
+				{ name: 'pyq', isShow: true },
+				{ name: 'pyq-o-fill', isShow: true },
+				{ name: 'qirui', isShow: true },
+				{ name: 'qq', isShow: true },
+				{ name: 'qq-fill', isShow: true },
+				{ name: 'qq-o', isShow: true },
+				{ name: 'qq-o-fill', isShow: true },
+				{ name: 'qq-space', isShow: true },
+				{ name: 'qq-space-o', isShow: true },
+				{ name: 'qq-space-square', isShow: true },
+				{ name: 'redis', isShow: true },
+				{ name: 'safari', isShow: true },
+				{ name: 'safari-fill', isShow: true },
+				{ name: 'share', isShow: true },
+				{ name: 'share-o-fill', isShow: true },
+				{ name: 'share-square-fill', isShow: true },
+				{ name: 'shunfeng', isShow: true },
+				{ name: 'shunfeng-o', isShow: true },
+				{ name: 'skype', isShow: true },
+				{ name: 'skype-fill', isShow: true },
+				{ name: 'taobao', isShow: true },
+				{ name: 'taobao-o-fill', isShow: true },
+				{ name: 'taobao-square-fill', isShow: true },
+				{ name: 'tencent', isShow: true },
+				{ name: 'tencent-cloud', isShow: true },
+				{ name: 'tencent-text', isShow: true },
+				{ name: 'thinkpad', isShow: true },
+				{ name: 'tmall', isShow: true },
+				{ name: 'tmall-square-fill', isShow: true },
+				{ name: 'toyota', isShow: true },
+				{ name: 'twitter', isShow: true },
+				{ name: 'twitter-o-fill', isShow: true },
+				{ name: 'twitter-square-fill', isShow: true },
+				{ name: 'usb', isShow: true },
+				{ name: 'visa', isShow: true },
+				{ name: 'visa-fill', isShow: true },
+				{ name: 'vivo', isShow: true },
+				{ name: 'vmall', isShow: true },
+				{ name: 'volkswagen', isShow: true },
+				{ name: 'vscode', isShow: true },
+				{ name: 'vue', isShow: true },
+				{ name: 'wechat', isShow: true },
+				{ name: 'wechat-fill', isShow: true },
+				{ name: 'wechat-o-fill', isShow: true },
+				{ name: 'wechat-square-fill', isShow: true },
+				{ name: 'weibo', isShow: true },
+				{ name: 'weibo-o-fill', isShow: true },
+				{ name: 'weibo-square-fill', isShow: true },
+				{ name: 'wifi', isShow: true },
+				{ name: 'wifi-o-fill', isShow: true },
+				{ name: 'wifi-square-fill', isShow: true },
+				{ name: 'wikipedia', isShow: true },
+				{ name: 'windows', isShow: true },
+				{ name: 'windows-o-fill', isShow: true },
+				{ name: 'wordpress', isShow: true },
+				{ name: 'wx-miniprogram', isShow: true },
+				{ name: 'wx-miniprogram-o', isShow: true },
+				{ name: 'wx-miniprogram-square', isShow: true },
+				{ name: 'wx-miniprogram-square-fill', isShow: true },
+				{ name: 'yahoo', isShow: true },
+				{ name: 'yahoo-fill', isShow: true },
+				{ name: 'yahoo-text', isShow: true },
+				{ name: 'youtube', isShow: true },
+				{ name: 'youtube-square', isShow: true }
+			],
+			icons8: [{ name: 'area-chart', isShow: true }, { name: 'bar-chart', isShow: true }, { name: 'line-chart', isShow: true }, { name: 'pie-chart', isShow: true }],
+			icons9: [
+				{ name: 'backward', isShow: true },
+				{ name: 'eject', isShow: true },
+				{ name: 'fast-backward', isShow: true },
+				{ name: 'fast-forward', isShow: true },
+				{ name: 'forward', isShow: true },
+				{ name: 'mute', isShow: true },
+				{ name: 'mute-fill', isShow: true },
+				{ name: 'pause', isShow: true },
+				{ name: 'pause-o', isShow: true },
+				{ name: 'pause-o-fill', isShow: true },
+				{ name: 'play', isShow: true },
+				{ name: 'play-o', isShow: true },
+				{ name: 'play-o-fill', isShow: true },
+				{ name: 'random', isShow: true },
+				{ name: 'sound', isShow: true },
+				{ name: 'sound-fill', isShow: true },
+				{ name: 'step-backward', isShow: true },
+				{ name: 'step-forward', isShow: true },
+				{ name: 'stop', isShow: true },
+				{ name: 'stop-o', isShow: true },
+				{ name: 'stop-o-fill', isShow: true },
+				{ name: 'loop', isShow: true }
+			],
+			icons10: [
+				{ name: 'bitcoin', isShow: true },
+				{ name: 'bitcoin-o', isShow: true },
+				{ name: 'bitcoin-o-fill', isShow: true },
+				{ name: 'cny', isShow: true },
+				{ name: 'cny-o', isShow: true },
+				{ name: 'cny-o-fill', isShow: true },
+				{ name: 'eur', isShow: true },
+				{ name: 'eur-o', isShow: true },
+				{ name: 'eur-o-fill', isShow: true },
+				{ name: 'gbp', isShow: true },
+				{ name: 'gg', isShow: true },
+				{ name: 'gg-o', isShow: true },
+				{ name: 'gg-o-fill', isShow: true },
+				{ name: 'ils', isShow: true },
+				{ name: 'inr', isShow: true },
+				{ name: 'krw', isShow: true },
+				{ name: 'money', isShow: true },
+				{ name: 'rub', isShow: true },
+				{ name: 'rub-o', isShow: true },
+				{ name: 'rub-o-fill', isShow: true },
+				{ name: 'try', isShow: true },
+				{ name: 'usd', isShow: true },
+				{ name: 'usd-o', isShow: true },
+				{ name: 'usd-o-fill', isShow: true }
+			],
+			icons11: [
+				{ name: 'file', isShow: true },
+				{ name: 'file-archive', isShow: true },
+				{ name: 'file-archive-fill', isShow: true },
+				{ name: 'file-audio', isShow: true },
+				{ name: 'file-audio-fill', isShow: true },
+				{ name: 'file-code', isShow: true },
+				{ name: 'file-code-fill', isShow: true },
+				{ name: 'file-excel', isShow: true },
+				{ name: 'file-excel-fill', isShow: true },
+				{ name: 'file-fill', isShow: true },
+				{ name: 'file-image', isShow: true },
+				{ name: 'file-image-fill', isShow: true },
+				{ name: 'file-pdf', isShow: true },
+				{ name: 'file-pdf-fill', isShow: true },
+				{ name: 'file-ppt', isShow: true },
+				{ name: 'file-ppt-fill', isShow: true },
+				{ name: 'file-text', isShow: true },
+				{ name: 'file-text-fill', isShow: true },
+				{ name: 'file-video', isShow: true },
+				{ name: 'file-video-fill', isShow: true },
+				{ name: 'file-word', isShow: true },
+				{ name: 'file-word-fill', isShow: true }
+			],
+			icons12: [
+				{ name: '2columns', isShow: true },
+				{ name: '3columns', isShow: true },
+				{ name: '4columns', isShow: true },
+				{ name: 'align-center', isShow: true },
+				{ name: 'align-justify', isShow: true },
+				{ name: 'align-left', isShow: true },
+				{ name: 'align-right', isShow: true },
+				{ name: 'background-color', isShow: true },
+				{ name: 'bold', isShow: true },
+				{ name: 'chain', isShow: true },
+				{ name: 'chain-broken', isShow: true },
+				{ name: 'copy', isShow: true },
+				{ name: 'cut', isShow: true },
+				{ name: 'eraser', isShow: true },
+				{ name: 'font', isShow: true },
+				{ name: 'header', isShow: true },
+				{ name: 'indent', isShow: true },
+				{ name: 'italic', isShow: true },
+				{ name: 'list', isShow: true },
+				{ name: 'list-alt', isShow: true },
+				{ name: 'list-ol', isShow: true },
+				{ name: 'list-ul', isShow: true },
+				{ name: 'outdent', isShow: true },
+				{ name: 'paperclip', isShow: true },
+				{ name: 'paragraph', isShow: true },
+				{ name: 'paste', isShow: true },
+				{ name: 'rotate-left', isShow: true },
+				{ name: 'rotate-right', isShow: true },
+				{ name: 'save', isShow: true },
+				{ name: 'save-fill', isShow: true },
+				{ name: 'strikethrough', isShow: true },
+				{ name: 'subscript', isShow: true },
+				{ name: 'supscript', isShow: true },
+				{ name: 'table', isShow: true },
+				{ name: 'text', isShow: true },
+				{ name: 'text-height', isShow: true },
+				{ name: 'text-width', isShow: true },
+				{ name: 'th', isShow: true },
+				{ name: 'th-large', isShow: true },
+				{ name: 'underline', isShow: true }
+			],
+			icons13: [
+				{ name: 'angle-double-down', isShow: true },
+				{ name: 'angle-double-left', isShow: true },
+				{ name: 'angle-double-right', isShow: true },
+				{ name: 'angle-double-up', isShow: true },
+				{ name: 'angle-down', isShow: true },
+				{ name: 'angle-left', isShow: true },
+				{ name: 'angle-o-down', isShow: true },
+				{ name: 'angle-o-down-fill', isShow: true },
+				{ name: 'angle-o-left', isShow: true },
+				{ name: 'angle-o-left-fill', isShow: true },
+				{ name: 'angle-o-right', isShow: true },
+				{ name: 'angle-o-right-fill', isShow: true },
+				{ name: 'angle-o-up', isShow: true },
+				{ name: 'angle-o-up-fill', isShow: true },
+				{ name: 'angle-right', isShow: true },
+				{ name: 'angle-up', isShow: true },
+				{ name: 'arrow-down', isShow: true },
+				{ name: 'arrow-left', isShow: true },
+				{ name: 'arrow-o-down', isShow: true },
+				{ name: 'arrow-o-down-fill', isShow: true },
+				{ name: 'arrow-o-left', isShow: true },
+				{ name: 'arrow-o-left-fill', isShow: true },
+				{ name: 'arrow-o-right', isShow: true },
+				{ name: 'arrow-o-right-fill', isShow: true },
+				{ name: 'arrow-o-up', isShow: true },
+				{ name: 'arrow-o-up-fill', isShow: true },
+				{ name: 'arrow-right', isShow: true },
+				{ name: 'arrow-up', isShow: true },
+				{ name: 'arrows', isShow: true },
+				{ name: 'arrows-alt', isShow: true },
+				{ name: 'arrows-reduce', isShow: true },
+				{ name: 'arrows-reduce-fill', isShow: true },
+				{ name: 'arrows-stretch', isShow: true },
+				{ name: 'arrows-stretch-fill', isShow: true },
+				{ name: 'arrows-x', isShow: true },
+				{ name: 'arrows-y', isShow: true },
+				{ name: 'caret-down', isShow: true },
+				{ name: 'caret-left', isShow: true },
+				{ name: 'caret-right', isShow: true },
+				{ name: 'caret-square-down', isShow: true },
+				{ name: 'caret-square-down-fill', isShow: true },
+				{ name: 'caret-square-left', isShow: true },
+				{ name: 'caret-square-left-fill', isShow: true },
+				{ name: 'caret-square-right', isShow: true },
+				{ name: 'caret-square-right-fill', isShow: true },
+				{ name: 'caret-square-up', isShow: true },
+				{ name: 'caret-square-up-fill', isShow: true },
+				{ name: 'caret-up', isShow: true },
+				{ name: 'exchange', isShow: true },
+				{ name: 'exchange-o', isShow: true },
+				{ name: 'exchange-o-fill', isShow: true },
+				{ name: 'hand-down', isShow: true },
+				{ name: 'hand-left', isShow: true },
+				{ name: 'hand-right', isShow: true },
+				{ name: 'hand-up', isShow: true },
+				{ name: 'long-arrow-down', isShow: true },
+				{ name: 'long-arrow-left', isShow: true },
+				{ name: 'long-arrow-right', isShow: true },
+				{ name: 'long-arrow-up', isShow: true }
+			],
+			icons14: [
+				{ name: 'address-book', isShow: true },
+				{ name: 'address-book-fill', isShow: true },
+				{ name: 'address-card', isShow: true },
+				{ name: 'address-card-fill', isShow: true },
+				{ name: 'adjust', isShow: true },
+				{ name: 'all', isShow: true },
+				{ name: 'all-fill', isShow: true },
+				{ name: 'anchor', isShow: true },
+				{ name: 'archive', isShow: true },
+				{ name: 'at', isShow: true },
+				{ name: 'bank', isShow: true },
+				{ name: 'barcode', isShow: true },
+				{ name: 'bars', isShow: true },
+				{ name: 'battery-full', isShow: true },
+				{ name: 'battery-low', isShow: true },
+				{ name: 'battery-middle', isShow: true },
+				{ name: 'battery0', isShow: true },
+				{ name: 'battery1', isShow: true },
+				{ name: 'battery2', isShow: true },
+				{ name: 'battery3', isShow: true },
+				{ name: 'battery4', isShow: true },
+				{ name: 'battery5', isShow: true },
+				{ name: 'bell', isShow: true },
+				{ name: 'bell-fill', isShow: true },
+				{ name: 'bell-slash', isShow: true },
+				{ name: 'bell-slash-fill', isShow: true },
+				{ name: 'binoculars', isShow: true },
+				{ name: 'binoculars-fill', isShow: true },
+				{ name: 'bolt', isShow: true },
+				{ name: 'book', isShow: true },
+				{ name: 'book-fill', isShow: true },
+				{ name: 'book-mark', isShow: true },
+				{ name: 'book-mark-fill', isShow: true },
+				{ name: 'briefcase', isShow: true },
+				{ name: 'briefcase-fill', isShow: true },
+				{ name: 'bug', isShow: true },
+				{ name: 'bug-fill', isShow: true },
+				{ name: 'building', isShow: true },
+				{ name: 'button', isShow: true },
+				{ name: 'calculate', isShow: true },
+				{ name: 'calculate-fill', isShow: true },
+				{ name: 'calendar', isShow: true },
+				{ name: 'calendar-check', isShow: true },
+				{ name: 'calendar-fill', isShow: true },
+				{ name: 'calendar-minus', isShow: true },
+				{ name: 'calendar-plus', isShow: true },
+				{ name: 'calendar-times', isShow: true },
+				{ name: 'camera', isShow: true },
+				{ name: 'camera-fill', isShow: true },
+				{ name: 'cart-add', isShow: true },
+				{ name: 'cart-empty', isShow: true },
+				{ name: 'cart-full', isShow: true },
+				{ name: 'check', isShow: true },
+				{ name: 'check-o', isShow: true },
+				{ name: 'check-o-fill', isShow: true },
+				{ name: 'check-square', isShow: true },
+				{ name: 'check-square-fill', isShow: true },
+				{ name: 'circle', isShow: true },
+				{ name: 'click', isShow: true },
+				{ name: 'clock', isShow: true },
+				{ name: 'clock-fill', isShow: true },
+				{ name: 'close', isShow: true },
+				{ name: 'close-o', isShow: true },
+				{ name: 'close-o-fill', isShow: true },
+				{ name: 'cloud', isShow: true },
+				{ name: 'cloud-download', isShow: true },
+				{ name: 'cloud-download-fill', isShow: true },
+				{ name: 'cloud-fill', isShow: true },
+				{ name: 'cloud-upload', isShow: true },
+				{ name: 'cloud-upload-fill', isShow: true },
+				{ name: 'code', isShow: true },
+				{ name: 'code-fork', isShow: true },
+				{ name: 'cogs', isShow: true },
+				{ name: 'cogs-fill', isShow: true },
+				{ name: 'comment', isShow: true },
+				{ name: 'comment-fill', isShow: true },
+				{ name: 'comment-square', isShow: true },
+				{ name: 'comment-square-fill', isShow: true },
+				{ name: 'commenting', isShow: true },
+				{ name: 'commenting-fill', isShow: true },
+				{ name: 'commenting-square', isShow: true },
+				{ name: 'commenting-square-fill', isShow: true },
+				{ name: 'comments', isShow: true },
+				{ name: 'comments-fill', isShow: true },
+				{ name: 'comments-square', isShow: true },
+				{ name: 'comments-square-fill', isShow: true },
+				{ name: 'copyright', isShow: true },
+				{ name: 'copyright-fill', isShow: true },
+				{ name: 'creditcard', isShow: true },
+				{ name: 'creditcard-fill', isShow: true },
+				{ name: 'cube', isShow: true },
+				{ name: 'cubes', isShow: true },
+				{ name: 'dashboard', isShow: true },
+				{ name: 'dashboard-fill', isShow: true },
+				{ name: 'database', isShow: true },
+				{ name: 'databaseserverstoragedatacenterhosting', isShow: true },
+				{ name: 'desktop', isShow: true },
+				{ name: 'diamond', isShow: true },
+				{ name: 'diamond-fill', isShow: true },
+				{ name: 'dot', isShow: true },
+				{ name: 'dot-o', isShow: true },
+				{ name: 'dot-o-fill', isShow: true },
+				{ name: 'drivers-license', isShow: true },
+				{ name: 'drivers-license-fill', isShow: true },
+				{ name: 'edit', isShow: true },
+				{ name: 'ellipsis-x', isShow: true },
+				{ name: 'ellipsis-y', isShow: true },
+				{ name: 'envelope', isShow: true },
+				{ name: 'envelope-fill', isShow: true },
+				{ name: 'envelope-open', isShow: true },
+				{ name: 'envelope-open-fill', isShow: true },
+				{ name: 'exclamation', isShow: true },
+				{ name: 'exclamation-o', isShow: true },
+				{ name: 'exclamation-o-fill', isShow: true },
+				{ name: 'exclamation-triangle', isShow: true },
+				{ name: 'exclamation-triangle-fill', isShow: true },
+				{ name: 'external-link', isShow: true },
+				{ name: 'eye', isShow: true },
+				{ name: 'eye-dropper', isShow: true },
+				{ name: 'eye-slash', isShow: true },
+				{ name: 'falg-fill', isShow: true },
+				{ name: 'fax', isShow: true },
+				{ name: 'fax-fill', isShow: true },
+				{ name: 'film', isShow: true },
+				{ name: 'film-fill', isShow: true },
+				{ name: 'filter', isShow: true },
+				{ name: 'filter-fill', isShow: true },
+				{ name: 'fingerprint', isShow: true },
+				{ name: 'flag', isShow: true },
+				{ name: 'folder', isShow: true },
+				{ name: 'folder-fill', isShow: true },
+				{ name: 'folder-open', isShow: true },
+				{ name: 'folder-open-fill', isShow: true },
+				{ name: 'form', isShow: true },
+				{ name: 'form-fill', isShow: true },
+				{ name: 'free-fill', isShow: true },
+				{ name: 'funds', isShow: true },
+				{ name: 'gift', isShow: true },
+				{ name: 'global', isShow: true },
+				{ name: 'globle-fill', isShow: true },
+				{ name: 'hashtag', isShow: true },
+				{ name: 'heart', isShow: true },
+				{ name: 'heart-fill', isShow: true },
+				{ name: 'heartbeat', isShow: true },
+				{ name: 'heartbeat-fill', isShow: true },
+				{ name: 'history', isShow: true },
+				{ name: 'home', isShow: true },
+				{ name: 'home-fill', isShow: true },
+				{ name: 'id-card', isShow: true },
+				{ name: 'idcard-fill', isShow: true },
+				{ name: 'image', isShow: true },
+				{ name: 'image-fill', isShow: true },
+				{ name: 'key', isShow: true },
+				{ name: 'layout', isShow: true },
+				{ name: 'leaf', isShow: true },
+				{ name: 'leaf-fill', isShow: true },
+				{ name: 'location', isShow: true },
+				{ name: 'location-arrow', isShow: true },
+				{ name: 'location-arrow-fill', isShow: true },
+				{ name: 'location-fill', isShow: true },
+				{ name: 'lock', isShow: true },
+				{ name: 'lock-fill', isShow: true },
+				{ name: 'mail', isShow: true },
+				{ name: 'mail-fill', isShow: true },
+				{ name: 'mail-forward', isShow: true },
+				{ name: 'mail-forward-fill', isShow: true },
+				{ name: 'map', isShow: true },
+				{ name: 'map-fill', isShow: true },
+				{ name: 'microphone', isShow: true },
+				{ name: 'microphone-fill', isShow: true },
+				{ name: 'microphone-slash', isShow: true },
+				{ name: 'microphone-slash-fill', isShow: true },
+				{ name: 'minus', isShow: true },
+				{ name: 'minus-o', isShow: true },
+				{ name: 'minus-o-fill', isShow: true },
+				{ name: 'minus-square', isShow: true },
+				{ name: 'minus-square-fill', isShow: true },
+				{ name: 'moon', isShow: true },
+				{ name: 'mobile', isShow: true },
+				{ name: 'music', isShow: true },
+				{ name: 'new-fill', isShow: true },
+				{ name: 'paperplane', isShow: true },
+				{ name: 'paperplane-fill', isShow: true },
+				{ name: 'pencil', isShow: true },
+				{ name: 'pencil-fill', isShow: true },
+				{ name: 'percent', isShow: true },
+				{ name: 'phone', isShow: true },
+				{ name: 'phone-o', isShow: true },
+				{ name: 'phone-o-fill', isShow: true },
+				{ name: 'plug', isShow: true },
+				{ name: 'plug-fill', isShow: true },
+				{ name: 'plus', isShow: true },
+				{ name: 'plus-o', isShow: true },
+				{ name: 'plus-o-fill', isShow: true },
+				{ name: 'plus-square', isShow: true },
+				{ name: 'plus-square-fill', isShow: true },
+				{ name: 'print', isShow: true },
+				{ name: 'print-fill', isShow: true },
+				{ name: 'qrcode', isShow: true },
+				{ name: 'qrcode-fill', isShow: true },
+				{ name: 'question', isShow: true },
+				{ name: 'question-o', isShow: true },
+				{ name: 'question-o-fill', isShow: true },
+				{ name: 'quote-left', isShow: true },
+				{ name: 'quote-right', isShow: true },
+				{ name: 'recycle', isShow: true },
+				{ name: 'registered', isShow: true },
+				{ name: 'reply', isShow: true },
+				{ name: 'reply-all', isShow: true },
+				{ name: 'reply-all-fill', isShow: true },
+				{ name: 'reply-fill', isShow: true },
+				{ name: 'road', isShow: true },
+				{ name: 'road-fill', isShow: true },
+				{ name: 'rss', isShow: true },
+				{ name: 'rss-o-fill', isShow: true },
+				{ name: 'rss-square', isShow: true },
+				{ name: 'rss-square-fill', isShow: true },
+				{ name: 'rss4', isShow: true },
+				{ name: 'scanning', isShow: true },
+				{ name: 'search', isShow: true },
+				{ name: 'servicer', isShow: true },
+				{ name: 'sign-in', isShow: true },
+				{ name: 'sign-out', isShow: true },
+				{ name: 'sitemap', isShow: true },
+				{ name: 'sort', isShow: true },
+				{ name: 'sort-alpha-asc', isShow: true },
+				{ name: 'sort-alpha-desc', isShow: true },
+				{ name: 'sort-number-asc', isShow: true },
+				{ name: 'sort-number-desc', isShow: true },
+				{ name: 'square', isShow: true },
+				{ name: 'square-fill', isShow: true },
+				{ name: 'star', isShow: true },
+				{ name: 'star-fill', isShow: true },
+				{ name: 'star-half', isShow: true },
+				{ name: 'star-half-empty', isShow: true },
+				{ name: 'star-half-fill', isShow: true },
+				{ name: 'suggest', isShow: true },
+				{ name: 'sun', isShow: true },
+				{ name: 'survey', isShow: true },
+				{ name: 'switch', isShow: true },
+				{ name: 'switch-fill', isShow: true },
+				{ name: 'tack', isShow: true },
+				{ name: 'tag', isShow: true },
+				{ name: 'tag-supscript', isShow: true },
+				{ name: 'tags', isShow: true },
+				{ name: 'tasks', isShow: true },
+				{ name: 'template', isShow: true },
+				{ name: 'terminal', isShow: true },
+				{ name: 'thumb-down', isShow: true },
+				{ name: 'thumb-up', isShow: true },
+				{ name: 'toggle-off', isShow: true },
+				{ name: 'toggle-on', isShow: true },
+				{ name: 'trash', isShow: true },
+				{ name: 'trash-fill', isShow: true },
+				{ name: 'unlock', isShow: true },
+				{ name: 'unlock-fill', isShow: true },
+				{ name: 'zoom-in', isShow: true },
+				{ name: 'zoom-in-fill', isShow: true },
+				{ name: 'zoom-out', isShow: true },
+				{ name: 'zoom-out-fill', isShow: true }
+			]
+		}
+	},
+	methods: {
+		searchIcon(value) {
+			let key = value.toLowerCase()
+			let list = this.icons
+			for (let i = 0; i < list.length; i++) {
+				let a = key
+				let b = list[i].name.toLowerCase()
+				if (b.search(a) != -1) {
+					list[i].isShow = true
+				} else {
+					list[i].isShow = false
+				}
+			}
+			this.icons = list
+		},
+		copy(name) {
+			let _this = this
+			// uni.setClipboardData({
+			// 	data: name,
+			// 	success() {
+			// 		_this.uxtToast({
+			// 			message: `已复制图标type至剪贴板`
+			// 		})
+			// 	}
+			// })
+		},
+		handleColorSelect() {
+			this.hollow = ''
+			this.bgColor = ''
+		},
+		handleBgColorSelect() {
+			this.hollow = ''
+			this.color = ''
+		},
+		handleClick(e) {
+			console.log(e)
+			this.events += `${e.type}<br />dataset: ${JSON.stringify(e.currentTarget.dataset)}<br />`
+		}
+	},
+	onLoad() {
+		this.icons = [
+			...this.icons1,
+			...this.icons2,
+			...this.icons3,
+			...this.icons4,
+			...this.icons5,
+			...this.icons6,
+			...this.icons7,
+			...this.icons8,
+			...this.icons9,
+			...this.icons10,
+			...this.icons11,
+			...this.icons12,
+			...this.icons13,
+			...this.icons14
+		]
+	}
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -24,8 +24,8 @@
 				colorClass, 
 				{
 					sm: size === 'sm',
-					'radius-tl radius-bl': radius,
-					'round-tl round-bl': round
+					'radius-lt radius-lb': radius,
+					'round-lt round-lb': round
 				}
 			]"
             :style="{

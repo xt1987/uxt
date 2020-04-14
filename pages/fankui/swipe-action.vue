@@ -14,11 +14,11 @@
                     class="height-p100 bg-green padding-lr flex justify-center align-center"
                 >选择</view>
             </template>
-            <uxt-cell
+            <uxt-bar
                 @click="close(1)"
                 title="单元格"
-                value="内容"
-            ></uxt-cell>
+                content="内容"
+            ></uxt-bar>
             <template
                 class="height-p100 flex"
                 slot="right"
@@ -61,13 +61,13 @@
 <script>
 import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
 import uxtSwipeAction from '@xtcoder/uxt/components/uxt-swipe-action.vue'
-import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
 
 export default {
     components: {
         uxtTitleBar,
         uxtSwipeAction,
-        uxtCell
+        uxtBar
     },
     data() {
         return {

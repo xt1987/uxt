@@ -1,190 +1,104 @@
 <template>
     <uxt-page :title="title">
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="基本用法"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({})"
-            right-arrow
-            title="居中弹出"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="满屏"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ position: 'full', close: true })"
-            desc="position=full"
-            right-arrow
-            title="满屏"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="弹出位置"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ position: 'top' })"
-            desc="position=top"
-            right-arrow
-            title="上边弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'right' })"
-            desc="position=right"
-            right-arrow
-            title="右边弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'bottom' })"
-            desc="position=bottom"
-            right-arrow
-            title="下边弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'left' })"
-            desc="position=left"
-            right-arrow
-            title="左边弹出"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="指定宽/高"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ position: 'top', height: '30%' })"
-            desc="height=30%"
-            right-arrow
-            title="上边弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'left', width: '50%' })"
-            desc="width=50%"
-            right-arrow
-            title="左边弹出"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="最小宽/高"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ position: 'top', minHeight: '30%' })"
-            desc="min-height=30%"
-            right-arrow
-            title="上边弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'top', minHeight: '30%', height2: '400px' })"
-            desc="min-height=30%"
-            right-arrow
-            title="上边弹出(超高)"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'left', minWidth: '50%' })"
-            desc="min-width=50%"
-            right-arrow
-            title="左边弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'left', minWidth: '50%', width2: '250px' })"
-            desc="min-width=50%"
-            right-arrow
-            title="左边弹出(超宽)"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="最大宽/高"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ position: 'top', maxHeight: '30%' })"
-            desc="max-height=30%"
-            right-arrow
-            title="上边弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'top', maxHeight: '30%', height2: '400px' })"
-            desc="max-height=30%"
-            right-arrow
-            title="上边弹出(超高)"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'left', maxWidth: '50%' })"
-            desc="max-width=50%"
-            right-arrow
-            title="左边弹出"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'left', maxWidth: '50%', width2: '250px' })"
-            desc="max-width=50%"
-            right-arrow
-            title="左边弹出(超宽)"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="无遮罩层"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ modal: false, close: true })"
-            desc="modal=false"
-            right-arrow
-            title="无遮罩框"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="点遮罩层不关闭"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ modalClose: false, close: true })"
-            desc="modal-close=false"
-            right-arrow
-            title="点遮罩层不关闭"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="关闭按钮"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ close: true })"
-            desc="close=true"
-            right-arrow
-            title="显示关闭按钮"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="更换背景色"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="showModal({ position: 'top', bgColor: 'green' })"
-            desc="bg-color=green"
-            right-arrow
-            title="绿色"
-        ></uxt-cell>
-        <uxt-cell
-            @click="showModal({ position: 'top', bgColor: 'yellow' })"
-            desc="bg-color=yellow"
-            right-arrow
-            title="黄色"
-        ></uxt-cell>
-        <uxt-title-bar
-            bg-color=" "
-            classes="margin-top-sm solid-bottom"
-            title="外部关闭"
-        ></uxt-title-bar>
-        <uxt-cell
-            @click="outerClose"
-            right-arrow
-            title="打开3秒后关闭"
-        ></uxt-cell>
+		<uxt-bar-group title="设置">
+			<uxt-selector
+				title="弹出位置"
+				desc="position"
+				:items="positions"
+				v-model="position"
+				@select="modal.position=positions[$event].value"
+			></uxt-selector>
+			<uxt-bar title="指定宽高" desc="width | height">
+				<template slot="right">
+					<uxt-checkbox label="宽50%" size="sm" @change="handleChange($event, 'width', '50%')"></uxt-checkbox>
+					<uxt-checkbox classes="margin-left-sm" label="高30%" size="sm" @change="handleChange($event, 'height', '30%')"></uxt-checkbox>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="内容宽高" desc="内容宽高只是作为演示用的">
+				<template slot="right">
+					<uxt-checkbox label="宽500rpx" size="sm" @change="handleChange($event, 'width2', '500rpx')"></uxt-checkbox>
+					<uxt-checkbox classes="margin-left-sm" label="高800rpx" size="sm" @change="handleChange($event, 'height2', '800rpx')"></uxt-checkbox>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="最小宽高" desc="min-width | min-height(配合内容宽高及弹出位置)">
+				<template slot="right">
+					<uxt-checkbox label="宽50%" size="sm" @change="handleChange($event, 'minWidth', '50%')"></uxt-checkbox>
+					<uxt-checkbox classes="margin-left-sm" label="高30%" size="sm" @change="handleChange($event, 'minHeight', '30%')"></uxt-checkbox>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="最大宽高" desc="min-width | min-height(配合内容宽高及弹出位置)">
+				<template slot="right">
+					<uxt-checkbox label="宽50%" size="sm" @change="handleChange($event, 'maxWidth', '50%')"></uxt-checkbox>
+					<uxt-checkbox classes="margin-left-sm" label="高30%" size="sm" @change="handleChange($event, 'maxHeight', '30%')"></uxt-checkbox>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="遮罩层"
+				desc="modal"
+			>
+				<template slot="right">
+					<uxt-switch v-model="modal.modal" radius size="sm"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="点遮罩层关闭"
+				desc="modal-close"
+			>
+				<template slot="right">
+					<uxt-switch v-model="modal.modalClose" radius size="sm"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="关闭按钮"
+				desc="close"
+			>
+				<template slot="right">
+					<uxt-switch v-model="modal.close" radius size="sm"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="展示标题"
+				desc="title"
+			>
+				<template slot="right">
+					<uxt-switch radius size="sm" @change="handleChange($event, 'title', '标题')"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="背景"
+				desc="bg-color=xx/颜色值"
+			>
+				<template slot="right">
+					<color-selector v-model="modal.bgColor" :clear="false"></color-selector>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="外部关闭"
+				desc="修改v-model绑定的布尔值进行打开和关闭"
+			>
+				<template slot="right">
+					3秒后关闭：<uxt-switch radius size="sm" v-model="outerClose"></uxt-switch>
+				</template>
+			</uxt-bar>
+			<uxt-bar title="事件">
+				<template slot="right">
+					<text @click="events = ''">清空</text>
+				</template>
+			</uxt-bar>
+			<view class="padding bg-white" v-html="events" style="height: 200rpx; overflow-y: auto;">
+			</view>
+		</uxt-bar-group>
+		<uxt-bar-group title="展示">
+			<view class="padding bg-white text-center">
+				<uxt-button
+					size="block"
+					round
+					@click="handleShowModal"
+				>
+					弹出模态框
+				</uxt-button>
+			</view>
+		</uxt-bar-group>
         <uxt-modal
             :bg-color="modal.bgColor"
             :close="modal.close"
@@ -197,65 +111,121 @@
             :modal-close="modal.modalClose"
             :position="modal.position"
             :width="modal.width"
+			:title="modal.title"
             v-model="show"
+			@open="handleOpen"
+			@opened="handleOpened"
+			@close="handleClose"
+			@closed="handleClosed"
         >
             <view
                 :style="{ width: modal.width2, height: modal.height2 }"
-                class="padding solid-red inline-block"
-            >内容</view>
+                class="padding-xl bg-theme inline-block margin-xl"
+            >{{ modal.message }}</view>
         </uxt-modal>
     </uxt-page>
 </template>
 
 <script>
+import uxtBarGroup from '@xtcoder/uxt/components/uxt-bar-group.vue'
 import uxtButton from '@xtcoder/uxt/components/uxt-button.vue'
 import uxtModal from '@xtcoder/uxt/components/uxt-modal.vue'
 import uxtSwitch from '@xtcoder/uxt/components/uxt-switch.vue'
-import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
-import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtCheckbox from '@xtcoder/uxt/components/uxt-checkbox.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
+import uxtSelector from '@xtcoder/uxt/components/uxt-selector.vue'
+import colorSelector from '@/components/color-selector.vue'
 
 export default {
     components: {
+		uxtBarGroup,
         uxtButton,
         uxtModal,
         uxtSwitch,
-        uxtTitleBar,
-        uxtCell
+        uxtCheckbox,
+        uxtBar,
+		uxtSelector,
+		colorSelector
     },
     data() {
-        let dfModal = {
-            position: 'center',
-            width: '',
-            height: '',
-            minWidth: '',
-            minHeight: '',
-            maxWidth: '',
-            maxHeight: '',
-            modal: true,
-            modalClose: true,
-            close: false,
-            bgColor: 'white',
-            width2: '',
-            height2: ''
-        }
         return {
             title: '模态框',
+			tid: 0,
+			outerClose: false,
             show: false,
-            dfModal,
-            modal: dfModal
+			positions: [{
+				label: '居中',
+				value: 'center'
+			}, {
+				label: '全屏',
+				value: 'full'
+			}, {
+				label: '上',
+				value: 'top'
+			}, {
+				label: '右',
+				value: 'right'
+			}, {
+				label: '下',
+				value: 'bottom'
+			}, {
+				label: '左',
+				value: 'left'
+			}],
+			position: 0,
+            modal: {
+				position: 'center',
+				width: '',
+				height: '',
+				minWidth: '',
+				minHeight: '',
+				maxWidth: '',
+				maxHeight: '',
+				modal: true,
+				modalClose: true,
+				close: false,
+				title: '',
+				bgColor: 'white',
+				width2: '',
+				height2: '',
+				message: '内容'
+			},
+			events: ''
         }
     },
     methods: {
-        showModal(modal) {
-            this.modal = Object.assign({}, this.dfModal, modal)
-            this.show = true
-        },
-        outerClose() {
-            this.showModal({ modalClose: false })
-            setTimeout(() => {
-                this.show = false
-            }, 3000)
-        }
+		handleChange(check, field, value) {
+			if (check) {
+				this.modal[field] = value
+			} else {
+				this.modal[field] = ''
+			}
+		},
+		handleShowModal() {
+			this.show = true
+			this.tid && clearTimeout(this.tid)
+			if (this.outerClose) {
+				this.tid = setTimeout(() => {
+					this.show = false
+				}, 3000)
+			}
+		},
+		handleOpen() {
+			console.log('已触发open事件')
+			this.events += 'open<br />'
+		},
+		handleOpened() {
+			console.log('已触发opened事件')
+			this.events += 'opened<br />'
+		},
+		handleClose() {
+			console.log('已触发close事件')
+			this.events += 'close<br />'
+		},
+		handleClosed() {
+			console.log('已触发closed事件')
+			this.events += 'closed<br />'
+		}
     }
 }
 </script>

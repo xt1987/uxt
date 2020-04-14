@@ -1,98 +1,93 @@
 <template>
     <uxt-page :title="title">
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="solid[s]/dashed[s][-top/right/bottom/left]"
-            title="边框位置"
-        ></uxt-title-bar>
-        <view class="padding bg-white">
-            <view class="margin-sm solid padding-sm text-center">solid[s]</view>
-            <view class="margin-sm solid-top padding-sm text-center">solid[s]-top</view>
-            <view class="margin-sm solid-right padding-sm text-center">solid[s]-right</view>
-            <view class="margin-sm solid-bottom padding-sm text-center">solid[s]-bottom</view>
-            <view class="margin-sm solid-left padding-sm text-center">solid[s]-left</view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="solid[s]/dashed[s][-...]"
-            title="边框粗细"
-        ></uxt-title-bar>
-        <view class="padding bg-white">
-            <view class="margin-sm solid padding-sm text-center">solid</view>
-            <view class="margin-sm solids padding-sm text-center">solids</view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="solid/dashed[ round/radius]"
-            title="边框样式"
-        ></uxt-title-bar>
-        <view class="padding bg-white">
-            <view class="margin-sm solid padding-sm text-center">solid</view>
-            <view class="margin-sm solid radius padding-sm text-center">solid radius</view>
-            <view class="margin-sm solid round padding-sm text-center">solid round</view>
-            <view class="margin-sm dashed padding-sm text-center">dashed</view>
-            <view class="margin-sm dashed radius padding-sm text-center">dashed radius</view>
-            <view class="margin-sm dashed round padding-sm text-center">dashed round</view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="solid-xx"
-            title="边框颜色"
-        ></uxt-title-bar>
-        <view class="padding">
-            <view
-                :class="[`solid-${item}`]"
-                :key="index"
-                class="margin-sm padding-sm text-center"
-                v-for="(item, index) in colors"
-            >{{item}}</view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            subTitle="shadow[-wrap]"
-            title="边框阴影"
-        ></uxt-title-bar>
-        <view class="padding bg-white">
-            <view
-                :class="[`text-theme`]"
-                class="margin-sm padding-sm text-center shadow"
-            >shadow</view>
-            <view
-                :class="[`text-theme`]"
-                class="margin-sm margin-top-lg padding-sm text-center shadow-wrap"
-            >shadow-wrap</view>
-        </view>
+		<uxt-bar-group title="设置">
+			<uxt-selector
+				title="样式"
+				:items="styles"
+				v-model="style"
+			></uxt-selector>
+			<uxt-selector
+				title="位置"
+				:items="positions"
+				v-model="position"
+			></uxt-selector>
+			<uxt-bar
+				title="颜色"
+			>
+				<template slot="right">
+					<color-selector v-model="color" :diy="false"></color-selector>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="阴影"
+			>
+				<template slot="right">
+					<uxt-radio v-model="shadow" label="无" size="sm" val="" type="btn"></uxt-radio>
+					<uxt-radio classes="margin-lr-sm" v-model="shadow" label="shadow" size="sm" val="shadow" type="btn"></uxt-radio>
+					<uxt-radio v-model="shadow" label="shadow-wrap" size="sm" val="shadow-wrap" type="btn"></uxt-radio>
+				</template>
+			</uxt-bar>
+			<uxt-bar
+				title="圆角"
+			>
+				<template slot="right">
+					<uxt-radio v-model="radius" label="无" size="sm" val="" type="btn"></uxt-radio>
+					<uxt-radio classes="margin-lr-sm" v-model="radius" label="小圆角" size="sm" val="radius" type="btn"></uxt-radio>
+					<uxt-radio v-model="radius" label="大圆角" size="sm" val="round" type="btn"></uxt-radio>
+				</template>
+			</uxt-bar>
+		</uxt-bar-group>
+		<uxt-bar-group title="展示">
+			<view class="padding bg-white">
+				<view class="margin-sm padding-sm text-center" :class="[`${styles[style]}${positions[position].value}${color ? `-${color}` : ''}`, shadow, radius]">
+					{{ `${styles[style]}${positions[position].value}${color ? `-${color}` : ''} ${shadow} ${radius}` }}
+				</view>
+			</view>
+		</uxt-bar-group>
     </uxt-page>
 </template>
 
 <script>
-import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtBarGroup from '@xtcoder/uxt/components/uxt-bar-group.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
+import uxtSelector from '@xtcoder/uxt/components/uxt-selector.vue'
+import colorSelector from '@/components/color-selector.vue'
+import uxtRadio from '@xtcoder/uxt/components/uxt-radio.vue'
 
 export default {
     components: {
-        uxtTitleBar
+		uxtBarGroup,
+        uxtBar,
+		uxtSelector,
+		colorSelector,
+		uxtRadio
     },
     data() {
         return {
             theme: this.gTheme,
             title: '边框',
-            colors: [
-                'red',
-                'orange',
-                'yellow',
-                'olive',
-                'green',
-                'cyan',
-                'blue',
-                'purple',
-                'mauve',
-                'pink',
-                'brown',
-                'grey',
-                'gray',
-                'black',
-                'white'
-            ]
+			styles: ['solid', 'solids', 'dashed', 'dasheds'],
+			style: 0,
+			positions: [{
+				label: '全部',
+				value: ''
+			}, {
+				label: '上',
+				value: '-top'
+			}, {
+				label: '右',
+				value: '-right'
+			}, {
+				label: '下',
+				value: '-bottom'
+			}, {
+				label: '左',
+				value: '-left'
+			}],
+			position: 0,
+			color: '',
+			shadow: '',
+			radius: ''
         }
     }
 }

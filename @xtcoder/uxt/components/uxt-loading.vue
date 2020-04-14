@@ -29,7 +29,7 @@
                 :color="bgColor"
                 :styles="{position: 'absolute', right: '10rpx'}"
                 animation="pulse"
-                type="icloading"
+                type="loading5"
             ></uxt-icon>
         </view>
     </block>
@@ -111,7 +111,7 @@ export default {
             type: Object,
             default() {
                 return {
-                    type: 'icloading'
+                    type: 'loading6'
                 }
             }
         },
@@ -125,7 +125,7 @@ export default {
             type: Object,
             default() {
                 return {
-                    type: 'emoji'
+                    type: 'bq-weixiao'
                 }
             }
         },
@@ -139,7 +139,7 @@ export default {
             type: Object,
             default() {
                 return {
-                    type: 'roundclosefill'
+                    type: 'close-o'
                 }
             }
         },
@@ -170,7 +170,7 @@ export default {
     data() {
         return {
             loading: 0,
-            progressTop: `${this.gStatusBarHeight + this.gNavBarHeight}px`,
+            progressTop: `${this.systemInfo.statusBarHeight + this.systemInfo.navBarHeight}px`,
             tid: 0
         }
     },

@@ -75,16 +75,16 @@
             classes="padding-tb"
             color="blue"
         >
-            <uxt-timeline-item icon="notificationfill">
+            <uxt-timeline-item icon="bell-fill">
                 <view class="padding bg-green radius">22:22【广州市】快件已到达地球</view>
             </uxt-timeline-item>
-            <uxt-timeline-item :icon="{ type: 'likefill', color: 'red', size: 'xxl' }">
+            <uxt-timeline-item :icon="{ type: 'heart-fill', color: 'red', size: 'xxl' }">
                 <view class="padding bg-blue radius">这是第一次，我家的铲屎官走了这么久。久到足足有三天！！</view>
             </uxt-timeline-item>
-            <uxt-timeline-item :icon="{ type: 'activityfill', color: 'yellow' }">
+            <uxt-timeline-item :icon="{ type: 'flag-fill', color: 'yellow' }">
                 <view class="padding bg-red radius">这是第一次，我家的铲屎官走了这么久。</view>
             </uxt-timeline-item>
-            <uxt-timeline-item icon="appreciatefill">
+            <uxt-timeline-item icon="thumb-up">
                 <view class="padding bg-yellow radius">20:00【月球】快件已到达月球，准备发往地球</view>
                 <view class="margin-top padding bg-cyan radius">10:00 【银河系】快件已到达银河系，准备发往月球</view>
             </uxt-timeline-item>

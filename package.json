@@ -1,0 +1,23 @@
+{
+  "name": "uxt",
+  "description": "[uniapp](https://uniapp.dcloud.io/)组件库",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^1.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/xtcoder/uxt.git"
+  },
+  "keywords": [
+	  "uxt",
+	  "uniapp"
+  ],
+  "author": "xtcoder",
+  "license": "ISC"
+}

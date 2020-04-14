@@ -51,7 +51,7 @@ export default {
         }
     },
     watch: {
-        value(newVal) {
+        value(newVal, oldVal) {
             if (newVal) {
                 this.close()
             }

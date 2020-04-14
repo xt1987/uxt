@@ -10,14 +10,24 @@
 				backgroundColor: bgColorStyle
 			}
 		]"
-        class="cell-group"
+        class="bar-group"
     >
         <view
             :class="[colorClass]"
             :style="{ color: colorStyle }"
-            class="padding"
+            class="padding flex align-center"
             v-if="title"
-        >{{ title }}</view>
+        >
+			<view>
+				<slot name="left"></slot>
+			</view>
+			<view class="flex-sub">
+				{{ title }}
+			</view>
+			<view>
+				<slot name="right"></slot>
+			</view>
+		</view>
         <slot></slot>
     </view>
 </template>
@@ -38,17 +48,12 @@ export default {
         bgColor: {
             default: 'gray'
         }
-    },
-    created() {
-        // if (!allTag(this.$slots.default, 'uxt-cell')) {
-        // 	throw new Error('uxt-cell-group组件中只能包含uxt-cell子组件')
-        // }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.cell-group {
+.bar-group {
     position: relative;
 }
 </style>

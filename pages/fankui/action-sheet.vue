@@ -1,36 +1,36 @@
 <template>
     <uxt-page :title="title">
-        <uxt-cell
+        <uxt-bar
             @click="showActionSheet({})"
             classes="margin-top-sm"
-            right-arrow
+            arrow
             title="基本用法"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showActionSheet({ cancel: true })"
-            right-arrow
+            arrow
             title="取消按钮"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showActionSheet({ title: '这里是标题' })"
-            right-arrow
+            arrow
             title="标题"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showActionSheet({ title: '这里是标题', bgColor: 'light-blue' })"
-            right-arrow
+            arrow
             title="蓝色标题栏"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showActionSheet({ title: '这里是标题', close: true })"
-            right-arrow
+            arrow
             title="关闭按钮"
-        ></uxt-cell>
-        <uxt-cell
+        ></uxt-bar>
+        <uxt-bar
             @click="showActionSheet({ title: '分享到', actions: [], userContent: true })"
-            right-arrow
+            arrow
             title="自定义内容"
-        ></uxt-cell>
+        ></uxt-bar>
         <uxt-action-sheet
             :actions="actionSheet.actions"
             :bg-color="actionSheet.bgColor"
@@ -50,12 +50,12 @@
 </template>
 
 <script>
-import uxtCell from '@xtcoder/uxt/components/uxt-cell.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
 import uxtActionSheet from '@xtcoder/uxt/components/uxt-action-sheet.vue'
 
 export default {
     components: {
-        uxtCell,
+        uxtBar,
         uxtActionSheet
     },
     data() {

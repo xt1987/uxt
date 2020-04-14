@@ -1,18 +1,16 @@
 <template>
     <uxt-page
-        :footer-height="100"
-        :header-height="136"
+        :header-height="150"
         :title="title"
     >
         <template slot="header">
-            <view class="bg-green padding">自定义的顶部内容，可以换成任何你想要的内容，这些内容一直显示在页面内容的前面</view>
+            <view class="bg-green padding" style="height: 150rpx;">自定义的顶部内容，可以换成任何你想要的内容，这些内容一直显示在页面内容的前面</view>
         </template>
 
         <navigator
-            class="bg-theme padding margin-top"
+            class="bg-theme padding margin round text-center"
             open-type="navigateBack"
         >返回</navigator>
-        <template slot="footer">abc</template>
     </uxt-page>
 </template>
 

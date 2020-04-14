@@ -22,7 +22,7 @@
 						transform: `rotate(${rotate}deg)`
 					}"
                     classes="margin-right-xs"
-                    type="icloading"
+                    type="loading5"
                     v-show="status !== 0 && status !== 4"
                 ></uxt-icon>
                 {{ message }}
@@ -62,7 +62,7 @@ export default {
         }
     },
     watch: {
-        status(newVal) {
+        status(newVal, oldVal) {
             switch (newVal) {
                 case 0:
                     this.message = ''
@@ -81,7 +81,7 @@ export default {
                     break
             }
         },
-        value(newVal) {
+        value(newVal, oldVal) {
             if (newVal) {
                 // 开始刷新
                 this.startRefresh()

@@ -1,36 +1,30 @@
 <template>
     <uxt-page :title="title">
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
+        <uxt-bar
+            classes="margin-top-sm"
             title="动画"
-        ></uxt-title-bar>
+			desc="ani-xx"
+        >
+			<template slot="right">
+				反向：<uxt-switch v-model="reverse" size="sm" radius></uxt-switch>
+			</template>
+		</uxt-bar>
         <view class="grid col-2">
             <view
                 :key="item.name"
                 v-for="item in list"
             >
                 <view
-                    :class="[`bg-${item.color}`, ani === item.name ? `ani-${item.name}` : '']"
+                    :class="[
+						`bg-${item.color}`,
+						(ani === item.name ? `ani-${item.name}` : ''),
+						{
+							'ani-reverse': reverse
+						}
+					]"
                     :data-class="item.name"
                     @click="setAnimation"
                     class="margin-sm padding text-center"
-                >{{ item.name }}</view>
-            </view>
-        </view>
-        <uxt-title-bar
-            classes="margin-top-sm solid-bottom"
-            title="反向动画"
-        ></uxt-title-bar>
-        <view class="grid col-2">
-            <view
-                :key="item.name"
-                v-for="item in list"
-            >
-                <view
-                    :class="[`bg-${item.color}`, ani === `${item.name}s` ? `ani-${item.name}` : '']"
-                    :data-class="`${item.name}s`"
-                    @click="setAnimation"
-                    class="margin-sm padding text-center ani-reverse"
                 >{{ item.name }}</view>
             </view>
         </view>
@@ -38,16 +32,19 @@
 </template>
 
 <script>
-import uxtTitleBar from '@xtcoder/uxt/components/uxt-title-bar.vue'
+import uxtBar from '@xtcoder/uxt/components/uxt-bar.vue'
+import uxtSwitch from '@xtcoder/uxt/components/uxt-switch.vue'
 
 export default {
     components: {
-        uxtTitleBar
+        uxtBar,
+		uxtSwitch
     },
     data() {
         return {
             title: '动画样式',
             ani: '',
+			reverse: false,
             list: [
                 {
                     name: 'fade',

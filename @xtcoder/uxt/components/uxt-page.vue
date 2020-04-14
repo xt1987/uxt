@@ -23,7 +23,7 @@
                             <template slot="right">
                                 <uxt-icon
                                     @click="showSideModal = true"
-                                    type="moreandroid"
+                                    type="ellipsis-y"
                                     v-if="hasSide"
                                 ></uxt-icon>
                             </template>
@@ -48,6 +48,7 @@
         <uxt-modal
             :position="sidePosition"
             @closed="handleSideClosed"
+			@opened="handleSideOpened"
             v-if="hasSide"
             v-model="showSideModal"
         >
@@ -92,6 +93,7 @@ import uxtToast from './uxt-toast.vue'
 import uxtDialog from './uxt-dialog.vue'
 
 export default {
+	name: 'uxt-page',
     components: {
         uxtNavBar,
         uxtIcon,
@@ -101,7 +103,7 @@ export default {
         uxtDialog
     },
     props: {
-        // 头部高度, 默认为导航栏高度，不写slot默认显示导航栏，传0不显示header
+        // 顶部高度, 默认为导航栏高度，不写slot默认显示导航栏，传0不显示顶部
         headerHeight: {
             type: [Number, String]
         },
@@ -166,7 +168,7 @@ export default {
             icon: ''
         }
         return {
-            statusBarHeight: this.gStatusBarHeight,
+            statusBarHeight: this.systemInfo.statusBarHeight,
             showSideModal: this.showSide,
             dfNotify,
             notify: Object.assign(dfNotify),
@@ -188,10 +190,10 @@ export default {
                 return ''
             } else if (this.headerHeight) {
                 return `calc(${this.getSize(this.headerHeight).styles} + ${
-                    this.gStatusBarHeight
+                    this.systemInfo.statusBarHeight
                 }px)`
             } else {
-                return `${this.gNavBarHeight + this.gStatusBarHeight}px`
+                return `${this.systemInfo.navBarHeight + this.systemInfo.statusBarHeight}px`
             }
         },
         footerHeightStyle() {
@@ -205,11 +207,14 @@ export default {
         }
     },
     watch: {
-        showSide(newVal) {
+        showSide(newVal, oldVal) {
             this.showSideModal = newVal
         }
     },
     methods: {
+        handleSideOpened() {
+            this.$emit('sideopened')
+        },
         handleSideClosed() {
             this.$emit('sideclosed')
         },

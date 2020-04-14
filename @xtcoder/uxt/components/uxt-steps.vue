@@ -26,7 +26,7 @@
                 <block v-if="index !== 0">
                     <block v-if="arrow">
                         <view class="arrow">
-                            <uxt-icon type="right"></uxt-icon>
+                            <uxt-icon type="angle-right"></uxt-icon>
                         </view>
                     </block>
                     <block v-else>
@@ -47,7 +47,7 @@
                             v-if="Number.isInteger(item.iconed)"
                         >{{ item.iconed }}</view>
                         <uxt-icon
-                            :type="item.iconed || 'title'"
+                            :type="item.iconed || 'dot'"
                             size="xl"
                             v-else
                         ></uxt-icon>
@@ -58,7 +58,7 @@
                             v-if="Number.isInteger(item.icon)"
                         >{{ item.icon }}</view>
                         <uxt-icon
-                            :type="item.icon || 'title'"
+                            :type="item.icon || 'dot'"
                             size="xl"
                             v-else
                         ></uxt-icon>

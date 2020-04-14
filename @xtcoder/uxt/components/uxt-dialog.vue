@@ -76,10 +76,10 @@ export default {
         }
     },
     watch: {
-        value(newVal) {
+        value(newVal, oldVal) {
             this.show = newVal
         },
-        show(newVal) {
+        show(newVal, oldVal) {
             !newVal && this.$emit('input', false)
         }
     },

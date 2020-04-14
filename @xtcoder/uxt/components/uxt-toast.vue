@@ -90,7 +90,7 @@ export default {
             let icon = ''
             switch (this.type) {
                 case 'loading':
-                    icon = 'loading2'
+                    icon = 'loading6'
                     break
                 case 'success':
                     icon = 'check'
@@ -106,10 +106,10 @@ export default {
         }
     },
     watch: {
-        value(newVal) {
+        value(newVal, oldVal) {
             this.show = newVal
         },
-        show(newVal) {
+        show(newVal, oldVal) {
             !newVal && this.$emit('input', false)
         }
     }

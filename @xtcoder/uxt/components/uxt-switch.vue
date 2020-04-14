@@ -2,20 +2,21 @@
     <view
         :class="[
 			classes,
-			(checked2 ? `${bgColorClass} ${bgColorClass.replace('gradual-', '').replace('light-', '').replace('bg-', 'solid-')}` : 'bg-grey solid-grey'),
+			(checked1 ? `${bgColorClass} ${bgColorClass.replace('gradual-', '').replace('light-', '').replace('bg-', 'solid-')}` : 'bg-grey solid-grey'),
 			colorClass,
 			{
 				radius: radius,
 				round: round,
-				solid: checked2 && !bgColorClass,
-				disabled: disabled
+				solid: checked1 && !bgColorClass,
+				disabled: disabled,
+				sm: size === 'sm'
 			}
 		]"
         :style="[
 			styles,
 			{
-				backgroundColor: (checked2 ? bgColorStyle : ''),
-				borderColor: (checked2 ? bgColorStyle : '')
+				backgroundColor: (checked1 ? bgColorStyle : ''),
+				borderColor: (checked1 ? bgColorStyle : '')
 			}
 		]"
         @click="handleClick"
@@ -31,7 +32,7 @@
 					}
 				]"
                 class="flex-sub flex justify-center align-center"
-                v-show="checked2"
+                v-show="checked1"
             >
                 <uxt-icon
                     :animation="checkedIcon.animation"
@@ -61,7 +62,7 @@
 					}
 				]"
                 class="flex-sub flex justify-center align-center bg-grey"
-                v-show="!checked2"
+                v-show="!checked1"
             >
                 <uxt-icon
                     :animation="uncheckedIcon.animation"
@@ -89,6 +90,13 @@ export default {
         uxtIcon
     },
     props: {
+		size: {
+			type: [Number, String],
+			default: '',
+			validator(value) {
+				return ['', 'sm'].includes(value)
+			}
+		},
         // 用于v-model绑定
         value: {
             type: Boolean,
@@ -125,7 +133,7 @@ export default {
     },
     data() {
         return {
-            checked2:
+            checked1:
                 this.value === true
                     ? true
                     : this.value === false
@@ -134,21 +142,21 @@ export default {
         }
     },
     watch: {
-        checked(newVal) {
+        checked(newVal, oldVal) {
             if (this.value === null) {
-                this.checked2 = newVal
+                this.checked1 = newVal
             }
         },
-        value(newVal) {
-            this.checked2 = this.value
+        value(newVal, oldVal) {
+            this.checked1 = this.value
         }
     },
     methods: {
         handleClick() {
             if (!this.disabled) {
-                this.checked2 = !this.checked2
-                this.$emit('change', this.checked2)
-                this.$emit('input', this.checked2)
+                this.checked1 = !this.checked1
+                this.$emit('change', this.checked1)
+                this.$emit('input', this.checked1)
             }
         }
     }
@@ -165,5 +173,9 @@ export default {
     &:not([class*='solid-'])::before {
         border-color: inherit;
     }
+	&.sm {
+		width: 72rpx;
+		height: 36rpx;
+	}
 }
 </style>

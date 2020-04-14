@@ -95,26 +95,26 @@ export default {
             let icon = ''
             switch (this.type) {
                 case 'success':
-                    icon = 'roundcheck'
+                    icon = 'check-o'
                     break
                 case 'warn':
-                    icon = 'warn'
+                    icon = 'exclamation-triangle'
                     break
                 case 'danger':
-                    icon = 'roundclose'
+                    icon = 'close-o'
                     break
                 default:
-                    icon = 'info'
+                    icon = 'exclamation-o'
                     break
             }
             return icon
         }
     },
     watch: {
-        value(newVal) {
+        value(newVal, oldVal) {
             this.show = newVal
         },
-        show(newVal) {
+        show(newVal, oldVal) {
             !newVal && this.$emit('input', false)
         }
     },
